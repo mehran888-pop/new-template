@@ -2,6 +2,8 @@
 
 قالب وردپرس مدرن با طراحی **نئومورفیسم (Neomorphism)** + افزونه همراه **Neomorph Core** — مناسب کسب‌وکارهای خدماتی و فروشگاهی ایرانی.
 
+> 🧠 نسخه مستقل React با CMS اختصاصی و دیتابیس حرفه‌ای: **[هوش یار پارسی نگر](parsnegar/README.md)** — همه امکانات این قالب در یک محصول Node.js + React.
+
 ![status](https://img.shields.io/badge/status-production--ready-green) ![wp](https://img.shields.io/badge/WordPress-6.0%2B-blue) ![php](https://img.shields.io/badge/PHP-7.4%2B-8892bf)
 
 ---

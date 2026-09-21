@@ -1,0 +1,16 @@
+{
+  "name": "parsnegar-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "هوش یار پارسی نگر — CMS/API server",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "seed": "node src/db/seed.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
