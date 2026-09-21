@@ -1,0 +1,65 @@
+/*!
+ * Novin AI — استایل‌های پنل مدیریت
+ */
+
+.novin-ai-about {
+	max-width: 1200px;
+}
+
+.novin-ai-about__grid {
+	display: grid;
+	gap: 24px;
+	grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+	margin-top: 24px;
+}
+
+.novin-ai-card {
+	padding: 24px 28px;
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	border-radius: 14px;
+	background: #fff;
+	box-shadow: 0 12px 32px rgba(0, 0, 0, 0.05);
+}
+
+.novin-ai-card h2 {
+	margin-top: 0;
+	font-size: 1.15rem;
+}
+
+.novin-ai-card ol,
+.novin-ai-card ul {
+	padding-inline-start: 1.3em;
+	line-height: 1.9;
+}
+
+.novin-ai-notice {
+	border-inline-start: 4px solid #6d5efc;
+}
+
+.novin-ai-notice ul {
+	list-style: disc;
+	padding-inline-start: 1.4em;
+}
+
+.novin-ai-notice li {
+	margin-block: 8px;
+}
+
+.novin-ai-notice .button {
+	margin-inline-start: 10px;
+}
+
+.novin-ai-metabox__row label {
+	display: block;
+	margin-bottom: 6px;
+}
+
+.novin-ai-metabox__row input[type="text"],
+.novin-ai-metabox__row input[type="url"],
+.novin-ai-metabox__row input[type="number"],
+.novin-ai-metabox__row textarea {
+	width: 100%;
+	padding: 8px 12px;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+}

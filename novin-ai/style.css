@@ -1,0 +1,142 @@
+/*
+Theme Name: Novin AI | نوین ای‌آی
+Theme URI: https://github.com/mehran888-pop/new-template
+Author: Mehran
+Author URI: https://github.com/mehran888-pop
+Description: قالب وردپرسی سه‌بعدی و فراگیر (3D & Immersive) مخصوص شرکت‌های هوش مصنوعی، توسعه نرم‌افزار، طراحی وب، فروش نرم‌افزار، خدمات پشتیبانی و فناوری اطلاعات. کاملاً سازگار با المنتور و ووکامرس و مجهز به المان‌های اختصاصی المنتور برای هدر، فوتر، خدمات، تیم، مقالات، محصولات، پروژه‌ها و نمونه‌کارها و پکیج‌های خدماتی. تمام رنگ‌ها، فاصله‌ها و تایپوگرافی از طریق سفارشی‌ساز وردپرس و کنترل‌های المنتور قابل مدیریت است.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.7
+Requires PHP: 7.4
+Text Domain: novin-ai
+Domain Path: /languages
+Tags: elementor, woocommerce, ai, software, 3d, immersive, rtl-language-support, translation-ready, custom-menu, custom-logo, featured-images, full-width-template, blog, e-commerce, portfolio
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+/* ---------------------------------------------------------------
+   این فایل فقط استایل‌های پایه موردنیاز وردپرس را نگه می‌دارد.
+   استایل‌های اصلی قالب در assets/css/theme.css و المان‌ها در
+   assets/css/widgets.css قرار دارند تا توسط المنتور کنترل شوند.
+   --------------------------------------------------------------- */
+
+.alignleft {
+	float: left;
+	margin: 0 1.5em 1.2em 0;
+}
+
+.alignright {
+	float: right;
+	margin: 0 0 1.2em 1.5em;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-inline: auto;
+	margin-bottom: 1.2em;
+}
+
+.alignwide {
+	max-width: 1400px;
+}
+
+.alignfull {
+	max-width: none;
+}
+
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+	background-color: #fff;
+	clip: auto !important;
+	clip-path: none;
+	color: #111;
+	display: block;
+	font-size: 1rem;
+	height: auto;
+	inset-inline-start: 8px;
+	line-height: normal;
+	padding: 12px 20px;
+	text-decoration: none;
+	top: 8px;
+	width: auto;
+	z-index: 100000;
+}
+
+.wp-caption,
+.gallery-caption {
+	font-size: 0.9em;
+	color: inherit;
+	opacity: 0.75;
+	margin-bottom: 1.2em;
+	max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+	margin-inline: auto;
+}
+
+.sticky {
+	position: relative;
+}
+
+.bypostauthor {
+	display: block;
+}
+
+/* تصاویر و رسانه‌ها */
+img,
+video,
+iframe,
+svg {
+	max-width: 100%;
+	height: auto;
+}
+
+/* جداول */
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 1.5em;
+}
+
+th,
+td {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+	padding: 10px;
+}
+
+/* سایدبار پیش‌فرض ویجت‌ها (فالبک بدون المنتور) */
+.nv-widget ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.nv-widget li {
+	padding: 8px 0;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.nv-widget select {
+	max-width: 100%;
+}
+
+/* المنتور: جلوگیری از پرش طرح‌بندی */
+.elementor-page .nv-site {
+	overflow-x: clip;
+}

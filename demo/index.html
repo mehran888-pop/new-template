@@ -1,0 +1,917 @@
+<!doctype html>
+<html lang="fa-IR" dir="rtl">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Novin AI — پیش‌نمایش زنده قالب (3D &amp; Immersive)</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../novin-ai/assets/css/theme.css">
+	<link rel="stylesheet" href="../novin-ai/assets/css/widgets.css">
+	<style>
+		/* فقط مخصوص صفحه پیش‌نمایش */
+		.demo-note {
+			position: relative;
+			z-index: 10000;
+			padding: 12px 20px;
+			text-align: center;
+			font-size: 0.82rem;
+			color: #cfc9ff;
+			background: linear-gradient(120deg, rgba(109, 94, 252, 0.35), rgba(34, 211, 238, 0.2));
+			border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+		}
+
+		.demo-note strong { color: #fff; }
+
+		.demo-avatar {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			height: 100%;
+			font-size: 2.2rem;
+			font-weight: 900;
+			color: #fff;
+			background: linear-gradient(140deg, #6d5efc, #22d3ee);
+		}
+
+		.nv-hero__img { background: rgba(255, 255, 255, 0.04); }
+	</style>
+</head>
+
+<body class="nv-body nv-theme-dark nv-rtl">
+
+<svg style="display:none" aria-hidden="true">
+	<symbol id="i-check" viewBox="0 0 24 24"><path fill="currentColor" d="M20.3 6.3a1 1 0 0 1 0 1.4l-9.6 9.6a1 1 0 0 1-1.4 0L4.7 12.7a1 1 0 0 1 1.4-1.4l3.9 3.9 8.9-8.9a1 1 0 0 1 1.4 0Z"/></symbol>
+	<symbol id="i-arrow" viewBox="0 0 24 24"><path fill="currentColor" d="m13.3 5.3 6 6a1 1 0 0 1 0 1.4l-6 6a1 1 0 0 1-1.4-1.4l4.3-4.3H4a1 1 0 0 1 0-2h12.2l-4.3-4.3a1 1 0 0 1 1.4-1.4Z"/></symbol>
+	<symbol id="i-arrow-left" viewBox="0 0 24 24"><path fill="currentColor" d="M10.7 5.3a1 1 0 0 1 0 1.4L6.4 11H20a1 1 0 0 1 0 2H6.4l4.3 4.3a1 1 0 0 1-1.4 1.4l-6-6a1 1 0 0 1 0-1.4l6-6a1 1 0 0 1 1.4 0Z"/></symbol>
+	<symbol id="i-spark" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l1.9 5.6L19.5 9l-5.6 1.9L12 16.5l-1.9-5.6L4.5 9l5.6-1.4L12 2Zm6.5 11 1 2.9 2.9 1-2.9 1-1 2.9-1-2.9-2.9-1 2.9-1 1-2.9ZM5.5 12l.8 2.2 2.2.8-2.2.8L5.5 18l-.8-2.2L2.5 15l2.2-.8.8-2.2Z"/></symbol>
+	<symbol id="i-search" viewBox="0 0 24 24"><path fill="currentColor" d="M10.5 3a7.5 7.5 0 1 0 4.6 13.4l4.2 4.3a1 1 0 0 0 1.4-1.5l-4.2-4.2A7.5 7.5 0 0 0 10.5 3Zm0 2a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11Z"/></symbol>
+	<symbol id="i-cart" viewBox="0 0 24 24"><path fill="currentColor" d="M7 4h11.9a1 1 0 0 1 1 .8l1.6 8A1 1 0 0 1 20.5 14H8.2l.3 1.5H19a1 1 0 0 1 0 2H8a2 2 0 0 1-2-1.6L4.3 5H2a1 1 0 0 1 0-2h4.4a1 1 0 0 1 .6.2ZM8.9 18.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Zm7.7 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z"/></symbol>
+	<symbol id="i-menu" viewBox="0 0 24 24"><path fill="currentColor" d="M3 6h18a1 1 0 0 0 0-2H3a1 1 0 0 0 0 2Zm18 5H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Zm0 7H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Z"/></symbol>
+	<symbol id="i-close" viewBox="0 0 24 24"><path fill="currentColor" d="M6.7 5.3a1 1 0 0 0-1.4 1.4L10.6 12l-5.3 5.3a1 1 0 1 0 1.4 1.4L12 13.4l5.3 5.3a1 1 0 0 0 1.4-1.4L13.4 12l5.3-5.3a1 1 0 0 0-1.4-1.4L12 10.6 6.7 5.3Z"/></symbol>
+	<symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="m12 2.6 2.9 5.9 6.5 1-4.7 4.6 1.1 6.5L12 17.5l-5.8 3.1 1.1-6.5L2.6 9.5l6.5-1L12 2.6Z"/></symbol>
+	<symbol id="i-quote" viewBox="0 0 24 24"><path fill="currentColor" d="M9.5 5C6.5 6.6 4.5 9.6 4.5 13v6h6v-7H7.4c0-2.2 1.2-3.9 3.3-5L9.5 5Zm9.8 0c-3 1.6-5 4.6-5 8v6h6v-7h-3.1c0-2.2 1.2-3.9 3.3-5L19.3 5Z"/></symbol>
+	<symbol id="i-bolt" viewBox="0 0 24 24"><path fill="currentColor" d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></symbol>
+	<symbol id="i-brain" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3a5 5 0 0 0-5 5v1a4 4 0 0 0 0 8v1a5 5 0 0 0 10 0v-1a4 4 0 0 0 0-8V8a5 5 0 0 0-5-5Zm-1 3h2v3h3v2h-3v3h-2v-3H8V9h3V6Z"/></symbol>
+	<symbol id="i-shield" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5l-8-3Zm-1 12-3-3 1.4-1.4L11 11.2l4.6-4.6L17 8l-6 6Z"/></symbol>
+	<symbol id="i-headset" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a9 9 0 0 0-9 9v5a3 3 0 0 0 3 3h1a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H5v-.9A7 7 0 0 1 19 11v.1h-2a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h1a3 3 0 0 0 3-3v-5a9 9 0 0 0-9-9Z"/></symbol>
+	<symbol id="i-code" viewBox="0 0 24 24"><path fill="currentColor" d="m9.4 17.6-5-5a1 1 0 0 1 0-1.4l5-5a1 1 0 0 1 1.4 1.4L6.4 12l4.4 4.4a1 1 0 0 1-1.4 1.4Zm5.2 0a1 1 0 0 1-1.4-1.4L17.6 12l-4.4-4.4a1 1 0 0 1 1.4-1.4l5 5a1 1 0 0 1 0 1.4l-5 5Z"/></symbol>
+	<symbol id="i-chart" viewBox="0 0 24 24"><path fill="currentColor" d="M4 20h16a1 1 0 0 0 0-2H5V4a1 1 0 0 0-2 0v15a1 1 0 0 0 1 1Zm6 0h2V9h-2v11Zm-4 0h2v-7H6v7Zm8 0h2v-5h-2v5Zm4 0h2V7h-2v13Z"/></symbol>
+</svg>
+
+<div class="demo-note">
+	<strong>پیش‌نمایش زنده طراحی قالب Novin AI</strong> — این صفحه فقط برای نمایش ظاهر و جلوه‌های سه‌بعدی ساخته شده و از همان فایل‌های CSS/JS قالب استفاده می‌کند. در وردپرس، این بخش‌ها با المان‌های اختصاصی المنتور چیده می‌شوند.
+</div>
+
+<div class="nv-site">
+
+<!-- ============================== هدر ============================== -->
+<header class="nv-header nv-header--widget is-sticky" data-nv-header="1">
+	<div class="nv-container nv-header__inner">
+		<div class="nv-header__brand">
+			<a class="nv-logo" href="#" rel="home">
+				<span class="nv-logo__text">نوین ای‌آی</span>
+				<span class="nv-logo__tagline">هوش مصنوعی · نرم‌افزار · زیرساخت</span>
+			</a>
+		</div>
+
+		<nav class="nv-header__nav" aria-label="منوی اصلی">
+			<ul class="nv-menu">
+				<li class="current-menu-item"><a href="#">صفحه اصلی</a></li>
+				<li><a href="#services">خدمات</a></li>
+				<li><a href="#projects">نمونه‌کارها</a></li>
+				<li><a href="#packages">پکیج‌ها</a></li>
+				<li><a href="#blog">مقالات</a></li>
+				<li><a href="#cta">تماس با ما</a></li>
+			</ul>
+		</nav>
+
+		<div class="nv-header__actions">
+			<button class="nv-icon-btn" type="button" data-nv-toggle="nv-search-1" aria-label="جستجو">
+				<svg><use href="#i-search"></use></svg>
+			</button>
+
+			<a class="nv-icon-btn" href="#" aria-label="سبد خرید">
+				<svg><use href="#i-cart"></use></svg>
+				<span class="nv-icon-btn__count">2</span>
+			</a>
+
+			<a class="nv-btn nv-btn--primary nv-btn--sm nv-magnetic" href="#cta">
+				<span>دریافت مشاوره رایگان</span>
+				<svg><use href="#i-arrow-left"></use></svg>
+			</a>
+
+			<button class="nv-burger" type="button" aria-expanded="false" aria-label="منو" data-nv-offcanvas-open="nv-offcanvas-1">
+				<svg><use href="#i-menu"></use></svg>
+			</button>
+		</div>
+	</div>
+
+	<div class="nv-search-panel" id="nv-search-1">
+		<form class="nv-search-form" role="search" method="get" action="#">
+			<input type="search" name="s" placeholder="جستجو کنید…">
+			<button type="submit" aria-label="جستجو"><svg><use href="#i-search"></use></svg></button>
+		</form>
+	</div>
+</header>
+
+<div class="nv-offcanvas nv-offcanvas--end" id="nv-offcanvas-1" aria-hidden="true">
+	<div class="nv-offcanvas__backdrop" data-nv-offcanvas-close></div>
+	<div class="nv-offcanvas__panel nv-glass">
+		<button class="nv-offcanvas__close" type="button" aria-label="بستن" data-nv-offcanvas-close>
+			<svg><use href="#i-close"></use></svg>
+		</button>
+		<p class="nv-offcanvas__note">ما به کسب‌وکارها کمک می‌کنیم با هوش مصنوعی سریع‌تر رشد کنند.</p>
+		<nav>
+			<ul class="nv-menu nv-menu--stack">
+				<li><a href="#">صفحه اصلی</a></li>
+				<li><a href="#services">خدمات</a></li>
+				<li><a href="#projects">نمونه‌کارها</a></li>
+				<li><a href="#packages">پکیج‌ها</a></li>
+				<li><a href="#blog">مقالات</a></li>
+				<li><a href="#cta">تماس با ما</a></li>
+			</ul>
+		</nav>
+		<div class="nv-socials">
+			<a class="nv-social" href="#" aria-label="اینستاگرام"><svg><use href="#i-chart"></use></svg></a>
+			<a class="nv-social" href="#" aria-label="تلگرام"><svg><use href="#i-bolt"></use></svg></a>
+			<a class="nv-social" href="#" aria-label="لینکدین"><svg><use href="#i-code"></use></svg></a>
+		</div>
+	</div>
+</div>
+
+<!-- ============================== هیرو ============================== -->
+<section class="nv-hero nv-hero--split nv-hero--tilt" style="min-height: 92vh">
+	<span class="nv-orb nv-orb--1" aria-hidden="true"></span>
+	<span class="nv-orb nv-orb--2" aria-hidden="true"></span>
+	<span class="nv-grid-floor" aria-hidden="true"></span>
+
+	<div class="nv-container nv-hero__inner">
+		<div class="nv-hero__content nv-reveal is-visible">
+			<span class="nv-badge nv-badge--glow">
+				<svg><use href="#i-spark"></use></svg>
+				<span>هوش مصنوعی + مهندسی نرم‌افزار</span>
+			</span>
+
+			<h1 class="nv-hero__title">آینده کسب‌وکار را با <span class="nv-gradient">هوش مصنوعی</span> بسازید</h1>
+
+			<div class="nv-hero__desc">
+				از مدل‌های زبانی اختصاصی تا اپلیکیشن‌های ابری و خدمات پشتیبانی ۲۴ ساعته؛ مسیر تحول دیجیتال شما را هموار می‌کنیم.
+			</div>
+
+			<div class="nv-actions">
+				<a class="nv-btn nv-btn--primary nv-magnetic" href="#cta">
+					<span>شروع پروژه</span>
+					<svg><use href="#i-arrow-left"></use></svg>
+				</a>
+				<a class="nv-btn nv-btn--outline nv-magnetic" href="#projects">
+					<span>مشاهده نمونه‌کارها</span>
+				</a>
+			</div>
+
+			<div class="nv-stats nv-stats--inline">
+				<div class="nv-stat">
+					<span class="nv-stat__number"><span class="nv-counter" data-nv-count="120">0</span>+</span>
+					<span class="nv-stat__label">پروژه موفق</span>
+				</div>
+				<div class="nv-stat">
+					<span class="nv-stat__number"><span class="nv-counter" data-nv-count="98">0</span>%</span>
+					<span class="nv-stat__label">رضایت مشتریان</span>
+				</div>
+				<div class="nv-stat">
+					<span class="nv-stat__number"><span class="nv-counter" data-nv-count="24">0</span>/7</span>
+					<span class="nv-stat__label">پشتیبانی</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="nv-hero__visual">
+			<div class="nv-hero__visual-glow" aria-hidden="true"></div>
+			<div class="nv-3d-stage nv-tilt">
+				<img class="nv-hero__img" src="assets/hero-visual.jpg" alt="تجسم سه‌بعدی شبکه عصبی هوش مصنوعی">
+			</div>
+
+			<div class="nv-float-card nv-glass nv-float--1">
+				<span class="nv-float-card__icon"><svg><use href="#i-bolt"></use></svg></span>
+				<span class="nv-float-card__title">پردازش زبان طبیعی</span>
+				<span class="nv-float-card__value">دقت ۹۶٪</span>
+			</div>
+
+			<div class="nv-float-card nv-glass nv-float--2">
+				<span class="nv-float-card__icon"><svg><use href="#i-shield"></use></svg></span>
+				<span class="nv-float-card__title">زیرساخت ابری</span>
+				<span class="nv-float-card__value">آپتایم ۹۹.۹٪</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="nv-marquee">
+		<div class="nv-marquee__track" style="animation-duration: 32s">
+			<span class="nv-marquee__item"><span class="nv-marquee__dot"></span>هوش مصنوعی</span>
+			<span class="nv-marquee__item"><span class="nv-marquee__dot"></span>یادگیری ماشین</span>
+			<span class="nv-marquee__item"><span class="nv-marquee__dot"></span>بینایی ماشین</span>
+			<span class="nv-marquee__item"><span class="nv-marquee__dot"></span>پردازش ابری</span>
+			<span class="nv-marquee__item"><span class="nv-marquee__dot"></span>امنیت سایبری</span>
+			<span class="nv-marquee__item"><span class="nv-marquee__dot"></span>اتوماسیون</span>
+			<span class="nv-marquee__item"><span class="nv-marquee__dot"></span>هوش مصنوعی</span>
+			<span class="nv-marquee__item"><span class="nv-marquee__dot"></span>یادگیری ماشین</span>
+			<span class="nv-marquee__item"><span class="nv-marquee__dot"></span>بینایی ماشین</span>
+			<span class="nv-marquee__item"><span class="nv-marquee__dot"></span>پردازش ابری</span>
+			<span class="nv-marquee__item"><span class="nv-marquee__dot"></span>امنیت سایبری</span>
+			<span class="nv-marquee__item"><span class="nv-marquee__dot"></span>اتوماسیون</span>
+		</div>
+	</div>
+
+	<div class="nv-scroll-hint" aria-hidden="true"><span></span></div>
+</section>
+
+<!-- ============================== برندها ============================== -->
+<section class="nv-widget nv-section nv-widget-brands" style="padding-block: 40px">
+	<div class="nv-container">
+		<div class="nv-marquee" data-nv-pause>
+			<div class="nv-marquee__track nv-brands" style="animation-duration: 30s; gap: 26px">
+				<div class="nv-brand"><span class="nv-brand__name">TechNova</span></div>
+				<div class="nv-brand"><span class="nv-brand__name">DadePaydar</span></div>
+				<div class="nv-brand"><span class="nv-brand__name">CloudX</span></div>
+				<div class="nv-brand"><span class="nv-brand__name">SmartLabs</span></div>
+				<div class="nv-brand"><span class="nv-brand__name">AbrPaye</span></div>
+				<div class="nv-brand"><span class="nv-brand__name">NeuralNet</span></div>
+				<div class="nv-brand"><span class="nv-brand__name">TechNova</span></div>
+				<div class="nv-brand"><span class="nv-brand__name">DadePaydar</span></div>
+				<div class="nv-brand"><span class="nv-brand__name">CloudX</span></div>
+				<div class="nv-brand"><span class="nv-brand__name">SmartLabs</span></div>
+				<div class="nv-brand"><span class="nv-brand__name">AbrPaye</span></div>
+				<div class="nv-brand"><span class="nv-brand__name">NeuralNet</span></div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ============================== خدمات ============================== -->
+<section class="nv-widget nv-section nv-widget-services" id="services">
+	<span class="nv-orb nv-orb--3" aria-hidden="true"></span>
+
+	<div class="nv-container">
+		<div class="nv-heading">
+			<span class="nv-heading__subtitle">خدمات ما</span>
+			<h2 class="nv-heading__title">خدماتی که <span class="nv-gradient">کسب‌وکار شما</span> را متحول می‌کند</h2>
+			<div class="nv-heading__desc">از ایده تا استقرار و نگهداری، کنار شما هستیم.</div>
+		</div>
+
+		<div class="nv-grid" style="--nv-cols:3">
+			<article class="nv-card nv-service nv-tilt nv-reveal">
+				<div class="nv-service__icon"><svg><use href="#i-brain"></use></svg></div>
+				<h3 class="nv-service__title">هوش مصنوعی و یادگیری ماشین</h3>
+				<p class="nv-service__desc">طراحی، آموزش و استقرار مدل‌های اختصاصی برای فرآیندهای سازمانی.</p>
+				<ul class="nv-features">
+					<li><svg><use href="#i-check"></use></svg><span>تحلیل داده</span></li>
+					<li><svg><use href="#i-check"></use></svg><span>یادگیری ماشین</span></li>
+					<li><svg><use href="#i-check"></use></svg><span>استقرار ابری</span></li>
+				</ul>
+				<a class="nv-link-more" href="#"><span>جزئیات خدمت</span><svg><use href="#i-arrow-left"></use></svg></a>
+			</article>
+
+			<article class="nv-card nv-service nv-tilt nv-reveal">
+				<div class="nv-service__icon"><svg><use href="#i-code"></use></svg></div>
+				<h3 class="nv-service__title">توسعه نرم‌افزار و وب</h3>
+				<p class="nv-service__desc">ساخت وب‌اپلیکیشن‌های مقیاس‌پذیر با معماری مدرن و امن.</p>
+				<ul class="nv-features">
+					<li><svg><use href="#i-check"></use></svg><span>میکروسرویس</span></li>
+					<li><svg><use href="#i-check"></use></svg><span>API اختصاصی</span></li>
+					<li><svg><use href="#i-check"></use></svg><span>تست خودکار</span></li>
+				</ul>
+				<a class="nv-link-more" href="#"><span>جزئیات خدمت</span><svg><use href="#i-arrow-left"></use></svg></a>
+			</article>
+
+			<article class="nv-card nv-service nv-tilt nv-reveal">
+				<div class="nv-service__icon"><svg><use href="#i-shield"></use></svg></div>
+				<h3 class="nv-service__title">زیرساخت و امنیت شبکه</h3>
+				<p class="nv-service__desc">مانیتورینگ، سخت‌سازی و پشتیبانی ۲۴ ساعته زیرساخت شما.</p>
+				<ul class="nv-features">
+					<li><svg><use href="#i-check"></use></svg><span>مانیتورینگ</span></li>
+					<li><svg><use href="#i-check"></use></svg><span>سخت‌سازی</span></li>
+					<li><svg><use href="#i-check"></use></svg><span>بازیابی بحران</span></li>
+				</ul>
+				<a class="nv-link-more" href="#"><span>جزئیات خدمت</span><svg><use href="#i-arrow-left"></use></svg></a>
+			</article>
+
+			<article class="nv-card nv-service nv-tilt nv-reveal">
+				<div class="nv-service__icon"><svg><use href="#i-headset"></use></svg></div>
+				<h3 class="nv-service__title">خدمات پشتیبانی و SLA</h3>
+				<p class="nv-service__desc">پشتیبانی سطح‌بندی‌شده، قرارداد سطح خدمات و پاسخگویی سریع.</p>
+				<ul class="nv-features">
+					<li><svg><use href="#i-check"></use></svg><span>پاسخگویی ۲۴/۷</span></li>
+					<li><svg><use href="#i-check"></use></svg><span>SLA دو ساعته</span></li>
+				</ul>
+				<a class="nv-link-more" href="#"><span>جزئیات خدمت</span><svg><use href="#i-arrow-left"></use></svg></a>
+			</article>
+
+			<article class="nv-card nv-service nv-tilt nv-reveal">
+				<div class="nv-service__icon"><svg><use href="#i-cart"></use></svg></div>
+				<h3 class="nv-service__title">فروش نرم‌افزار و لایسنس</h3>
+				<p class="nv-service__desc">ارائه لایسنس معتبر، نصب، آموزش و بروزرسانی مستمر.</p>
+				<ul class="nv-features">
+					<li><svg><use href="#i-check"></use></svg><span>لایسنس معتبر</span></li>
+					<li><svg><use href="#i-check"></use></svg><span>نصب و آموزش</span></li>
+				</ul>
+				<a class="nv-link-more" href="#"><span>جزئیات خدمت</span><svg><use href="#i-arrow-left"></use></svg></a>
+			</article>
+
+			<article class="nv-card nv-service nv-tilt nv-reveal">
+				<div class="nv-service__icon"><svg><use href="#i-chart"></use></svg></div>
+				<h3 class="nv-service__title">مشاوره تحول دیجیتال</h3>
+				<p class="nv-service__desc">نقشه‌راه فناوری، انتخاب معماری و بهینه‌سازی هزینه‌ها.</p>
+				<ul class="nv-features">
+					<li><svg><use href="#i-check"></use></svg><span>نقشه‌راه</span></li>
+					<li><svg><use href="#i-check"></use></svg><span>بهینه‌سازی هزینه</span></li>
+				</ul>
+				<a class="nv-link-more" href="#"><span>جزئیات خدمت</span><svg><use href="#i-arrow-left"></use></svg></a>
+			</article>
+		</div>
+	</div>
+</section>
+
+<!-- ============================== پروژه‌ها ============================== -->
+<section class="nv-widget nv-section nv-widget-projects" id="projects">
+	<span class="nv-orb nv-orb--1" aria-hidden="true"></span>
+	<span class="nv-grid-floor" aria-hidden="true"></span>
+
+	<div class="nv-container">
+		<div class="nv-heading">
+			<span class="nv-heading__subtitle">نمونه‌کارها</span>
+			<h2 class="nv-heading__title">پروژه‌هایی که <span class="nv-gradient">اعتماد</span> می‌سازند</h2>
+			<div class="nv-heading__desc">گزیده‌ای از پروژه‌های هوش مصنوعی، وب و زیرساخت.</div>
+		</div>
+
+		<div class="nv-filters" data-nv-filters>
+			<button class="nv-filter is-active" type="button" data-nv-filter="*">همه پروژه‌ها</button>
+			<button class="nv-filter" type="button" data-nv-filter="ai">هوش مصنوعی</button>
+			<button class="nv-filter" type="button" data-nv-filter="web">طراحی وب</button>
+			<button class="nv-filter" type="button" data-nv-filter="it">فناوری اطلاعات</button>
+		</div>
+
+		<div class="nv-grid" style="--nv-cols:3" data-nv-filterable>
+			<article class="nv-card nv-project nv-tilt nv-reveal" data-nv-cat="ai">
+				<div class="nv-project__media nv-media">
+					<img class="nv-media__img" src="assets/project-1.jpg" alt="پروژه دستیار هوشمند">
+					<div class="nv-project__overlay">
+						<a class="nv-project__zoom" href="assets/project-1.jpg" data-nv-lightbox aria-label="نمایش تصویر"><svg><use href="#i-search"></use></svg></a>
+						<a class="nv-project__link" href="#"><span>مشاهده پروژه</span><svg><use href="#i-arrow-left"></use></svg></a>
+					</div>
+					<span class="nv-badge">هوش مصنوعی</span>
+				</div>
+				<div class="nv-project__body">
+					<h3 class="nv-project__title"><a href="#">دستیار هوشمند پشتیبانی</a></h3>
+					<p class="nv-project__client">شرکت داده‌پردازان نوین</p>
+					<div class="nv-project__tech"><span>Python</span><span>FastAPI</span><span>React</span></div>
+				</div>
+			</article>
+
+			<article class="nv-card nv-project nv-tilt nv-reveal" data-nv-cat="web">
+				<div class="nv-project__media nv-media">
+					<img class="nv-media__img" src="assets/project-2.jpg" alt="پروژه فروشگاه آنلاین">
+					<div class="nv-project__overlay">
+						<a class="nv-project__zoom" href="assets/project-2.jpg" data-nv-lightbox aria-label="نمایش تصویر"><svg><use href="#i-search"></use></svg></a>
+						<a class="nv-project__link" href="#"><span>مشاهده پروژه</span><svg><use href="#i-arrow-left"></use></svg></a>
+					</div>
+					<span class="nv-badge">طراحی وب</span>
+				</div>
+				<div class="nv-project__body">
+					<h3 class="nv-project__title"><a href="#">فروشگاه آنلاین هوشمند</a></h3>
+					<p class="nv-project__client">گروه تجارت الکترونیک آریا</p>
+					<div class="nv-project__tech"><span>Next.js</span><span>WooCommerce</span></div>
+				</div>
+			</article>
+
+			<article class="nv-card nv-project nv-tilt nv-reveal" data-nv-cat="it">
+				<div class="nv-project__media nv-media">
+					<img class="nv-media__img" src="assets/project-3.jpg" alt="پروژه مانیتورینگ زیرساخت">
+					<div class="nv-project__overlay">
+						<a class="nv-project__zoom" href="assets/project-3.jpg" data-nv-lightbox aria-label="نمایش تصویر"><svg><use href="#i-search"></use></svg></a>
+						<a class="nv-project__link" href="#"><span>مشاهده پروژه</span><svg><use href="#i-arrow-left"></use></svg></a>
+					</div>
+					<span class="nv-badge">فناوری اطلاعات</span>
+				</div>
+				<div class="nv-project__body">
+					<h3 class="nv-project__title"><a href="#">مانیتورینگ زیرساخت ابری</a></h3>
+					<p class="nv-project__client">هلدینگ صنعتی فردا</p>
+					<div class="nv-project__tech"><span>Kubernetes</span><span>Grafana</span></div>
+				</div>
+			</article>
+
+			<article class="nv-card nv-project nv-tilt nv-reveal" data-nv-cat="ai">
+				<div class="nv-project__media nv-media">
+					<img class="nv-media__img" src="assets/hero-visual.jpg" alt="پروژه تحلیل تصویر">
+					<div class="nv-project__overlay">
+						<a class="nv-project__zoom" href="assets/hero-visual.jpg" data-nv-lightbox aria-label="نمایش تصویر"><svg><use href="#i-search"></use></svg></a>
+						<a class="nv-project__link" href="#"><span>مشاهده پروژه</span><svg><use href="#i-arrow-left"></use></svg></a>
+					</div>
+					<span class="nv-badge">بینایی ماشین</span>
+				</div>
+				<div class="nv-project__body">
+					<h3 class="nv-project__title"><a href="#">سیستم تحلیل تصویر صنعتی</a></h3>
+					<p class="nv-project__client">کارخانه تولیدی پیشرو</p>
+					<div class="nv-project__tech"><span>PyTorch</span><span>OpenCV</span></div>
+				</div>
+			</article>
+		</div>
+	</div>
+</section>
+
+<!-- ============================== آمار ============================== -->
+<section class="nv-widget nv-section nv-widget-stats nv-stats nv-stats--cards" style="padding-block: 70px">
+	<span class="nv-orb nv-orb--2" aria-hidden="true"></span>
+
+	<div class="nv-container">
+		<div class="nv-grid" style="--nv-cols:4">
+			<div class="nv-stat nv-card nv-tilt nv-reveal">
+				<span class="nv-stat__icon"><svg><use href="#i-chart"></use></svg></span>
+				<span class="nv-stat__number"><span class="nv-counter" data-nv-count="250">0</span>+</span>
+				<span class="nv-stat__label">پروژه تحویل شده</span>
+			</div>
+			<div class="nv-stat nv-card nv-tilt nv-reveal">
+				<span class="nv-stat__icon"><svg><use href="#i-bolt"></use></svg></span>
+				<span class="nv-stat__number"><span class="nv-counter" data-nv-count="98">0</span>%</span>
+				<span class="nv-stat__label">رضایت مشتریان</span>
+			</div>
+			<div class="nv-stat nv-card nv-tilt nv-reveal">
+				<span class="nv-stat__icon"><svg><use href="#i-brain"></use></svg></span>
+				<span class="nv-stat__number"><span class="nv-counter" data-nv-count="42">0</span></span>
+				<span class="nv-stat__label">متخصص فنی</span>
+			</div>
+			<div class="nv-stat nv-card nv-tilt nv-reveal">
+				<span class="nv-stat__icon"><svg><use href="#i-shield"></use></svg></span>
+				<span class="nv-stat__number"><span class="nv-counter" data-nv-count="15">0</span> سال</span>
+				<span class="nv-stat__label">تجربه در صنعت</span>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ============================== پکیج‌ها ============================== -->
+<section class="nv-widget nv-section nv-widget-packages" id="packages">
+	<span class="nv-orb nv-orb--3" aria-hidden="true"></span>
+
+	<div class="nv-container">
+		<div class="nv-heading">
+			<span class="nv-heading__subtitle">تعرفه‌ها</span>
+			<h2 class="nv-heading__title">پکیج‌های <span class="nv-gradient">خدمات پشتیبانی</span> متناسب با نیاز شما</h2>
+			<div class="nv-heading__desc">هر زمان که بخواهید می‌توانید پکیج خود را ارتقا دهید.</div>
+		</div>
+
+		<div class="nv-pricing-toggle" data-nv-pricing-toggle>
+			<button class="nv-pricing-toggle__btn is-active" type="button" data-nv-pricing="monthly">ماهانه</button>
+			<button class="nv-pricing-toggle__btn" type="button" data-nv-pricing="yearly">سالیانه (۲ ماه رایگان)</button>
+		</div>
+
+		<div class="nv-grid" style="--nv-cols:3">
+			<article class="nv-card nv-package nv-reveal" data-nv-package>
+				<h3 class="nv-package__title">پشتیبانی پایه</h3>
+				<p class="nv-package__desc">مناسب استارتاپ‌ها و تیم‌های کوچک</p>
+				<div class="nv-package__price">
+					<span class="nv-package__amount nv-gradient" data-nv-price-monthly="4,500,000" data-nv-price-yearly="45,000,000">4,500,000</span>
+					<span class="nv-package__currency">تومان</span>
+					<span class="nv-package__period">/ ماهانه</span>
+				</div>
+				<ul class="nv-package__features">
+					<li><svg><use href="#i-check"></use></svg><span>پاسخگویی در ساعات اداری</span></li>
+					<li><svg><use href="#i-check"></use></svg><span>مانیتورینگ روزانه</span></li>
+					<li><svg><use href="#i-check"></use></svg><span>گزارش ماهانه</span></li>
+				</ul>
+				<a class="nv-btn nv-btn--outline" href="#"><span>سفارش پکیج</span><svg><use href="#i-arrow-left"></use></svg></a>
+			</article>
+
+			<article class="nv-card nv-package nv-package--featured nv-reveal" data-nv-package>
+				<span class="nv-package__badge nv-badge nv-badge--glow">پیشنهاد ویژه</span>
+				<h3 class="nv-package__title">پشتیبانی حرفه‌ای</h3>
+				<p class="nv-package__desc">مناسب کسب‌وکارهای در حال رشد</p>
+				<div class="nv-package__price">
+					<span class="nv-package__amount nv-gradient" data-nv-price-monthly="9,800,000" data-nv-price-yearly="98,000,000">9,800,000</span>
+					<span class="nv-package__currency">تومان</span>
+					<span class="nv-package__period">/ ماهانه</span>
+				</div>
+				<ul class="nv-package__features">
+					<li><svg><use href="#i-check"></use></svg><span>پشتیبانی ۲۴ ساعته</span></li>
+					<li><svg><use href="#i-check"></use></svg><span>SLA دو ساعته</span></li>
+					<li><svg><use href="#i-check"></use></svg><span>بروزرسانی امنیتی</span></li>
+					<li><svg><use href="#i-check"></use></svg><span>مشاوره ماهانه</span></li>
+				</ul>
+				<a class="nv-btn nv-btn--primary" href="#"><span>سفارش پکیج</span><svg><use href="#i-arrow-left"></use></svg></a>
+			</article>
+
+			<article class="nv-card nv-package nv-reveal" data-nv-package>
+				<h3 class="nv-package__title">پشتیبانی سازمانی</h3>
+				<p class="nv-package__desc">مناسب سازمان‌ها و زیرساخت حساس</p>
+				<div class="nv-package__price">
+					<span class="nv-package__amount nv-gradient" data-nv-price-monthly="22,000,000" data-nv-price-yearly="220,000,000">22,000,000</span>
+					<span class="nv-package__currency">تومان</span>
+					<span class="nv-package__period">/ ماهانه</span>
+				</div>
+				<ul class="nv-package__features">
+					<li><svg><use href="#i-check"></use></svg><span>تیم اختصاصی</span></li>
+					<li><svg><use href="#i-check"></use></svg><span>SLA سی دقیقه‌ای</span></li>
+					<li><svg><use href="#i-check"></use></svg><span>امنیت و ممیزی مستمر</span></li>
+				</ul>
+				<a class="nv-btn nv-btn--outline" href="#"><span>تماس با ما</span><svg><use href="#i-arrow-left"></use></svg></a>
+			</article>
+		</div>
+	</div>
+</section>
+
+<!-- ============================== تیم ============================== -->
+<section class="nv-widget nv-section nv-widget-team">
+	<span class="nv-orb nv-orb--1" aria-hidden="true"></span>
+
+	<div class="nv-container">
+		<div class="nv-heading">
+			<span class="nv-heading__subtitle">تیم ما</span>
+			<h2 class="nv-heading__title">تیمی که <span class="nv-gradient">پشت محصول</span> شماست</h2>
+		</div>
+
+		<div class="nv-grid" style="--nv-cols:4">
+			<article class="nv-card nv-member nv-tilt nv-reveal">
+				<div class="nv-member__media nv-media">
+					<span class="demo-avatar" style="height:100%">س</span>
+					<div class="nv-member__socials-wrap">
+						<div class="nv-member__socials nv-socials">
+							<a class="nv-social" href="#"><svg><use href="#i-code"></use></svg></a>
+							<a class="nv-social" href="#"><svg><use href="#i-bolt"></use></svg></a>
+						</div>
+					</div>
+				</div>
+				<div class="nv-member__body">
+					<h3 class="nv-member__name">سارا احمدی</h3>
+					<p class="nv-member__role">مدیر هوش مصنوعی</p>
+				</div>
+			</article>
+
+			<article class="nv-card nv-member nv-tilt nv-reveal">
+				<div class="nv-member__media nv-media">
+					<span class="demo-avatar" style="height:100%;background:linear-gradient(140deg,#22d3ee,#8b7cff)">ع</span>
+					<div class="nv-member__socials-wrap">
+						<div class="nv-member__socials nv-socials">
+							<a class="nv-social" href="#"><svg><use href="#i-code"></use></svg></a>
+						</div>
+					</div>
+				</div>
+				<div class="nv-member__body">
+					<h3 class="nv-member__name">علی رضایی</h3>
+					<p class="nv-member__role">معمار نرم‌افزار</p>
+				</div>
+			</article>
+
+			<article class="nv-card nv-member nv-tilt nv-reveal">
+				<div class="nv-member__media nv-media">
+					<span class="demo-avatar" style="height:100%;background:linear-gradient(140deg,#ff4ecd,#8b7cff)">ن</span>
+					<div class="nv-member__socials-wrap">
+						<div class="nv-member__socials nv-socials">
+							<a class="nv-social" href="#"><svg><use href="#i-chart"></use></svg></a>
+						</div>
+					</div>
+				</div>
+				<div class="nv-member__body">
+					<h3 class="nv-member__name">نگار محمدی</h3>
+					<p class="nv-member__role">مدیر محصول</p>
+				</div>
+			</article>
+
+			<article class="nv-card nv-member nv-tilt nv-reveal">
+				<div class="nv-member__media nv-media">
+					<span class="demo-avatar" style="height:100%;background:linear-gradient(140deg,#8b7cff,#22d3ee)">م</span>
+					<div class="nv-member__socials-wrap">
+						<div class="nv-member__socials nv-socials">
+							<a class="nv-social" href="#"><svg><use href="#i-shield"></use></svg></a>
+						</div>
+					</div>
+				</div>
+				<div class="nv-member__body">
+					<h3 class="nv-member__name">مهدی کریمی</h3>
+					<p class="nv-member__role">مدیر زیرساخت</p>
+				</div>
+			</article>
+		</div>
+	</div>
+</section>
+
+<!-- ============================== نظرات مشتریان ============================== -->
+<section class="nv-widget nv-section nv-widget-testimonials">
+	<span class="nv-orb nv-orb--2" aria-hidden="true"></span>
+
+	<div class="nv-container">
+		<div class="nv-heading">
+			<span class="nv-heading__subtitle">نظرات مشتریان</span>
+			<h2 class="nv-heading__title">اعتماد مشتریان، <span class="nv-gradient">سرمایه</span> ماست</h2>
+		</div>
+
+		<div class="nv-slider" style="--nv-slides:3" data-nv-slider='{"autoplay":1,"speed":6000}'>
+			<div class="nv-slider__track">
+				<div class="nv-slide">
+					<article class="nv-card nv-testimonial nv-reveal">
+						<span class="nv-testimonial__quote"><svg><use href="#i-quote"></use></svg></span>
+						<div class="nv-testimonial__rating">
+							<span class="is-filled"><svg><use href="#i-star"></use></svg></span>
+							<span class="is-filled"><svg><use href="#i-star"></use></svg></span>
+							<span class="is-filled"><svg><use href="#i-star"></use></svg></span>
+							<span class="is-filled"><svg><use href="#i-star"></use></svg></span>
+							<span class="is-filled"><svg><use href="#i-star"></use></svg></span>
+						</div>
+						<div class="nv-testimonial__content"><p>تیم نوین در کمتر از سه ماه مدل توصیه‌گر ما را بازطراحی کرد و دقت پیش‌بینی ۳۴٪ بهتر شد.</p></div>
+						<div class="nv-testimonial__author">
+							<span class="nv-testimonial__avatar"><span class="demo-avatar" style="height:100%;font-size:1.2rem">م</span></span>
+							<span class="nv-testimonial__info">
+								<span class="nv-testimonial__name">مریم حسینی</span>
+								<span class="nv-testimonial__role">مدیر فناوری</span>
+							</span>
+						</div>
+					</article>
+				</div>
+
+				<div class="nv-slide">
+					<article class="nv-card nv-testimonial nv-reveal">
+						<span class="nv-testimonial__quote"><svg><use href="#i-quote"></use></svg></span>
+						<div class="nv-testimonial__rating">
+							<span class="is-filled"><svg><use href="#i-star"></use></svg></span>
+							<span class="is-filled"><svg><use href="#i-star"></use></svg></span>
+							<span class="is-filled"><svg><use href="#i-star"></use></svg></span>
+							<span class="is-filled"><svg><use href="#i-star"></use></svg></span>
+							<span><svg><use href="#i-star"></use></svg></span>
+						</div>
+						<div class="nv-testimonial__content"><p>پشتیبانی ۲۴ ساعته و پاسخگویی سریع، مهم‌ترین دلیل ادامه همکاری ما با این تیم است.</p></div>
+						<div class="nv-testimonial__author">
+							<span class="nv-testimonial__avatar"><span class="demo-avatar" style="height:100%;font-size:1.2rem;background:linear-gradient(140deg,#22d3ee,#8b7cff)">ر</span></span>
+							<span class="nv-testimonial__info">
+								<span class="nv-testimonial__name">رضا یوسفی</span>
+								<span class="nv-testimonial__role">مدیرعامل</span>
+							</span>
+						</div>
+					</article>
+				</div>
+
+				<div class="nv-slide">
+					<article class="nv-card nv-testimonial nv-reveal">
+						<span class="nv-testimonial__quote"><svg><use href="#i-quote"></use></svg></span>
+						<div class="nv-testimonial__rating">
+							<span class="is-filled"><svg><use href="#i-star"></use></svg></span>
+							<span class="is-filled"><svg><use href="#i-star"></use></svg></span>
+							<span class="is-filled"><svg><use href="#i-star"></use></svg></span>
+							<span class="is-filled"><svg><use href="#i-star"></use></svg></span>
+							<span class="is-filled"><svg><use href="#i-star"></use></svg></span>
+						</div>
+						<div class="nv-testimonial__content"><p>طراحی وب‌سایت جدید باعث شد نرخ تبدیل فروشگاه ما بیش از دو برابر شود.</p></div>
+						<div class="nv-testimonial__author">
+							<span class="nv-testimonial__avatar"><span class="demo-avatar" style="height:100%;font-size:1.2rem;background:linear-gradient(140deg,#ff4ecd,#8b7cff)">ز</span></span>
+							<span class="nv-testimonial__info">
+								<span class="nv-testimonial__name">زهرا کریمی</span>
+								<span class="nv-testimonial__role">مدیر محصول</span>
+							</span>
+						</div>
+					</article>
+				</div>
+			</div>
+
+			<button class="nv-slider__arrow nv-slider__arrow--prev" type="button" data-nv-slide-prev aria-label="قبلی"><svg><use href="#i-arrow"></use></svg></button>
+			<button class="nv-slider__arrow nv-slider__arrow--next" type="button" data-nv-slide-next aria-label="بعدی"><svg><use href="#i-arrow"></use></svg></button>
+			<div class="nv-slider__dots" data-nv-slide-dots></div>
+		</div>
+	</div>
+</section>
+
+<!-- ============================== مقالات ============================== -->
+<section class="nv-widget nv-section nv-widget-posts nv-posts nv-posts--grid" id="blog">
+	<span class="nv-orb nv-orb--3" aria-hidden="true"></span>
+
+	<div class="nv-container">
+		<div class="nv-heading">
+			<span class="nv-heading__subtitle">وبلاگ</span>
+			<h2 class="nv-heading__title">آخرین <span class="nv-gradient">مقالات و اخبار</span> فناوری</h2>
+		</div>
+
+		<div class="nv-grid" style="--nv-cols:3">
+			<article class="nv-card nv-post nv-tilt nv-reveal">
+				<div class="nv-post__media nv-media">
+					<a href="#"><img class="nv-media__img" src="assets/project-1.jpg" alt="مقاله"></a>
+					<a class="nv-post__badge nv-badge" href="#">هوش مصنوعی</a>
+				</div>
+				<div class="nv-post__body">
+					<div class="nv-post__meta">
+						<span class="nv-post__date">۱۴۰۴/۰۶/۲۰</span>
+						<span class="nv-post__read">۶ دقیقه</span>
+					</div>
+					<h3 class="nv-post__title"><a href="#">چگونه مدل زبانی اختصاصی سازمان خود را بسازیم؟</a></h3>
+					<p class="nv-post__excerpt">راهنمای گام‌به‌گام از جمع‌آوری داده تا ارزیابی و استقرار مدل در محیط عملیاتی…</p>
+					<a class="nv-link-more" href="#"><span>ادامه مطلب</span><svg><use href="#i-arrow-left"></use></svg></a>
+				</div>
+			</article>
+
+			<article class="nv-card nv-post nv-tilt nv-reveal">
+				<div class="nv-post__media nv-media">
+					<a href="#"><img class="nv-media__img" src="assets/project-3.jpg" alt="مقاله"></a>
+					<a class="nv-post__badge nv-badge" href="#">امنیت</a>
+				</div>
+				<div class="nv-post__body">
+					<div class="nv-post__meta">
+						<span class="nv-post__date">۱۴۰۴/۰۶/۱۲</span>
+						<span class="nv-post__read">۸ دقیقه</span>
+					</div>
+					<h3 class="nv-post__title"><a href="#">۱۰ اقدام ضروری برای سخت‌سازی زیرساخت ابری</a></h3>
+					<p class="nv-post__excerpt">چک‌لیستی عملی برای کاهش ریسک نفوذ و افزایش تاب‌آوری سرویس‌ها…</p>
+					<a class="nv-link-more" href="#"><span>ادامه مطلب</span><svg><use href="#i-arrow-left"></use></svg></a>
+				</div>
+			</article>
+
+			<article class="nv-card nv-post nv-tilt nv-reveal">
+				<div class="nv-post__media nv-media">
+					<a href="#"><img class="nv-media__img" src="assets/project-2.jpg" alt="مقاله"></a>
+					<a class="nv-post__badge nv-badge" href="#">طراحی وب</a>
+				</div>
+				<div class="nv-post__body">
+					<div class="nv-post__meta">
+						<span class="nv-post__date">۱۴۰۴/۰۶/۰۵</span>
+						<span class="nv-post__read">۵ دقیقه</span>
+					</div>
+					<h3 class="nv-post__title"><a href="#">طراحی رابط کاربری برای محصولات هوش مصنوعی</a></h3>
+					<p class="nv-post__excerpt">اصول طراحی تجربه‌ای که خروجی مدل را برای کاربر قابل اعتماد می‌کند…</p>
+					<a class="nv-link-more" href="#"><span>ادامه مطلب</span><svg><use href="#i-arrow-left"></use></svg></a>
+				</div>
+			</article>
+		</div>
+	</div>
+</section>
+
+<!-- ============================== سوالات متداول ============================== -->
+<section class="nv-widget nv-section nv-widget-faq" style="padding-block: 70px">
+	<div class="nv-container">
+		<div class="nv-heading">
+			<span class="nv-heading__subtitle">سوالات متداول</span>
+			<h2 class="nv-heading__title">سوالات <span class="nv-gradient">پرتکرار</span> مشتریان</h2>
+		</div>
+
+		<div class="nv-accordion" data-nv-accordion="1" data-nv-multiple="0">
+			<div class="nv-accordion__item is-open">
+				<button class="nv-accordion__header" type="button" aria-expanded="true">
+					<span class="nv-accordion__title">زمان تحویل پروژه چقدر است؟</span>
+					<span class="nv-accordion__icon" aria-hidden="true"></span>
+				</button>
+				<div class="nv-accordion__panel">
+					<div class="nv-accordion__content"><p>بسته به محدوده پروژه، بین ۴ تا ۱۲ هفته. پس از جلسه کشف نیازها زمان‌بندی دقیق اعلام می‌شود.</p></div>
+				</div>
+			</div>
+
+			<div class="nv-accordion__item">
+				<button class="nv-accordion__header" type="button" aria-expanded="false">
+					<span class="nv-accordion__title">آیا خدمات پشتیبانی پس از تحویل هم دارید؟</span>
+					<span class="nv-accordion__icon" aria-hidden="true"></span>
+				</button>
+				<div class="nv-accordion__panel">
+					<div class="nv-accordion__content"><p>بله. پکیج‌های پشتیبانی شامل نگهداری، بروزرسانی امنیتی و پاسخگویی بر اساس SLA است.</p></div>
+				</div>
+			</div>
+
+			<div class="nv-accordion__item">
+				<button class="nv-accordion__header" type="button" aria-expanded="false">
+					<span class="nv-accordion__title">هزینه پروژه چگونه محاسبه می‌شود؟</span>
+					<span class="nv-accordion__icon" aria-hidden="true"></span>
+				</button>
+				<div class="nv-accordion__panel">
+					<div class="nv-accordion__content"><p>پس از تحلیل نیازها، برآورد بر اساس زمان‌بندی، تخصص موردنیاز و زیرساخت اعلام می‌شود.</p></div>
+				</div>
+			</div>
+
+			<div class="nv-accordion__item">
+				<button class="nv-accordion__header" type="button" aria-expanded="false">
+					<span class="nv-accordion__title">آیا امکان خرید لایسنس نرم‌افزار هم وجود دارد؟</span>
+					<span class="nv-accordion__icon" aria-hidden="true"></span>
+				</button>
+				<div class="nv-accordion__panel">
+					<div class="nv-accordion__content"><p>بله. لایسنس محصولات از طریق فروشگاه آنلاین قابل خریداری و تمدید است.</p></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ============================== CTA ============================== -->
+<section class="nv-widget nv-section nv-widget-cta" id="cta" style="padding-block: 70px">
+	<div class="nv-container">
+		<div class="nv-cta nv-glass nv-reveal">
+			<span class="nv-orb nv-orb--1" aria-hidden="true"></span>
+			<span class="nv-grid-floor" aria-hidden="true"></span>
+
+			<span class="nv-badge nv-badge--glow">
+				<svg><use href="#i-spark"></use></svg>
+				<span>مشاوره رایگان</span>
+			</span>
+
+			<h2 class="nv-cta__title">آماده‌اید کسب‌وکارتان را <span class="nv-gradient">هوشمند</span> کنید؟</h2>
+
+			<div class="nv-cta__desc">یک جلسه ۳۰ دقیقه‌ای با تیم فنی ما کافی است تا مسیر تحول دیجیتال شما ترسیم شود.</div>
+
+			<ul class="nv-cta__benefits">
+				<li><svg><use href="#i-check"></use></svg><span>تحلیل رایگان وضعیت فعلی</span></li>
+				<li><svg><use href="#i-check"></use></svg><span>پیشنهاد معماری اختصاصی</span></li>
+				<li><svg><use href="#i-check"></use></svg><span>برآورد شفاف هزینه</span></li>
+			</ul>
+
+			<div class="nv-actions">
+				<a class="nv-btn nv-btn--primary nv-magnetic" href="#"><span>دریافت مشاوره رایگان</span><svg><use href="#i-arrow-left"></use></svg></a>
+				<a class="nv-btn nv-btn--outline nv-magnetic" href="#"><span>تماس با ما</span></a>
+			</div>
+
+			<p class="nv-cta__note">پاسخگویی در کمتر از یک روز کاری</p>
+		</div>
+	</div>
+</section>
+
+<!-- ============================== فوتر ============================== -->
+<footer class="nv-footer nv-footer--widget">
+	<span class="nv-orb nv-orb--1" aria-hidden="true"></span>
+	<span class="nv-orb nv-orb--2" aria-hidden="true"></span>
+
+	<div class="nv-container">
+		<div class="nv-footer__grid" style="--nv-cols:4">
+			<div class="nv-footer__col nv-footer__col--about">
+				<a class="nv-logo" href="#" rel="home">
+					<span class="nv-logo__text">نوین ای‌آی</span>
+				</a>
+				<p class="nv-footer__about-text">شرکت نوین با تمرکز بر هوش مصنوعی، توسعه نرم‌افزار و زیرساخت ابری، راهکارهایی می‌سازد که کسب‌وکار شما را هوشمندتر می‌کند.</p>
+				<ul class="nv-footer__contact">
+					<li>تهران، خیابان ولیعصر، برج فناوری</li>
+					<li>۰۲۱-۱۲۳۴۵۶۷۸</li>
+					<li>info@novin-ai.ir</li>
+				</ul>
+				<div class="nv-socials">
+					<a class="nv-social" href="#" aria-label="اینستاگرام"><svg><use href="#i-chart"></use></svg></a>
+					<a class="nv-social" href="#" aria-label="تلگرام"><svg><use href="#i-bolt"></use></svg></a>
+					<a class="nv-social" href="#" aria-label="لینکدین"><svg><use href="#i-code"></use></svg></a>
+					<a class="nv-social" href="#" aria-label="یوتیوب"><svg><use href="#i-star"></use></svg></a>
+				</div>
+			</div>
+
+			<div class="nv-footer__col">
+				<h4 class="nv-footer__title">شرکت</h4>
+				<ul class="nv-footer__links">
+					<li><a href="#">درباره ما</a></li>
+					<li><a href="#">تیم ما</a></li>
+					<li><a href="#">فرصت‌های شغلی</a></li>
+					<li><a href="#">وبلاگ</a></li>
+				</ul>
+			</div>
+
+			<div class="nv-footer__col">
+				<h4 class="nv-footer__title">خدمات</h4>
+				<ul class="nv-footer__links">
+					<li><a href="#">هوش مصنوعی</a></li>
+					<li><a href="#">طراحی وب</a></li>
+					<li><a href="#">پشتیبانی</a></li>
+					<li><a href="#">امنیت شبکه</a></li>
+				</ul>
+			</div>
+
+			<div class="nv-footer__col nv-footer__col--newsletter">
+				<h4 class="nv-footer__title">در جریان تکنولوژی باشید</h4>
+				<p class="nv-footer__about-text">هر هفته یک ایمیل کوتاه درباره هوش مصنوعی و مهندسی نرم‌افزار.</p>
+				<form class="nv-newsletter" method="post" data-nv-newsletter>
+					<input type="email" name="email" placeholder="ایمیل شما" required>
+					<button type="submit"><span>عضویت</span><svg><use href="#i-arrow-left"></use></svg></button>
+					<span class="nv-newsletter__msg" aria-live="polite"></span>
+				</form>
+			</div>
+		</div>
+
+		<div class="nv-footer__bottom">
+			<p class="nv-footer__copyright">© ۱۴۰۴ تمامی حقوق این وب‌سایت محفوظ است.</p>
+			<ul class="nv-menu nv-menu--inline">
+				<li><a href="#">حریم خصوصی</a></li>
+				<li><a href="#">قوانین</a></li>
+				<li><a href="#">سوالات متداول</a></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+
+</div><!-- .nv-site -->
+
+<button class="nv-scroll-top" type="button" aria-label="بازگشت به بالا"><svg><use href="#i-arrow"></use></svg></button>
+
+<script>
+	window.NovinAiSettings = {
+		ajaxUrl: '#',
+		nonce: '',
+		tilt: 1,
+		tiltStrength: 12,
+		particles: 1,
+		cursor: 1,
+		reveal: 1,
+		orbs: 1,
+		gridFloor: 1,
+		marquee: 1,
+		magnetic: 1,
+		reducedMotion: 1,
+		isRtl: 1
+	};
+</script>
+<script src="../novin-ai/assets/js/frontend.js"></script>
+</body>
+</html>

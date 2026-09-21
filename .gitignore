@@ -1,0 +1,23 @@
+# وابستگی‌ها و پوشه‌های ساخت
+node_modules/
+vendor/
+dist/
+build/
+coverage/
+
+# فایل‌های سیستمی
+.DS_Store
+Thumbs.db
+*.log
+*.swp
+
+# ویرایشگرها
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# فایل‌های حجیم
+*.zip
+*.tar.gz
+*.rar

@@ -1,0 +1,613 @@
+/*!
+ * Novin AI — سازگاری با ووکامرس
+ */
+
+/* ------------------------------------------------------------------
+ * آرشیو محصولات
+ * ------------------------------------------------------------------ */
+
+.nv-products {
+	display: grid;
+	gap: 28px;
+	grid-template-columns: repeat(var(--nv-cols, 3), minmax(0, 1fr));
+	margin-block: 24px;
+}
+
+@media (max-width: 1024px) {
+	.nv-products {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 600px) {
+	.nv-products {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+.nv-products li.product,
+ul.products li.product {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+	margin: 0;
+	border: 1px solid var(--nv-border);
+	border-radius: var(--nv-radius);
+	background: var(--nv-surface);
+	backdrop-filter: blur(16px);
+	-webkit-backdrop-filter: blur(16px);
+	overflow: hidden;
+	transition: transform var(--nv-transition), box-shadow var(--nv-transition), border-color var(--nv-transition);
+}
+
+.nv-products li.product:hover,
+ul.products li.product:hover {
+	transform: translateY(-6px);
+	border-color: rgba(139, 124, 255, 0.45);
+	box-shadow: 0 30px 70px rgba(109, 94, 252, 0.22), var(--nv-shadow);
+}
+
+.nv-card-style-neon ul.products li.product {
+	background: linear-gradient(180deg, rgba(109, 94, 252, 0.12), rgba(34, 211, 238, 0.04));
+}
+
+.nv-card-style-solid ul.products li.product {
+	background: var(--nv-bg-alt);
+}
+
+ul.products li.product .woocommerce-LoopProduct-link {
+	display: block;
+	color: inherit;
+	text-decoration: none;
+}
+
+ul.products li.product img {
+	width: 100%;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	margin: 0;
+	transition: transform 0.7s var(--nv-ease);
+}
+
+.nv-card-style-outline ul.products li.product {
+	background: transparent;
+}
+
+.woocommerce ul.products li.product:hover img {
+	transform: scale(1.06);
+}
+
+ul.products li.product .woocommerce-loop-product__title,
+ul.products li.product .woocommerce-loop-category__title {
+	padding: 18px 20px 6px;
+	margin: 0;
+	font-size: 1.05rem;
+	line-height: 1.5;
+	color: var(--nv-text);
+}
+
+ul.products li.product .price {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	padding: 0 20px;
+	margin-bottom: 14px;
+	font-weight: 800;
+	color: var(--nv-secondary);
+}
+
+ul.products li.product .price del {
+	color: var(--nv-muted);
+	font-weight: 500;
+	font-size: 0.85em;
+}
+
+ul.products li.product .price ins {
+	text-decoration: none;
+}
+
+ul.products li.product .star-rating {
+	margin: 0 20px 10px;
+}
+
+ul.products li.product .button,
+ul.products li.product a.add_to_cart_button {
+	margin: auto 20px 20px;
+	padding: 12px 20px;
+	border: 1px solid transparent;
+	border-radius: 999px;
+	background: linear-gradient(120deg, var(--nv-primary), var(--nv-secondary));
+	color: #fff;
+	font-weight: 700;
+	font-size: 0.88rem;
+	text-align: center;
+	transition: transform var(--nv-transition), box-shadow var(--nv-transition);
+}
+
+ul.products li.product .button:hover,
+ul.products li.product a.add_to_cart_button:hover {
+	transform: translateY(-3px);
+	box-shadow: var(--nv-glow);
+	color: #fff;
+}
+
+ul.products li.product .onsale {
+	position: absolute;
+	top: 14px;
+	inset-inline-start: 14px;
+	z-index: 2;
+	margin: 0;
+	min-height: auto;
+	min-width: auto;
+	line-height: 1;
+	padding: 8px 14px;
+	border-radius: 999px;
+	background: linear-gradient(120deg, var(--nv-accent), #ff8a5c);
+	color: #fff;
+	font-size: 0.75rem;
+	font-weight: 800;
+}
+
+.nv-shop__layout {
+	display: grid;
+	gap: 34px;
+	grid-template-columns: minmax(0, 1fr);
+}
+
+.nv-shop__layout:has(.nv-shop__sidebar) {
+	grid-template-columns: 280px minmax(0, 1fr);
+}
+
+@media (max-width: 900px) {
+	.nv-shop__layout:has(.nv-shop__sidebar) {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+.nv-shop__sidebar {
+	align-self: start;
+	position: sticky;
+	top: 110px;
+	display: grid;
+	gap: 20px;
+}
+
+/* نوار بالای فروشگاه */
+.woocommerce-result-count,
+.woocommerce-ordering select {
+	color: var(--nv-muted);
+	font-size: 0.88rem;
+}
+
+.woocommerce-ordering select {
+	padding: 10px 16px;
+	border: 1px solid var(--nv-border);
+	border-radius: 999px;
+	background: rgba(12, 16, 34, 0.8);
+	color: var(--nv-text);
+}
+
+/* ------------------------------------------------------------------
+ * محصول تکی
+ * ------------------------------------------------------------------ */
+
+.single-product .nv-shop {
+	padding-block: 40px 90px;
+}
+
+.woocommerce div.product {
+	display: grid;
+	gap: 40px;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	align-items: start;
+}
+
+@media (max-width: 900px) {
+	.woocommerce div.product {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+.woocommerce div.product .product_title {
+	font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+}
+
+.woocommerce div.product p.price,
+.woocommerce div.product span.price {
+	color: var(--nv-secondary);
+	font-size: 1.5rem;
+	font-weight: 900;
+}
+
+.woocommerce div.product p.price del {
+	color: var(--nv-muted);
+	font-size: 1rem;
+}
+
+.woocommerce div.product .woocommerce-product-gallery {
+	position: relative;
+}
+
+.woocommerce div.product .woocommerce-product-gallery img {
+	border-radius: var(--nv-radius);
+	border: 1px solid var(--nv-border);
+}
+
+.woocommerce div.product .woocommerce-product-gallery .flex-control-thumbs {
+	display: flex;
+	gap: 10px;
+	list-style: none;
+	margin: 14px 0 0;
+	padding: 0;
+}
+
+.woocommerce div.product .woocommerce-product-gallery .flex-control-thumbs li {
+	width: 80px;
+	border-radius: 10px;
+	overflow: hidden;
+	border: 1px solid var(--nv-border);
+	opacity: 0.6;
+	cursor: pointer;
+}
+
+.woocommerce div.product .woocommerce-product-gallery .flex-control-thumbs li.flex-active {
+	opacity: 1;
+	border-color: var(--nv-primary);
+}
+
+.woocommerce .quantity .qty {
+	padding: 12px 14px;
+	border: 1px solid var(--nv-border);
+	border-radius: 999px;
+	background: rgba(3, 5, 18, 0.6);
+	color: var(--nv-text);
+	max-width: 110px;
+	text-align: center;
+}
+
+.woocommerce div.product form.cart {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 14px;
+	margin-block: 24px;
+}
+
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button {
+	padding: 14px 28px;
+	border: 1px solid transparent;
+	border-radius: 999px;
+	background: linear-gradient(120deg, var(--nv-primary), var(--nv-secondary));
+	color: #fff;
+	font-weight: 700;
+	transition: transform var(--nv-transition), box-shadow var(--nv-transition), background var(--nv-transition);
+}
+
+.woocommerce #respond input#submit:hover,
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover {
+	transform: translateY(-3px);
+	box-shadow: var(--nv-glow);
+	background: linear-gradient(120deg, var(--nv-primary), var(--nv-secondary));
+	color: #fff;
+}
+
+.woocommerce #respond input#submit.alt,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt {
+	background: linear-gradient(120deg, var(--nv-primary), var(--nv-accent));
+}
+
+.woocommerce .woocommerce-product-details__short-description {
+	color: var(--nv-muted);
+	line-height: 1.95;
+}
+
+.woocommerce div.product .woocommerce-tabs {
+	margin-top: 60px;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	list-style: none;
+	margin: 0 0 24px;
+	padding: 0;
+	border-bottom: 1px solid var(--nv-border);
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li {
+	padding: 14px 24px;
+	border-radius: 14px 14px 0 0;
+	background: transparent;
+	color: var(--nv-muted);
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active {
+	background: var(--nv-surface);
+	color: var(--nv-text);
+}
+
+.woocommerce div.product .woocommerce-tabs .panel {
+	padding: 26px;
+	border: 1px solid var(--nv-border);
+	border-radius: var(--nv-radius);
+	background: var(--nv-surface);
+	color: var(--nv-muted);
+}
+
+.woocommerce div.product .woocommerce-tabs .panel h2 {
+	color: var(--nv-text);
+}
+
+/* جدول ویژگی‌ها */
+.woocommerce table.shop_attributes {
+	border: 1px solid var(--nv-border);
+	border-radius: var(--nv-radius);
+	overflow: hidden;
+}
+
+.woocommerce table.shop_attributes th {
+	width: 200px;
+	padding: 12px 16px;
+	background: rgba(255, 255, 255, 0.03);
+	color: var(--nv-text);
+}
+
+.woocommerce table.shop_attributes td {
+	padding: 12px 16px;
+	color: var(--nv-muted);
+}
+
+/* امتیازدهی */
+.woocommerce .star-rating {
+	color: #ffc44d;
+	font-size: 0.9em;
+}
+
+.woocommerce .star-rating::before {
+	color: rgba(255, 255, 255, 0.2);
+}
+
+/* پیام‌ها */
+.woocommerce-message,
+.woocommerce-info,
+.woocommerce-error,
+.woocommerce-notice {
+	padding: 16px 22px;
+	margin-bottom: 24px;
+	border: 1px solid rgba(139, 124, 255, 0.4);
+	border-radius: var(--nv-radius);
+	background: rgba(109, 94, 252, 0.12);
+	color: var(--nv-text);
+	list-style: none;
+}
+
+.woocommerce-error {
+	border-color: rgba(255, 122, 122, 0.5);
+	background: rgba(255, 122, 122, 0.12);
+}
+
+.woocommerce-message::before,
+.woocommerce-info::before,
+.woocommerce-error::before {
+	color: var(--nv-secondary);
+}
+
+.woocommerce-message a.button {
+	float: left;
+	margin-inline-start: 12px;
+	padding: 8px 18px;
+	font-size: 0.85rem;
+}
+
+/* ------------------------------------------------------------------
+ * سبد خرید و تسویه حساب
+ * ------------------------------------------------------------------ */
+
+.woocommerce table.shop_table {
+	border: 1px solid var(--nv-border);
+	border-radius: var(--nv-radius);
+	overflow: hidden;
+	background: var(--nv-surface);
+}
+
+.woocommerce table.shop_table th {
+	padding: 14px;
+	background: rgba(255, 255, 255, 0.04);
+	color: var(--nv-text);
+	font-size: 0.9rem;
+}
+
+.woocommerce table.shop_table td {
+	padding: 14px;
+	border-top: 1px solid var(--nv-border);
+	color: var(--nv-muted);
+}
+
+.woocommerce table.shop_table td.product-name a {
+	color: var(--nv-text);
+}
+
+.woocommerce table.shop_table td.actions {
+	padding: 18px;
+}
+
+.woocommerce .cart-collaterals .cart_totals,
+.woocommerce .woocommerce-checkout-review-order {
+	padding: 26px;
+	border: 1px solid var(--nv-border);
+	border-radius: var(--nv-radius);
+	background: var(--nv-surface);
+}
+
+.woocommerce .cart-collaterals .cart_totals h2 {
+	font-size: 1.2rem;
+}
+
+.woocommerce .cart-collaterals .cart_totals table th,
+.woocommerce .woocommerce-checkout-review-order table th {
+	color: var(--nv-text);
+}
+
+.woocommerce-checkout #customer_details {
+	display: grid;
+	gap: 24px;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+@media (max-width: 900px) {
+	.woocommerce-checkout #customer_details {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+.woocommerce form .form-row input.input-text,
+.woocommerce form .form-row textarea,
+.woocommerce form .form-row select {
+	padding: 13px 16px;
+	border: 1px solid var(--nv-border);
+	border-radius: var(--nv-radius-sm);
+	background: rgba(3, 5, 18, 0.55);
+	color: var(--nv-text);
+}
+
+.woocommerce form .form-row label {
+	color: var(--nv-muted);
+	font-size: 0.88rem;
+}
+
+.woocommerce form .form-row .required {
+	color: var(--nv-accent);
+}
+
+.select2-container--default .select2-selection--single,
+.woocommerce .select2-container .select2-selection--single {
+	height: 48px;
+	border: 1px solid var(--nv-border);
+	border-radius: var(--nv-radius-sm);
+	background: rgba(3, 5, 18, 0.55);
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+	color: var(--nv-text);
+	line-height: 46px;
+}
+
+.select2-dropdown {
+	background: #0c1022;
+	border-color: var(--nv-border);
+	color: var(--nv-text);
+}
+
+/* حساب کاربری */
+.woocommerce-account .woocommerce-MyAccount-navigation {
+	border: 1px solid var(--nv-border);
+	border-radius: var(--nv-radius);
+	background: var(--nv-surface);
+	overflow: hidden;
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation ul {
+	list-style: none;
+	margin: 0;
+	padding: 10px;
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation ul li a {
+	display: block;
+	padding: 12px 18px;
+	border-radius: 10px;
+	color: var(--nv-muted);
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation ul li.is-active a,
+.woocommerce-account .woocommerce-MyAccount-navigation ul li a:hover {
+	background: rgba(139, 124, 255, 0.18);
+	color: #fff;
+}
+
+/* ابزارک‌های ووکامرس در سایدبار */
+.woocommerce .widget_price_filter .ui-slider {
+	background: rgba(255, 255, 255, 0.12);
+	border-radius: 999px;
+}
+
+.woocommerce .widget_price_filter .ui-slider .ui-slider-range,
+.woocommerce .widget_price_filter .ui-slider .ui-slider-handle {
+	background: linear-gradient(120deg, var(--nv-primary), var(--nv-secondary));
+	border-radius: 999px;
+}
+
+.woocommerce .widget_price_filter .price_slider_amount .button {
+	padding: 10px 20px;
+	font-size: 0.85rem;
+}
+
+.woocommerce .widget_layered_nav ul,
+.woocommerce .widget_product_categories ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.woocommerce ul.product_list_widget li {
+	padding: 10px 0;
+	border-bottom: 1px solid var(--nv-border);
+}
+
+.woocommerce ul.product_list_widget li img {
+	width: 56px;
+	border-radius: 10px;
+	margin-inline-end: 12px;
+}
+
+.woocommerce ul.product_list_widget li a {
+	color: var(--nv-text);
+	font-weight: 700;
+}
+
+/* سبد خرید کوچک (منو) */
+.woocommerce-mini-cart__total,
+.woocommerce-mini-cart__buttons {
+	text-align: center;
+}
+
+.woocommerce a.remove {
+	color: var(--nv-accent) !important;
+}
+
+.woocommerce a.remove:hover {
+	background: var(--nv-accent);
+	color: #fff !important;
+}
+
+/* پیام «محصولی یافت نشد» */
+.woocommerce-info.woocommerce-no-products-found {
+	text-align: center;
+}
+
+/* دکمه‌های پرداخت */
+.woocommerce #payment {
+	border: 1px solid var(--nv-border);
+	border-radius: var(--nv-radius);
+	background: var(--nv-surface);
+}
+
+.woocommerce #payment div.payment_box {
+	background: rgba(3, 5, 18, 0.6);
+	color: var(--nv-muted);
+}
+
+.woocommerce #payment ul.payment_methods {
+	border-bottom-color: var(--nv-border);
+}
