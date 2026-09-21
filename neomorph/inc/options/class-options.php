@@ -50,9 +50,6 @@ final class Options {
 			'shadow_distance'      => '8',
 			'shadow_softness'      => '2',
 			'soft_style'           => 'light', // light|dark.
-			// Admin (پیشخوان).
-			'admin_style'          => '1', // professional wp-admin skin on/off.
-			'admin_density'        => 'comfortable', // comfortable|compact.
 			// Layout.
 			'site_layout'          => 'wide', // wide|boxed.
 			'container_width'      => '1200',
@@ -115,7 +112,7 @@ final class Options {
 	}
 
 	/**
-	 * Settings API registration — one option per tab-group, fields render via custom view for repeaters.
+	 * Settings API registration — single option; fields rendered by custom pro UI.
 	 */
 	public static function register() {
 		register_setting(
@@ -127,26 +124,6 @@ final class Options {
 				'default'           => self::defaults(),
 			)
 		);
-
-		$sections = self::sections();
-		foreach ( $sections as $slug => $section ) {
-			add_settings_section( 'neomorph_' . $slug, $section['title'], '__return_false', self::PAGE );
-			foreach ( $section['fields'] as $key => $field ) {
-				add_settings_field(
-					$key,
-					$field['label'],
-					array( __CLASS__, 'field' ),
-					self::PAGE,
-					'neomorph_' . $slug,
-					array(
-						'key'         => $key,
-						'type'        => isset( $field['type'] ) ? $field['type'] : 'text',
-						'choices'     => isset( $field['choices'] ) ? $field['choices'] : array(),
-						'description' => isset( $field['description'] ) ? $field['description'] : '',
-					)
-				);
-			}
-		}
 	}
 
 	/**
@@ -218,23 +195,6 @@ final class Options {
 						'choices' => array(
 							'light' => esc_html__( 'نئو روشن', 'neomorph' ),
 							'dark'  => esc_html__( 'نئو تیره', 'neomorph' ),
-						),
-					),
-					'admin_style'     => array(
-						'label'       => esc_html__( 'پوسته حرفه‌ای پیشخوان', 'neomorph' ),
-						'type'        => 'select',
-						'choices'     => array(
-							'1' => esc_html__( 'فعال (نئومورف)', 'neomorph' ),
-							'0' => esc_html__( 'غیرفعال (پیش‌فرض وردپرس)', 'neomorph' ),
-						),
-						'description' => esc_html__( 'منو، جدول‌ها، فرم‌ها و داشبورد وردپرس با ظاهر نرم و حرفه‌ای.', 'neomorph' ),
-					),
-					'admin_density'   => array(
-						'label'   => esc_html__( 'تراکم پیشخوان', 'neomorph' ),
-						'type'    => 'select',
-						'choices' => array(
-							'comfortable' => esc_html__( 'راحت', 'neomorph' ),
-							'compact'     => esc_html__( 'فشرده', 'neomorph' ),
 						),
 					),
 				),
@@ -513,7 +473,7 @@ final class Options {
 				$out[ $key ] = sanitize_textarea_field( $raw );
 				continue;
 			}
-			if ( in_array( $key, array( 'panel_page', 'invoice_page', 'login_page', 'register_page', 'shop_page', 'blog_page', 'interview_bg', 'font_size_base', 'radius', 'shadow_distance', 'shadow_softness', 'container_width', 'blog_excerpt_length', 'admin_style' ), true ) ) {
+			if ( in_array( $key, array( 'panel_page', 'invoice_page', 'login_page', 'register_page', 'shop_page', 'blog_page', 'interview_bg', 'font_size_base', 'radius', 'shadow_distance', 'shadow_softness', 'container_width', 'blog_excerpt_length' ), true ) ) {
 				$out[ $key ] = (int) $raw;
 				continue;
 			}
@@ -544,68 +504,176 @@ final class Options {
 	}
 
 	/**
-	 * Field renderer.
+	 * Professional control renderer (toggle pills / segmented / sliders / swatches).
 	 *
-	 * @param array $args Field args from add_settings_field.
+	 * @param array $args { key, type, choices, description }.
 	 */
 	public static function field( $args ) {
 		$key      = $args['key'];
-		$type     = $args['type'];
+		$type     = isset( $args['type'] ) ? $args['type'] : 'text';
 		$value    = neomorph_option( $key, '' );
 		$name     = self::OPT . '[' . $key . ']';
 		$id       = 'neomorph-' . $key;
+		$choices  = isset( $args['choices'] ) ? $args['choices'] : array();
+
+		// Number fields with known ranges → slider + numeric readout.
+		$ranges = array(
+			'font_size_base'       => array( 12, 22, 'px' ),
+			'radius'               => array( 0, 48, 'px' ),
+			'shadow_distance'      => array( 2, 20, 'px' ),
+			'shadow_softness'      => array( 1, 4, '×' ),
+			'container_width'      => array( 900, 1600, 'px' ),
+			'blog_excerpt_length'  => array( 5, 60, 'کلمه' ),
+		);
+
+		// Boolean select → switch pills.
+		if ( 'select' === $type && 2 === count( $choices ) && array_key_exists( '1', $choices ) && array_key_exists( '0', $choices ) ) {
+			printf( '<div class="neo-switch" role="radiogroup">' );
+			printf(
+				'<label class="neo-switch__opt"><input type="radio" name="%s" value="1" %s><span>%s</span></label>',
+				esc_attr( $name ),
+				checked( (string) $value, '1', false ),
+				esc_html( $choices['1'] )
+			);
+			printf(
+				'<label class="neo-switch__opt"><input type="radio" name="%s" value="0" %s><span>%s</span></label>',
+				esc_attr( $name ),
+				checked( (string) $value, '0', false ),
+				esc_html( $choices['0'] )
+			);
+			echo '</div>';
+			return;
+		}
+
+		// Few-choice select → segmented pills.
+		if ( 'select' === $type && count( $choices ) <= 4 && count( $choices ) > 1 ) {
+			echo '<div class="neo-seg" role="radiogroup">';
+			$i = 0;
+			foreach ( $choices as $val => $label ) {
+				printf(
+					'<label class="neo-seg__opt"><input type="radio" name="%s" value="%s" %s><span>%s</span></label>',
+					esc_attr( $name ),
+					esc_attr( $val ),
+					checked( (string) $value, (string) $val, false ),
+					esc_html( $label )
+				);
+				$i++;
+			}
+			echo '</div>';
+			return;
+		}
+
+		// Slider numbers.
+		if ( 'number' === $type && isset( $ranges[ $key ] ) ) {
+			list( $min, $max, $unit ) = $ranges[ $key ];
+			printf(
+				'<div class="neo-slider"><input type="range" class="neo-slider__range" min="%d" max="%d" value="%s" data-sync="%s"><span class="neo-slider__val"><input type="number" name="%s" id="%s" value="%s" min="%d" max="%d" class="neo-slider__num"><em>%s</em></span></div>',
+				(int) $min,
+				(int) $max,
+				esc_attr( $value ),
+				esc_attr( $id ),
+				esc_attr( $name ),
+				esc_attr( $id ),
+				esc_attr( $value ),
+				(int) $min,
+				(int) $max,
+				esc_html( $unit )
+			);
+			return;
+		}
 
 		switch ( $type ) {
 			case 'color':
-				printf( '<input type="text" class="neo-color-field" id="%s" name="%s" value="%s" data-default-color="%s" />', esc_attr( $id ), esc_attr( $name ), esc_attr( $value ), esc_attr( self::defaults()[ $key ] ) );
+				printf(
+					'<div class="neo-color"><span class="neo-color__chip" style="background:%s"></span><input type="text" class="neo-color-field" id="%s" name="%s" value="%s" data-default-color="%s" /></div>',
+					esc_attr( $value ? $value : '#e8edf5' ),
+					esc_attr( $id ),
+					esc_attr( $name ),
+					esc_attr( $value ),
+					esc_attr( self::defaults()[ $key ] )
+				);
 				break;
 
 			case 'select':
-				printf( '<select id="%s" name="%s">', esc_attr( $id ), esc_attr( $name ) );
-				foreach ( $args['choices'] as $val => $label ) {
-					printf( '<option value="%s" %s>%s</option>', esc_attr( $val ), selected( $value, $val, false ), esc_html( $label ) );
-				}
-				echo '</select>';
-				break;
-
 			case 'font':
-				printf( '<select id="%s" name="%s">', esc_attr( $id ), esc_attr( $name ) );
-				foreach ( \Neomorph\Custom_Fonts::get_available_fonts() as $handle => $font ) {
-					printf( '<option value="%s" %s>%s</option>', esc_attr( $handle ), selected( $value, $handle, false ), esc_html( $font['label'] ) );
-				}
-				echo '</select>';
-				break;
-
 			case 'page':
-				printf( '<select id="%s" name="%s">', esc_attr( $id ), esc_attr( $name ) );
-				echo '<option value="0">' . esc_html__( '— انتخاب کنید —', 'neomorph' ) . '</option>';
-				foreach ( get_pages( array( 'sort_column' => 'menu_order' ) ) as $page ) {
-					printf( '<option value="%d" %s>%s</option>', (int) $page->ID, selected( (int) $value, (int) $page->ID, false ), esc_html( $page->post_title ) );
+				printf( '<div class="neo-select"><select id="%s" name="%s">', esc_attr( $id ), esc_attr( $name ) );
+				if ( 'font' === $type ) {
+					foreach ( \Neomorph\Custom_Fonts::get_available_fonts() as $handle => $font ) {
+						printf( '<option value="%s" %s>%s</option>', esc_attr( $handle ), selected( $value, $handle, false ), esc_html( $font['label'] ) );
+					}
+				} elseif ( 'page' === $type ) {
+					echo '<option value="0">' . esc_html__( '— انتخاب کنید —', 'neomorph' ) . '</option>';
+					foreach ( get_pages( array( 'sort_column' => 'menu_order' ) ) as $page ) {
+						printf( '<option value="%d" %s>%s</option>', (int) $page->ID, selected( (int) $value, (int) $page->ID, false ), esc_html( $page->post_title ) );
+					}
+				} else {
+					foreach ( $choices as $val => $label ) {
+						printf( '<option value="%s" %s>%s</option>', esc_attr( $val ), selected( (string) $value, (string) $val, false ), esc_html( $label ) );
+					}
 				}
-				echo '</select>';
+				echo '</select></div>';
 				break;
 
 			case 'textarea':
-				printf( '<textarea class="large-text" rows="3" id="%s" name="%s">%s</textarea>', esc_attr( $id ), esc_attr( $name ), esc_textarea( $value ) );
+				printf( '<textarea class="neo-textarea" rows="3" id="%s" name="%s">%s</textarea>', esc_attr( $id ), esc_attr( $name ), esc_textarea( $value ) );
 				break;
 
 			case 'number':
-				printf( '<input type="number" id="%s" name="%s" value="%s" class="small-text" />', esc_attr( $id ), esc_attr( $name ), esc_attr( $value ) );
+				printf( '<input type="number" id="%s" name="%s" value="%s" class="neo-input-sm" />', esc_attr( $id ), esc_attr( $name ), esc_attr( $value ) );
 				break;
 
 			case 'email':
-				printf( '<input type="email" id="%s" name="%s" value="%s" class="regular-text" />', esc_attr( $id ), esc_attr( $name ), esc_attr( $value ) );
+				printf( '<input type="email" id="%s" name="%s" value="%s" class="neo-input" placeholder="mail@example.com" />', esc_attr( $id ), esc_attr( $name ), esc_attr( $value ) );
 				break;
 
 			default:
-				printf( '<input type="text" id="%s" name="%s" value="%s" class="regular-text" />', esc_attr( $id ), esc_attr( $name ), esc_attr( $value ) );
+				printf( '<input type="text" id="%s" name="%s" value="%s" class="neo-input" />', esc_attr( $id ), esc_attr( $name ), esc_attr( $value ) );
 		}
+	}
 
-		if ( ! empty( $args['description'] ) ) {
-			printf( '<p class="description">%s</p>', esc_html( $args['description'] ) );
+	/**
+	 * Hidden inputs preserving values of fields NOT on the active tab (per-tab save).
+	 *
+	 * @param string $active Active tab slug.
+	 */
+	public static function preserve_hidden( $active ) {
+		$sections = self::sections();
+		foreach ( $sections as $slug => $section ) {
+			if ( $slug === $active ) {
+				continue;
+			}
+			foreach ( $section['fields'] as $key => $field ) {
+				$value = neomorph_option( $key, '' );
+				if ( is_array( $value ) ) {
+					continue; // handled by caller (socials).
+				}
+				printf(
+					'<input type="hidden" name="%s[%s]" value="%s">',
+					esc_attr( self::OPT ),
+					esc_attr( $key ),
+					esc_attr( $value )
+				);
+			}
 		}
-
-		// Socials repeater lives in its own metabox below.
+		// Socials repeater lives in contact tab.
+		if ( 'contact' !== $active ) {
+			$socials = neomorph_option( 'socials', array() );
+			foreach ( (array) $socials as $i => $social ) {
+				printf(
+					'<input type="hidden" name="%s[socials][%d][label]" value="%s">',
+					esc_attr( self::OPT ),
+					(int) $i,
+					esc_attr( isset( $social['label'] ) ? $social['label'] : '' )
+				);
+				printf(
+					'<input type="hidden" name="%s[socials][%d][url]" value="%s">',
+					esc_attr( self::OPT ),
+					(int) $i,
+					esc_attr( isset( $social['url'] ) ? $social['url'] : '' )
+				);
+			}
+		}
 	}
 
 	/**

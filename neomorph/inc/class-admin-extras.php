@@ -28,9 +28,6 @@ final class Admin_Extras {
 	 * "نمای کلی نئومورف" dashboard widget with stats + quick links + integration status.
 	 */
 	public static function dashboard_widget() {
-		if ( ! neomorph_option( 'admin_style', '1' ) ) {
-			return;
-		}
 		wp_add_dashboard_widget(
 			'neomorph_overview',
 			esc_html__( '🌈 نمای کلی نئومورف', 'neomorph' ),
@@ -131,11 +128,8 @@ final class Admin_Extras {
 	 * Brand the admin footer subtly.
 	 */
 	public static function footer_text( $text ) {
-		if ( ! neomorph_option( 'admin_style', '1' ) ) {
-			return $text;
-		}
 		return sprintf(
-			'%1$s <span style="color:var(--neoa-accent)">◆</span> <a href="%2$s">%3$s</a>',
+			'%1$s <span style="color:#6c5ce7">◆</span> <a href="%2$s">%3$s</a>',
 			esc_html__( 'با عشق ساخته شده با', 'neomorph' ),
 			esc_url( admin_url( 'themes.php?page=neomorph-settings' ) ),
 			esc_html__( 'قالب نئومورف', 'neomorph' )

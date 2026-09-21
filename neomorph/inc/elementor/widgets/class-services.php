@@ -43,6 +43,31 @@ class Widget_Services extends Neo_Widget_Base {
 			'type'    => \Elementor\Controls_Manager::TEXTAREA,
 		) );
 
+		$this->add_control( 'source', array(
+			'label'       => esc_html__( 'منبع خدمات', 'neomorph' ),
+			'type'        => \Elementor\Controls_Manager::SELECT,
+			'default'     => 'manual',
+			'options'     => array(
+				'manual' => esc_html__( 'ورود دستی (زیر)', 'neomorph' ),
+				'cpt'    => esc_html__( 'از بخش «خدمات» پیشخوان', 'neomorph' ),
+			),
+			'description' => esc_html__( 'با انتخاب «پیشخوان»، خدمات از فرم حرفه‌ای «المان‌ها ← خدمات» خوانده می‌شود.', 'neomorph' ),
+		) );
+
+		$this->add_control( 'cpt_count', array(
+			'label'     => esc_html__( 'تعداد خدمات', 'neomorph' ),
+			'type'      => \Elementor\Controls_Manager::NUMBER,
+			'default'   => 6,
+			'condition' => array( 'source' => 'cpt' ),
+		) );
+
+		$this->add_control( 'cpt_link_text', array(
+			'label'     => esc_html__( 'متن دکمه هر خدمت', 'neomorph' ),
+			'type'      => \Elementor\Controls_Manager::TEXT,
+			'default'   => esc_html__( 'بیشتر', 'neomorph' ),
+			'condition' => array( 'source' => 'cpt' ),
+		) );
+
 		$this->add_control( 'layout', array(
 			'label'   => esc_html__( 'چیدمان', 'neomorph' ),
 			'type'    => \Elementor\Controls_Manager::SELECT,
@@ -128,6 +153,39 @@ class Widget_Services extends Neo_Widget_Base {
 
 	protected function render() {
 		$s = $this->get_settings_for_display();
+
+		// Source: manual repeater or Services CPT (professional admin forms).
+		if ( 'cpt' === $s['source'] ) {
+			$service_items = array();
+			$q             = new \WP_Query(
+				array(
+					'post_type'      => 'service',
+					'posts_per_page' => max( 1, (int) $s['cpt_count'] ),
+					'post_status'    => 'publish',
+					'orderby'        => 'menu_order date',
+					'order'          => 'ASC date',
+				)
+			);
+			while ( $q->have_posts() ) {
+				$q->the_post();
+				$icon_media = (int) \nmc_get_meta( get_the_ID(), 'icon_media' );
+				$service_items[] = array(
+					'icon'  => \nmc_get_meta( get_the_ID(), 'icon_text', '✦' ),
+					'image' => $icon_media ? array( 'url' => (string) wp_get_attachment_image_url( $icon_media, 'thumbnail' ) ) : array(),
+					'title' => get_the_title(),
+					'text'  => \nmc_get_meta( get_the_ID(), 'short_desc', get_the_excerpt() ),
+					'link'  => array(
+						'url' => \nmc_get_meta( get_the_ID(), 'service_link', get_permalink() ),
+					),
+				);
+			}
+			wp_reset_postdata();
+			$s['services'] = $service_items;
+			// Use icon images when provided.
+			$use_images = true;
+		} else {
+			$use_images = true;
+		}
 		?>
 		<section class="neo-widget neo-services neo-services--<?php echo esc_attr( $s['layout'] ); ?> <?php echo esc_attr( $this->neo_widget_class() ); ?>">
 			<?php if ( $s['title'] || $s['subtitle'] ) : ?>

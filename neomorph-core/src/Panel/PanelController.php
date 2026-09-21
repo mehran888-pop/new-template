@@ -548,9 +548,9 @@ final class PanelController {
 			<label class="neo-label"><?php esc_html_e( 'موضوع', 'neomorph-core' ); ?><input class="neo-input" type="text" name="consult_title" required></label>
 			<label class="neo-label"><?php esc_html_e( 'نوع درخواست', 'neomorph-core' ); ?>
 				<select name="consult_type">
-					<option value="consult"><?php esc_html__( 'مشاوره', 'neomorph-core' ); ?></option>
-					<option value="support"><?php esc_html__( 'پشتیبانی', 'neomorph-core' ); ?></option>
-					<option value="quote"><?php esc_html__( 'درخواست پیشنهاد قیمت', 'neomorph-core' ); ?></option>
+					<option value="consult"><?php esc_html_e( 'مشاوره', 'neomorph-core' ); ?></option>
+					<option value="support"><?php esc_html_e( 'پشتیبانی', 'neomorph-core' ); ?></option>
+					<option value="quote"><?php esc_html_e( 'درخواست پیشنهاد قیمت', 'neomorph-core' ); ?></option>
 				</select>
 			</label>
 			<label class="neo-label"><?php esc_html_e( 'خدمت مورد نظر', 'neomorph-core' ); ?>

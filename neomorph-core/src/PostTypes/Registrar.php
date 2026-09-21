@@ -173,6 +173,57 @@ final class Registrar {
 			)
 		);
 
+		// ── Content elements: Projects (پروژه‌ها) & Services (خدمات) ──
+		register_post_type(
+			'project',
+			array(
+				'labels'       => array(
+					'name'          => esc_html__( 'پروژه‌ها', 'neomorph-core' ),
+					'singular_name' => esc_html__( 'پروژه', 'neomorph-core' ),
+					'add_new_item'  => esc_html__( 'افزودن پروژه', 'neomorph-core' ),
+					'edit_item'     => esc_html__( 'ویرایش پروژه', 'neomorph-core' ),
+				),
+				'public'       => true,
+				'has_archive'  => 'projects',
+				'rewrite'      => array( 'slug' => 'projects' ),
+				'menu_icon'    => 'dashicons-portfolio',
+				'menu_position' => 21,
+				'show_in_rest' => true,
+				'supports'     => array( 'title', 'editor', 'excerpt', 'thumbnail', 'page-attributes' ),
+			)
+		);
+
+		register_taxonomy(
+			'project_category',
+			'project',
+			array(
+				'labels'       => array( 'name' => esc_html__( 'دسته‌بندی پروژه‌ها', 'neomorph-core' ) ),
+				'public'       => true,
+				'hierarchical' => true,
+				'rewrite'      => array( 'slug' => 'project-cat' ),
+				'show_in_rest' => true,
+			)
+		);
+
+		register_post_type(
+			'service',
+			array(
+				'labels'       => array(
+					'name'          => esc_html__( 'خدمات', 'neomorph-core' ),
+					'singular_name' => esc_html__( 'خدمت', 'neomorph-core' ),
+					'add_new_item'  => esc_html__( 'افزودن خدمت', 'neomorph-core' ),
+					'edit_item'     => esc_html__( 'ویرایش خدمت', 'neomorph-core' ),
+				),
+				'public'       => true,
+				'has_archive'  => 'services',
+				'rewrite'      => array( 'slug' => 'services' ),
+				'menu_icon'    => 'dashicons-hammer',
+				'menu_position' => 22,
+				'show_in_rest' => true,
+				'supports'     => array( 'title', 'editor', 'excerpt', 'thumbnail', 'page-attributes' ),
+			)
+		);
+
 		// ── Taxonomies ────────────────────────────────────────────
 		foreach (
 			array(

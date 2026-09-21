@@ -57,6 +57,7 @@ final class Plugin {
 
 		// Data layer.
 		PostTypes\Registrar::init();
+		Content\StylishMeta::init();
 
 		// Integrations (must load before automation/notifiers).
 		SettingsPage::init();

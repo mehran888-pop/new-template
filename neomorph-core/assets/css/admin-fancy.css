@@ -1,0 +1,149 @@
+/* ==========================================================================
+   Neomorph Core — fancy meta boxes for content elements (project/service).
+   Scoped strictly to .nmc-fancy-wrap — never touches other admin screens.
+   ========================================================================== */
+
+.nmc-fancy-wrap {
+	--np-bg: #f0f3fa;
+	--np-card: #ffffff;
+	--np-text: #2f3542;
+	--np-muted: #8a93a6;
+	--np-accent: #6c5ce7;
+	--np-accent-2: #00b894;
+	--np-inset: inset 2px 2px 6px rgba(163, 177, 198, .25), inset -2px -2px 6px rgba(255, 255, 255, .95);
+	--np-shadow: 0 10px 28px rgba(140, 152, 185, .18);
+	--np-shadow-sm: 0 4px 12px rgba(140, 152, 185, .14);
+	font-family: 'Vazirmatn', Tahoma, sans-serif;
+	color: var(--np-text);
+}
+
+/* Also style the meta box frame itself (only project/service screens load this file) */
+.postbox#nmc_project_meta .inside,
+.postbox#nmc_service_meta .inside {
+	background: transparent;
+}
+
+.nmc-fancy-wrap .neo-opt__grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 14px;
+}
+@media (max-width: 782px) {
+	.nmc-fancy-wrap .neo-opt__grid { grid-template-columns: 1fr; }
+}
+
+.nmc-fancy-wrap .neo-opt-field {
+	background: var(--np-bg);
+	box-shadow: var(--np-inset);
+	border-radius: 16px;
+	padding: 14px 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+.nmc-fancy-wrap .neo-opt-field--wide { grid-column: 1 / -1; }
+.nmc-fancy-wrap .neo-opt-field__head { display: flex; flex-direction: column; gap: 2px; }
+.nmc-fancy-wrap .neo-opt-field__label { font-weight: 800; font-size: 13px; }
+.nmc-fancy-wrap .neo-opt-field__hint { color: var(--np-muted); font-size: 11.5px; }
+
+.nmc-fancy-wrap .neo-input,
+.nmc-fancy-wrap .neo-textarea,
+.nmc-fancy-wrap .neo-input-sm {
+	width: 100%;
+	border: 0;
+	background: var(--np-card);
+	box-shadow: var(--np-shadow-sm);
+	border-radius: 12px;
+	padding: 9px 13px;
+	font-family: inherit;
+	font-size: 13px;
+	color: var(--np-text);
+}
+.nmc-fancy-wrap .neo-textarea { border-radius: 14px; resize: vertical; }
+.nmc-fancy-wrap .neo-input:focus,
+.nmc-fancy-wrap .neo-textarea:focus {
+	outline: 0;
+	box-shadow: var(--np-shadow-sm), 0 0 0 2px var(--np-accent);
+}
+.nmc-fancy-wrap .neo-input-sm { width: 110px; text-align: center; font-weight: 800; }
+
+/* Segmented pills */
+.nmc-fancy-wrap .neo-seg {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	background: var(--np-card);
+	box-shadow: var(--np-inset);
+	border-radius: 14px;
+	padding: 6px;
+}
+.nmc-fancy-wrap .neo-seg__opt { position: relative; margin: 0; flex: 1 1 auto; }
+.nmc-fancy-wrap .neo-seg__opt input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.nmc-fancy-wrap .neo-seg__opt span {
+	display: block;
+	text-align: center;
+	padding: 8px 12px;
+	border-radius: 10px;
+	font-size: 12.5px;
+	font-weight: 800;
+	color: var(--np-muted);
+	cursor: pointer;
+	transition: all .18s ease;
+}
+.nmc-fancy-wrap .neo-seg__opt input:checked + span {
+	background: var(--np-bg);
+	color: var(--np-accent);
+	box-shadow: var(--np-shadow-sm);
+}
+
+/* Toggle switch */
+.nmc-fancy-wrap .neo-switch {
+	display: inline-flex;
+	background: var(--np-card);
+	box-shadow: var(--np-inset);
+	border-radius: 999px;
+	padding: 5px;
+	gap: 4px;
+}
+.nmc-fancy-wrap .neo-switch__opt { position: relative; margin: 0; }
+.nmc-fancy-wrap .neo-switch__opt input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.nmc-fancy-wrap .neo-switch__opt span {
+	display: inline-block;
+	padding: 8px 22px;
+	border-radius: 999px;
+	font-size: 12.5px;
+	font-weight: 800;
+	color: var(--np-muted);
+	cursor: pointer;
+	transition: all .18s ease;
+}
+.nmc-fancy-wrap .neo-switch__opt input:checked + span {
+	background: linear-gradient(135deg, var(--np-accent), var(--np-accent-2));
+	color: #fff;
+	box-shadow: 0 5px 12px rgba(108, 92, 231, .35);
+}
+
+/* Repeater rows */
+.nmc-fancy-wrap .neo-rows { display: grid; gap: 10px; }
+.nmc-fancy-wrap .neo-rows__row {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	background: var(--np-card);
+	box-shadow: var(--np-shadow-sm);
+	border-radius: 14px;
+	padding: 10px 12px;
+}
+.nmc-fancy-wrap .neo-rows__handle { color: var(--np-muted); cursor: grab; }
+.nmc-fancy-wrap .neo-rows__row .neo-input { flex: 1; }
+.nmc-fancy-wrap .neo-rows__remove {
+	border: 0;
+	background: #ffe9e4;
+	color: #e17055;
+	width: 32px;
+	height: 32px;
+	border-radius: 10px;
+	cursor: pointer;
+	font-weight: 900;
+}
+.nmc-fancy-wrap .neo-rows__remove:hover { background: #e17055; color: #fff; }

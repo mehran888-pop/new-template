@@ -70,7 +70,7 @@ final class Dependencies {
 		if ( ! $missing ) {
 			return;
 		}
-		echo '<div class="notice notice-warning"><p><strong>' . esc_html__( 'نئومورف — پیش‌نیاز‌ها:', 'neomorph' ) . '</strong></p><ul>';
+		echo '<div class="notice notice-warning neomorph-deps"><p><strong>' . esc_html__( 'نئومورف — پیش‌نیاز‌ها:', 'neomorph' ) . '</strong></p><ul>';
 		foreach ( $missing as $file => $info ) {
 			$path    = explode( '/', $file );
 			$slug    = $path[0];
