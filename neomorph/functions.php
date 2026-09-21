@@ -45,6 +45,7 @@ require_once NEOMORPH_DIR . '/inc/class-template-tags.php';
 require_once NEOMORPH_DIR . '/inc/class-breadcrumbs.php';
 require_once NEOMORPH_DIR . '/inc/class-custom-fonts.php';
 require_once NEOMORPH_DIR . '/inc/class-dependencies.php';
+require_once NEOMORPH_DIR . '/inc/class-admin-extras.php';
 require_once NEOMORPH_DIR . '/inc/options/class-options.php';
 require_once NEOMORPH_DIR . '/inc/woocommerce/class-woocommerce.php';
 require_once NEOMORPH_DIR . '/inc/gravity-forms/class-gravity-forms.php';

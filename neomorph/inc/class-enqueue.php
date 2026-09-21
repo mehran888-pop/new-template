@@ -117,12 +117,32 @@ final class Enqueue {
 	}
 
 	/**
-	 * Admin assets for theme options + demo importer.
+	 * Admin assets for theme options + demo importer + wp-admin skin.
 	 *
 	 * @param string $hook Current admin page hook.
 	 */
 	public static function admin_assets( $hook ) {
-		$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+		// Professional wp-admin skin (all screens, toggle in theme options).
+		if ( neomorph_option( 'admin_style', '1' ) ) {
+			wp_enqueue_style( 'neomorph-admin-theme', NEOMORPH_URI . '/assets/css/admin-theme.css', array(), NEOMORPH_VERSION );
+			$density = neomorph_option( 'admin_density', 'comfortable' );
+			wp_add_inline_style(
+				'neomorph-admin-theme',
+				':root{--neoa-accent:' . ( neomorph_option( 'color_accent', '#6c5ce7' ) ) . ';--neoa-accent-2:' . ( neomorph_option( 'color_accent_2', '#00b894' ) ) . ';}'
+			);
+			add_filter(
+				'admin_body_class',
+				function ( $classes ) use ( $density ) {
+					$classes .= ' neo-admin-skin';
+					if ( 'compact' === $density ) {
+						$classes .= ' neo-admin-compact';
+					}
+					return $classes;
+				}
+			);
+		}
+
+		$screen  = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
 		$is_ours = ( false !== strpos( (string) $hook, 'neomorph' ) || ( $screen && in_array( $screen->id, array( 'appearance_page_neomorph-settings' ), true ) ) );
 		if ( ! $is_ours ) {
 			return;

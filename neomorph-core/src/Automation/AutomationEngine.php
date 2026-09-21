@@ -276,7 +276,7 @@ final class AutomationEngine {
 							<th><?php esc_html_e( 'رویداد', 'neomorph-core' ); ?></th>
 							<th><?php esc_html_e( 'شرط', 'neomorph-core' ); ?></th>
 							<th><?php esc_html_e( 'اقدام', 'neomorph-core' ); ?></th>
-							<th><?php esc_html_ex( 'گیرنده', 'neomorph-core' ); ?></th>
+							<th><?php esc_html_e( 'گیرنده', 'neomorph-core' ); ?></th>
 							<th><?php esc_html_e( 'متن پیام', 'neomorph-core' ); ?></th>
 						</tr>
 					</thead>

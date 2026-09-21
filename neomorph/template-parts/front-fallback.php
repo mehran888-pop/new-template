@@ -46,14 +46,15 @@ $hero_link     = neomorph_option( 'fallback_hero_link', class_exists( 'WooCommer
 	<h2 class="neo-section__title"><?php esc_html_e( 'آخرین مقالات', 'neomorph' ); ?></h2>
 	<div class="neo-grid neo-grid--3">
 		<?php
-		$posts = new WP_Query(
+		// NOTE: never use $posts / $post / $wp_query here — load_template() exports them as globals.
+		$neo_home_query = new WP_Query(
 			array(
 				'posts_per_page'      => 3,
 				'ignore_sticky_posts' => true,
 			)
 		);
-		while ( $posts->have_posts() ) :
-			$posts->the_post();
+		while ( $neo_home_query->have_posts() ) :
+			$neo_home_query->the_post();
 			get_template_part( 'template-parts/content', 'card' );
 		endwhile;
 		wp_reset_postdata();

@@ -50,6 +50,9 @@ final class Options {
 			'shadow_distance'      => '8',
 			'shadow_softness'      => '2',
 			'soft_style'           => 'light', // light|dark.
+			// Admin (پیشخوان).
+			'admin_style'          => '1', // professional wp-admin skin on/off.
+			'admin_density'        => 'comfortable', // comfortable|compact.
 			// Layout.
 			'site_layout'          => 'wide', // wide|boxed.
 			'container_width'      => '1200',
@@ -215,6 +218,23 @@ final class Options {
 						'choices' => array(
 							'light' => esc_html__( 'نئو روشن', 'neomorph' ),
 							'dark'  => esc_html__( 'نئو تیره', 'neomorph' ),
+						),
+					),
+					'admin_style'     => array(
+						'label'       => esc_html__( 'پوسته حرفه‌ای پیشخوان', 'neomorph' ),
+						'type'        => 'select',
+						'choices'     => array(
+							'1' => esc_html__( 'فعال (نئومورف)', 'neomorph' ),
+							'0' => esc_html__( 'غیرفعال (پیش‌فرض وردپرس)', 'neomorph' ),
+						),
+						'description' => esc_html__( 'منو، جدول‌ها، فرم‌ها و داشبورد وردپرس با ظاهر نرم و حرفه‌ای.', 'neomorph' ),
+					),
+					'admin_density'   => array(
+						'label'   => esc_html__( 'تراکم پیشخوان', 'neomorph' ),
+						'type'    => 'select',
+						'choices' => array(
+							'comfortable' => esc_html__( 'راحت', 'neomorph' ),
+							'compact'     => esc_html__( 'فشرده', 'neomorph' ),
 						),
 					),
 				),
@@ -493,7 +513,7 @@ final class Options {
 				$out[ $key ] = sanitize_textarea_field( $raw );
 				continue;
 			}
-			if ( in_array( $key, array( 'panel_page', 'invoice_page', 'login_page', 'register_page', 'shop_page', 'blog_page', 'interview_bg', 'font_size_base', 'radius', 'shadow_distance', 'shadow_softness', 'container_width', 'blog_excerpt_length' ), true ) ) {
+			if ( in_array( $key, array( 'panel_page', 'invoice_page', 'login_page', 'register_page', 'shop_page', 'blog_page', 'interview_bg', 'font_size_base', 'radius', 'shadow_distance', 'shadow_softness', 'container_width', 'blog_excerpt_length', 'admin_style' ), true ) ) {
 				$out[ $key ] = (int) $raw;
 				continue;
 			}
