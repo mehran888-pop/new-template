@@ -1,0 +1,90 @@
+[
+  {
+    "id": "ab_hero",
+    "elType": "section",
+    "settings": { "layout": "boxed" },
+    "elements": [
+      {
+        "id": "ab_col1",
+        "elType": "column",
+        "settings": { "_column_size": 100 },
+        "elements": [
+          {
+            "id": "ab_about",
+            "elType": "widget",
+            "widgetType": "neomorph-about",
+            "settings": {
+              "eyebrow": "درباره ما",
+              "title": "داستان ما",
+              "text": "از یک ایده‌ی ساده شروع شد: نرمی در طراحی نباید به بهای سادگی عملکرد تمام شود. امروز با تیمی متخصص، کسب‌وکارها را به ظاهری مدرن و زیرساختی قدرتمند مجهز می‌کنیم.",
+              "layout": "overlap",
+              "stats": [
+                { "number": "۵۰۰+", "label": "مشتری" },
+                { "number": "۹۸٪", "label": "رضایت" },
+                { "number": "۲۴/۷", "label": "پشتیبانی" }
+              ],
+              "neo_layout": "raised"
+            },
+            "elements": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ab_team",
+    "elType": "section",
+    "settings": { "layout": "boxed" },
+    "elements": [
+      {
+        "id": "ab_col2",
+        "elType": "column",
+        "settings": { "_column_size": 100 },
+        "elements": [
+          {
+            "id": "ab_team_w",
+            "elType": "widget",
+            "widgetType": "neomorph-team",
+            "settings": {
+              "title": "تیم ما",
+              "layout": "circles",
+              "members": [
+                { "name": "سارا محمدی", "role": "مدیر محصول" },
+                { "name": "علی رضایی", "role": "توسعه‌دهنده ارشد" },
+                { "name": "نگار کریمی", "role": "طراح UI/UX" }
+              ],
+              "neo_layout": "flat"
+            },
+            "elements": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ab_social",
+    "elType": "section",
+    "settings": { "layout": "boxed" },
+    "elements": [
+      {
+        "id": "ab_col3",
+        "elType": "column",
+        "settings": { "_column_size": 100 },
+        "elements": [
+          {
+            "id": "ab_social_w",
+            "elType": "widget",
+            "widgetType": "neomorph-social",
+            "settings": {
+              "title": "ما را دنبال کنید",
+              "layout": "pills",
+              "source": "theme",
+              "neo_layout": "pill"
+            },
+            "elements": []
+          }
+        ]
+      }
+    ]
+  }
+]

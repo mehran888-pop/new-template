@@ -1,0 +1,48 @@
+/*
+Theme Name: Neomorph
+Theme URI: https://example.com/neomorph
+Author: Neomorph Team
+Author URI: https://example.com
+Description: قالب حرفه‌ای و مدرن وردپرس با سبک نئومورفیسم (Neomorphism) — سازگار با المنتور، ووکامرس و گراویتی فرم. دارای پنل مشتری، OTP، باشگاه مشتریان، فاکتور، تیکت، CRM و سیستم استخدام مرحله‌ای (همراه با افزونه Neomorph Core).
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.7
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: neomorph
+Domain Path: /languages
+Tags: e-commerce, custom-colors, custom-menu, custom-logo, featured-images, rtl-language-support, threaded-comments, translation-ready, elementor, woocommerce
+*/
+
+/*
+ * فایل اصلی استایل در assets/css/neomorph.css بارگذاری می‌شود.
+ * این فایل صرفاً هدر قالب و استایل‌های پایه چاپ را نگه می‌دارد.
+ */
+
+.alignright { float: right; margin: 0 0 1.5rem 1.5rem; }
+.alignleft  { float: left;  margin: 0 1.5rem 1.5rem 0; }
+.aligncenter{ display: block; margin-right: auto; margin-left: auto; }
+
+.screen-reader-text {
+	border: 0;
+	clip-path: inset(50%);
+	height: 1px;
+	width: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	word-wrap: normal !important;
+}
+
+.skip-link {
+	position: absolute;
+	right: -9999rem;
+	z-index: 999999999;
+}
+.skip-link:focus {
+	right: 1rem;
+	top: 1rem;
+	padding: .8rem 1.4rem;
+}

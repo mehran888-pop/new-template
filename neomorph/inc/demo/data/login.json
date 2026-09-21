@@ -1,0 +1,31 @@
+[
+  {
+    "id": "lg_sec",
+    "elType": "section",
+    "settings": { "layout": "full_width", "height": "min-height", "height_custom": { "unit": "vh", "size": 80 }, "content_position": "middle" },
+    "elements": [
+      {
+        "id": "lg_col",
+        "elType": "column",
+        "settings": { "_column_size": 100 },
+        "elements": [
+          {
+            "id": "lg_w",
+            "elType": "widget",
+            "widgetType": "neomorph-login",
+            "settings": {
+              "title": "ورود به حساب کاربری",
+              "subtitle": "با شماره موبایل و کد یک‌بار مصرف وارد شوید",
+              "methods": ["otp", "password"],
+              "layout": "card",
+              "register_text": "حساب ندارید؟ ثبت‌نام کنید",
+              "register_link": { "url": "/register/", "is_external": "", "nofollow": "" },
+              "neo_layout": "raised"
+            },
+            "elements": []
+          }
+        ]
+      }
+    ]
+  }
+]

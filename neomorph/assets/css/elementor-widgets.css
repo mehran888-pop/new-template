@@ -1,0 +1,112 @@
+/* ==========================================================================
+   Neomorph — Elementor widgets front-end styles
+   ========================================================================== */
+
+.neo-widget { position: relative; }
+
+/* Header widget (theme builder) */
+.neo-header-widget {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	margin: 0;
+}
+.neo-header-widget.is-sticky { position: sticky; top: 0; z-index: 200; }
+.neo-header-widget__inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1.25rem;
+	width: 100%;
+	flex-wrap: wrap;
+}
+.neo-header-widget--centered .neo-header-widget__inner { flex-direction: column; }
+.neo-header-widget--floating {
+	border-radius: 999px;
+	margin: 1rem auto;
+	max-width: 1100px;
+	width: calc(100% - 2rem);
+}
+.neo-header-widget__logo { max-height: 48px; }
+.neo-header-widget__title { font-weight: 900; font-size: 1.3rem; color: var(--neo-text); }
+.neo-header-widget__menu ul { list-style: none; display: flex; gap: .35rem; margin: 0; padding: 0; flex-wrap: wrap; }
+.neo-header-widget__menu a {
+	display: inline-block;
+	padding: .55rem 1.05rem;
+	border-radius: 999px;
+	color: var(--neo-text);
+	font-weight: 700;
+	transition: box-shadow .25s ease;
+}
+.neo-header-widget__menu a:hover, .neo-header-widget__menu .current-menu-item > a {
+	box-shadow: var(--neo-shadow-inset);
+	color: var(--neo-accent);
+}
+.neo-header-widget__actions { display: flex; gap: .55rem; align-items: center; }
+
+/* Footer widget */
+.neo-footer-widget { width: 100%; margin-top: 2.5rem; }
+.neo-footer-widget__grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1.75rem;
+}
+.neo-footer-widget--2col .neo-footer-widget__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.neo-footer-widget--1col .neo-footer-widget__grid,
+.neo-footer-widget--centered .neo-footer-widget__grid { grid-template-columns: 1fr; text-align: center; }
+.neo-footer-widget--centered .neo-footer-widget__social { justify-content: center; }
+@media (max-width: 800px) { .neo-footer-widget__grid { grid-template-columns: 1fr !important; } }
+.neo-footer-widget__menu ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; }
+.neo-footer-widget__menu a { color: var(--neo-muted); }
+.neo-footer-widget__menu a:hover { color: var(--neo-accent); }
+.neo-footer-widget__social { display: flex; gap: .55rem; flex-wrap: wrap; align-content: start; }
+.neo-footer-widget__bottom {
+	margin-top: 1.75rem;
+	padding-top: 1.1rem;
+	box-shadow: inset 0 6px 12px -10px var(--neo-dark);
+}
+.neo-footer-widget__copy { margin: 0; text-align: center; color: var(--neo-muted); font-size: .85rem; }
+
+/* Services variants */
+.neo-services--circles .neo-service-card__icon { width: 110px; height: 110px; }
+.neo-services--list .neo-services__grid { grid-template-columns: 1fr; }
+.neo-services--list .neo-service-card { display: flex; gap: 1.25rem; text-align: start; align-items: center; }
+.neo-services--list .neo-service-card__icon { margin: 0; flex: 0 0 84px; }
+.neo-services--tabs .neo-service-card { cursor: pointer; }
+
+/* Team horizontal */
+.neo-team--horizontal .neo-team__grid {
+	display: flex;
+	overflow-x: auto;
+	gap: 1.5rem;
+	padding-bottom: .75rem;
+	scroll-snap-type: x mandatory;
+}
+.neo-team--horizontal .neo-team-card { min-width: 240px; scroll-snap-align: start; }
+.neo-team--circles .neo-team-card__photo { width: 170px; height: 170px; }
+
+/* About overlap */
+.neo-about--overlap .neo-about__media {
+	margin: -3rem 0;
+	z-index: 2;
+}
+@media (min-width: 901px) {
+	.neo-about--overlap .neo-about__grid { align-items: start; }
+	.neo-about--overlap .neo-about__media { margin-top: -4rem; }
+}
+
+/* Posts featured layout */
+.neo-posts--featured .neo-grid { grid-template-columns: 1.4fr 1fr; }
+.neo-posts--featured .neo-post-card:first-child { grid-row: span 2; }
+.neo-posts--masonry .neo-grid { align-items: start; }
+@media (max-width: 800px) { .neo-posts--featured .neo-grid { grid-template-columns: 1fr; } }
+
+/* Jobs */
+.neo-jobs--accordion .neo-job-card summary { cursor: pointer; font-weight: 800; }
+.neo-steps { margin-bottom: 2rem; }
+
+/* Cart widget */
+.neo-cart--mini { position: relative; }
+
+/* Panel widget wrapper */
+.neo-panel-widget-wrap { width: 100%; }

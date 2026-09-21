@@ -1,0 +1,28 @@
+[
+  {
+    "id": "cs_sec",
+    "elType": "section",
+    "settings": { "layout": "boxed" },
+    "elements": [
+      {
+        "id": "cs_col",
+        "elType": "column",
+        "settings": { "_column_size": 100 },
+        "elements": [
+          {
+            "id": "cs_panel",
+            "elType": "widget",
+            "widgetType": "neomorph-panel",
+            "settings": {
+              "layout": "cards",
+              "tabs": ["consulting", "tickets"],
+              "guest_view": "login",
+              "neo_layout": "raised"
+            },
+            "elements": []
+          }
+        ]
+      }
+    ]
+  }
+]

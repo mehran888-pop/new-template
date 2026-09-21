@@ -1,0 +1,15 @@
+/* Neomorph admin (theme options) */
+.neomorph-settings__title { font-size: 1.6rem; font-weight: 900; }
+.neomorph-settings__desc { color: #666; max-width: 760px; }
+.neo-surface-admin {
+	background: #fff;
+	border: 1px solid #e2e6ee;
+	border-radius: 18px;
+	padding: 22px 26px;
+	box-shadow: 0 6px 18px rgba(150, 160, 180, .12);
+}
+.neomorph-social-row { display: flex; gap: 10px; margin-bottom: 10px; }
+.neomorph-social-row input { flex: 1; }
+.neomorph-settings .form-table th { width: 220px; }
+.neomorph-settings .nav-tab { border-radius: 999px 999px 0 0; }
+.wp-picker-container { direction: ltr; }

@@ -1,0 +1,33 @@
+[
+  {
+    "id": "rg_sec",
+    "elType": "section",
+    "settings": { "layout": "full_width", "height": "min-height", "height_custom": { "unit": "vh", "size": 80 }, "content_position": "middle" },
+    "elements": [
+      {
+        "id": "rg_col",
+        "elType": "column",
+        "settings": { "_column_size": 100 },
+        "elements": [
+          {
+            "id": "rg_w",
+            "elType": "widget",
+            "widgetType": "neomorph-register",
+            "settings": {
+              "title": "ساخت حساب کاربری",
+              "subtitle": "ثبت‌نام با شماره موبایل و کد تأیید — عضو باشگاه مشتریان شوید",
+              "fields": ["first_name", "last_name", "phone", "email", "password"],
+              "loyalty_notice": "yes",
+              "loyalty_text": "با ثبت‌نام، عضو باشگاه مشتریان می‌شوید و امتیاز هدیه بگیرید.",
+              "terms": "قوانین و مقررات را می‌پذیرم",
+              "login_text": "قبلاً ثبت‌نام کرده‌اید؟ ورود",
+              "login_link": { "url": "/login/", "is_external": "", "nofollow": "" },
+              "neo_layout": "raised"
+            },
+            "elements": []
+          }
+        ]
+      }
+    ]
+  }
+]

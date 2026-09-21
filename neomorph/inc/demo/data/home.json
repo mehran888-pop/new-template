@@ -1,0 +1,198 @@
+[
+  {
+    "id": "neo_hero_sec",
+    "elType": "section",
+    "settings": { "layout": "full_width", "background_background": "classic", "background_color": "#E8EDF5", "padding": { "unit": "px", "top": "40", "right": "20", "bottom": "40", "left": "20", "isLinked": false } },
+    "elements": [
+      {
+        "id": "neo_hero_col",
+        "elType": "column",
+        "settings": { "_column_size": 100 },
+        "elements": [
+          {
+            "id": "neo_hero_w",
+            "elType": "widget",
+            "widgetType": "neomorph-hero",
+            "settings": {
+              "eyebrow": "نئومورف | طراحی نرم، تجربه دلپذیر",
+              "title": "کسب‌وکار شما، با ظاهری <span>نرم و مدرن</span>",
+              "subtitle": "قالب وردپرس نئومورف — سازگار با المنتور، ووکامرس و گراویتی فرم. پنل مشتری، باشگاه مشتریان، فاکتور و CRM داخلی.",
+              "btn1_text": "مشاهده فروشگاه",
+              "btn1_link": { "url": "/shop/", "is_external": "", "nofollow": "" },
+              "btn2_text": "خدمات ما",
+              "btn2_link": { "url": "#home-services", "is_external": "", "nofollow": "" },
+              "layout": "split",
+              "shape": "blobs",
+              "neo_layout": "raised"
+            },
+            "elements": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "neo_serv_sec",
+    "elType": "section",
+    "settings": { "layout": "boxed", "padding": { "unit": "px", "top": "30", "right": "0", "bottom": "30", "left": "0", "isLinked": false } },
+    "elements": [
+      {
+        "id": "neo_serv_col",
+        "elType": "column",
+        "settings": { "_column_size": 100 },
+        "elements": [
+          {
+            "id": "neo_serv_w",
+            "elType": "widget",
+            "widgetType": "neomorph-services",
+            "settings": {
+              "title": "خدمات ما",
+              "subtitle": "خدمات حرفه‌ای با چیدمان‌های متنوع نئومورف",
+              "layout": "grid",
+              "columns": "3",
+              "neo_layout": "flat",
+              "services": [
+                { "icon": "💻", "title": "طراحی وب", "text": "سایت و فروشگاه اختصاصی با سبک نئومورفیسم." },
+                { "icon": "🚀", "title": "سئو و رشد", "text": "افزایش ورودی ارگانیک و بهینه‌سازی مداوم." },
+                { "icon": "🛟", "title": "پشتیبانی", "text": "تیکت، مشاوره و پشتیبانی حرفه‌ای." }
+              ]
+            },
+            "elements": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "neo_prod_sec",
+    "elType": "section",
+    "settings": { "layout": "boxed" },
+    "elements": [
+      {
+        "id": "neo_prod_col",
+        "elType": "column",
+        "settings": { "_column_size": 100 },
+        "elements": [
+          {
+            "id": "neo_prod_w",
+            "elType": "widget",
+            "widgetType": "neomorph-products",
+            "settings": { "title": "محصولات ویژه", "source": "featured", "count": 4, "columns": "4", "card_style": "raised", "neo_layout": "flat" },
+            "elements": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "neo_about_sec",
+    "elType": "section",
+    "settings": { "layout": "boxed" },
+    "elements": [
+      {
+        "id": "neo_about_col",
+        "elType": "column",
+        "settings": { "_column_size": 100 },
+        "elements": [
+          {
+            "id": "neo_about_w",
+            "elType": "widget",
+            "widgetType": "neomorph-about",
+            "settings": {
+              "eyebrow": "درباره ما",
+              "title": "نرمی در طراحی، جدی در کیفیت",
+              "text": "ما محصولات و خدماتی می‌سازیم که ظاهری آرام و مدرن دارند و در باطن، معماری تمیز و مقیاس‌پذیر.",
+              "layout": "image-side",
+              "stats": [
+                { "number": "۵۰۰+", "label": "مشتری راضی" },
+                { "number": "۱۲۰+", "label": "پروژه موفق" },
+                { "number": "۸", "label": "سال تجربه" }
+              ],
+              "neo_layout": "raised"
+            },
+            "elements": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "neo_team_sec",
+    "elType": "section",
+    "settings": { "layout": "boxed" },
+    "elements": [
+      {
+        "id": "neo_team_col",
+        "elType": "column",
+        "settings": { "_column_size": 100 },
+        "elements": [
+          {
+            "id": "neo_team_w",
+            "elType": "widget",
+            "widgetType": "neomorph-team",
+            "settings": {
+              "title": "تیم ما",
+              "layout": "cards",
+              "members": [
+                { "name": "سارا محمدی", "role": "مدیر محصول" },
+                { "name": "علی رضایی", "role": "توسعه‌دهنده ارشد" },
+                { "name": "نگار کریمی", "role": "طراح UI/UX" },
+                { "name": "امیر حسینی", "role": "پشتیبانی" }
+              ],
+              "neo_layout": "flat"
+            },
+            "elements": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "neo_post_sec",
+    "elType": "section",
+    "settings": { "layout": "boxed" },
+    "elements": [
+      {
+        "id": "neo_post_col",
+        "elType": "column",
+        "settings": { "_column_size": 100 },
+        "elements": [
+          {
+            "id": "neo_post_w",
+            "elType": "widget",
+            "widgetType": "neomorph-posts",
+            "settings": { "title": "آخرین مقالات", "count": 3, "columns": "3", "layout": "cards", "neo_layout": "flat" },
+            "elements": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "neo_contact_sec",
+    "elType": "section",
+    "settings": { "layout": "boxed" },
+    "elements": [
+      {
+        "id": "neo_contact_col",
+        "elType": "column",
+        "settings": { "_column_size": 100 },
+        "elements": [
+          {
+            "id": "neo_contact_w",
+            "elType": "widget",
+            "widgetType": "neomorph-contact",
+            "settings": {
+              "title": "ارتباط با ما",
+              "subtitle": "پیام بگذارید یا با ما تماس بگیرید",
+              "layout": "side-by-side",
+              "form_source": "native",
+              "neo_layout": "raised"
+            },
+            "elements": []
+          }
+        ]
+      }
+    ]
+  }
+]

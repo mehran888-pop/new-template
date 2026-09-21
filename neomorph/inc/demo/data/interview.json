@@ -1,0 +1,30 @@
+[
+  {
+    "id": "iv_sec",
+    "elType": "section",
+    "settings": { "layout": "boxed" },
+    "elements": [
+      {
+        "id": "iv_col",
+        "elType": "column",
+        "settings": { "_column_size": 100 },
+        "elements": [
+          {
+            "id": "iv_jobs",
+            "elType": "widget",
+            "widgetType": "neomorph-jobs",
+            "settings": {
+              "title": "مصاحبه ویدیویی",
+              "subtitle": "پس از غربالگری و امتیازدهی خودکار رزومه‌ها، دعوت به مصاحبه ویدیویی ارسال می‌شود. لینک اختصاصی مصاحبه خود را از پیامک دریافتی باز کنید.",
+              "layout": "cards",
+              "count": 3,
+              "show_apply": "no",
+              "neo_layout": "raised"
+            },
+            "elements": []
+          }
+        ]
+      }
+    ]
+  }
+]

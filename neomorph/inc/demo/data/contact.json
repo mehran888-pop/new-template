@@ -1,0 +1,52 @@
+[
+  {
+    "id": "ct_sec",
+    "elType": "section",
+    "settings": { "layout": "boxed" },
+    "elements": [
+      {
+        "id": "ct_col",
+        "elType": "column",
+        "settings": { "_column_size": 100 },
+        "elements": [
+          {
+            "id": "ct_w",
+            "elType": "widget",
+            "widgetType": "neomorph-contact",
+            "settings": {
+              "title": "ارتباط با ما",
+              "subtitle": "هر سؤالی دارید، ما اینجاییم. فرم زیر را پر کنید یا مستقیم تماس بگیرید.",
+              "layout": "cards-top",
+              "form_source": "gravity",
+              "phone": "",
+              "email": "",
+              "neo_layout": "raised"
+            },
+            "elements": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ct_social",
+    "elType": "section",
+    "settings": { "layout": "boxed" },
+    "elements": [
+      {
+        "id": "ct_col2",
+        "elType": "column",
+        "settings": { "_column_size": 100 },
+        "elements": [
+          {
+            "id": "ct_sw",
+            "elType": "widget",
+            "widgetType": "neomorph-social",
+            "settings": { "layout": "circles", "source": "theme", "neo_layout": "flat" },
+            "elements": []
+          }
+        ]
+      }
+    ]
+  }
+]

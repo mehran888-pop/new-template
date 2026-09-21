@@ -1,0 +1,18 @@
+/* Neomorph Core admin */
+.nmc-admin h1 { font-weight: 900; }
+.nmc-stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin: 18px 0; }
+.nmc-stat { background: #fff; border: 1px solid #e3e8f0; border-radius: 18px; padding: 18px; text-align: center; box-shadow: 0 5px 14px rgba(150,160,180,.10); }
+.nmc-stat__num { display: block; font-size: 1.7rem; font-weight: 900; color: #6c5ce7; }
+.nmc-stat__label { color: #7b8494; font-size: .85rem; }
+.nmc-settings-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 18px; }
+.nmc-card { background: #fff; border: 1px solid #e3e8f0; border-radius: 18px; padding: 20px 22px; box-shadow: 0 5px 14px rgba(150,160,180,.10); }
+.nmc-card label { display: block; margin-bottom: 10px; font-weight: 600; }
+.nmc-card input, .nmc-card select, .nmc-card textarea { margin-top: 4px; }
+.nmc-crm-layout { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 18px; align-items: start; margin-top: 12px; }
+@media (max-width: 1200px) { .nmc-crm-layout { grid-template-columns: 1fr; } }
+.nmc-thread { display: grid; gap: 10px; }
+.nmc-msg { border-radius: 14px; padding: 10px 14px; background: #f5f7fb; }
+.nmc-msg--staff { background: #eef0ff; }
+.nmc-msg__time { color: #98a2b3; font-size: .78rem; margin-inline-start: 8px; }
+.nmc-stages-list { display: grid; gap: 10px; padding-inline-start: 20px; }
+.nmc-pipeline h4 { margin-bottom: 6px; }

@@ -1,0 +1,31 @@
+[
+  {
+    "id": "cr_sec",
+    "elType": "section",
+    "settings": { "layout": "boxed" },
+    "elements": [
+      {
+        "id": "cr_col",
+        "elType": "column",
+        "settings": { "_column_size": 100 },
+        "elements": [
+          {
+            "id": "cr_jobs",
+            "elType": "widget",
+            "widgetType": "neomorph-jobs",
+            "settings": {
+              "title": "به تیم ما بپیوندید",
+              "subtitle": "فرایند استخدام ما مرحله‌ای و مدرن است: از ارسال رزومه تا مصاحبه ویدیویی، با امتیازدهی خودکار و شفاف.",
+              "layout": "timeline",
+              "count": 6,
+              "show_apply": "yes",
+              "show_steps": "yes",
+              "neo_layout": "raised"
+            },
+            "elements": []
+          }
+        ]
+      }
+    ]
+  }
+]

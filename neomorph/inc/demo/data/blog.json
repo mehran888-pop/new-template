@@ -1,0 +1,29 @@
+[
+  {
+    "id": "bl_sec",
+    "elType": "section",
+    "settings": { "layout": "boxed" },
+    "elements": [
+      {
+        "id": "bl_col",
+        "elType": "column",
+        "settings": { "_column_size": 100 },
+        "elements": [
+          {
+            "id": "bl_posts",
+            "elType": "widget",
+            "widgetType": "neomorph-posts",
+            "settings": {
+              "title": "مقالات و آموزش",
+              "count": 9,
+              "columns": "3",
+              "layout": "masonry",
+              "neo_layout": "flat"
+            },
+            "elements": []
+          }
+        ]
+      }
+    ]
+  }
+]

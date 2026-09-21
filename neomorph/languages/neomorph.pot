@@ -1,0 +1,38 @@
+# Copyright (C) 2026 Neomorph
+# This file is distributed under the GNU GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Neomorph 1.0.0\n"
+"Report-Msgid-Bugs-To: https://example.com/neomorph\n"
+"POT-Creation-Date: 2026-09-21 00:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language-Team: Neomorph\n"
+"X-Generator: Neomorph\n"
+"Language: fa_IR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "منوی اصلی"
+msgstr ""
+
+msgid "پنل من"
+msgstr ""
+
+msgid "ورود | ثبت‌نام"
+msgstr ""
+
+msgid "خدمات ما"
+msgstr ""
+
+msgid "تیم ما"
+msgstr ""
+
+msgid "درباره ما"
+msgstr ""
+
+msgid "تماس با ما"
+msgstr ""
+
+msgid "صفحه اصلی"
+msgstr ""

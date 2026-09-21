@@ -1,0 +1,141 @@
+/* ==========================================================================
+   Neomorph — Gravity Forms neumorphism
+   ========================================================================== */
+
+.gform_wrapper {
+	background: transparent;
+	max-width: 100%;
+}
+.gform_wrapper .gform_heading .gform_title {
+	font-family: var(--neo-font-heading, inherit);
+	font-weight: 800;
+	font-size: 1.3rem;
+	color: var(--neo-text);
+}
+.gform_wrapper .gfield {
+	margin-top: 1.15rem;
+}
+.gform_wrapper .gfield_label {
+	font-weight: 700;
+	font-size: .92rem;
+	color: var(--neo-text);
+	margin-bottom: .45rem;
+	display: block;
+}
+.gform_wrapper .gfield_required { color: #e17055; }
+.gform_wrapper input[type=text],
+.gform_wrapper input[type=email],
+.gform_wrapper input[type=tel],
+.gform_wrapper input[type=url],
+.gform_wrapper input[type=number],
+.gform_wrapper input[type=password],
+.gform_wrapper input[type=phone],
+.gform_wrapper textarea,
+.gform_wrapper select {
+	width: 100%;
+	border: 0;
+	font-family: inherit;
+	font-size: 1rem;
+	color: var(--neo-text);
+	background: var(--neo-bg);
+	border-radius: 999px;
+	box-shadow: var(--neo-shadow-inset);
+	padding: .85rem 1.35rem;
+	outline: none;
+	transition: box-shadow .25s ease;
+}
+.gform_wrapper textarea { border-radius: var(--neo-radius, 24px); resize: vertical; }
+.gform_wrapper input:focus, .gform_wrapper textarea:focus, .gform_wrapper select:focus {
+	box-shadow: var(--neo-shadow-inset), 0 0 0 2px var(--neo-accent);
+}
+.gform_wrapper .gfield_checkbox label,
+.gform_wrapper .gfield_radio label {
+	display: flex;
+	gap: .55rem;
+	align-items: center;
+	font-weight: 600;
+	color: var(--neo-text);
+	padding: .55rem .95rem;
+	border-radius: 999px;
+	box-shadow: var(--neo-shadow-sm);
+	background: var(--neo-bg);
+	margin-bottom: .55rem;
+	cursor: pointer;
+	transition: box-shadow .25s ease;
+}
+.gform_wrapper .gfield_checkbox label:hover,
+.gform_wrapper .gfield_radio label:hover { box-shadow: var(--neo-shadow-inset); }
+.gform_wrapper input[type=checkbox], .gform_wrapper input[type=radio] {
+	width: 1.15rem;
+	height: 1.15rem;
+	box-shadow: none;
+	border-radius: 6px;
+	accent-color: var(--neo-accent);
+}
+.gform_wrapper .gform_footer input[type=submit],
+.gform_wrapper .gform_page_footer input[type=submit],
+.gform_wrapper .gform_button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border: 0;
+	cursor: pointer;
+	font-family: inherit;
+	font-size: 1rem;
+	font-weight: 800;
+	color: #fff !important;
+	background: linear-gradient(135deg, var(--neo-accent), var(--neo-accent-2));
+	border-radius: 999px;
+	padding: .85rem 2.1rem;
+	box-shadow: 6px 6px 14px var(--neo-dark), -4px -4px 10px var(--neo-light);
+	transition: filter .25s ease, transform .1s ease;
+}
+.gform_wrapper .gform_button:hover { filter: brightness(1.08); }
+.gform_wrapper .gform_button:active { transform: translateY(1px); box-shadow: var(--neo-shadow-inset); }
+.gform_wrapper .validation_message {
+	background: var(--neo-bg);
+	box-shadow: var(--neo-shadow-inset);
+	border-radius: var(--neo-radius-sm, 16px);
+	padding: .6rem 1rem;
+	color: #e17055;
+	font-size: .85rem;
+	font-weight: 700;
+}
+.gform_wrapper .gfield_error input, .gform_wrapper .gfield_error textarea {
+	box-shadow: var(--neo-shadow-inset), 0 0 0 2px #e17055;
+}
+.gform_wrapper .gf_progressbar {
+	background: var(--neo-bg);
+	box-shadow: var(--neo-shadow-inset);
+	border-radius: 999px;
+	height: 14px;
+	overflow: hidden;
+}
+.gform_wrapper .gf_progressbar_percentage {
+	background: linear-gradient(90deg, var(--neo-accent), var(--neo-accent-2));
+	border-radius: 999px;
+}
+.gform_wrapper .gf_page_steps {
+	display: flex;
+	gap: .5rem;
+	list-style: none;
+	padding: 0;
+	flex-wrap: wrap;
+}
+.gform_wrapper .gf_step {
+	background: var(--neo-bg);
+	box-shadow: var(--neo-shadow-sm);
+	border-radius: 999px;
+	padding: .4rem .9rem;
+	font-size: .82rem;
+	font-weight: 700;
+}
+.gform_wrapper .gf_step_active { box-shadow: var(--neo-shadow-inset); color: var(--neo-accent); }
+.gform_wrapper .gfield_description { color: var(--neo-muted); font-size: .82rem; margin-top: .35rem; }
+.gform_wrapper .gform_confirmation_message {
+	background: var(--neo-bg);
+	box-shadow: var(--neo-shadow);
+	border-radius: var(--neo-radius, 24px);
+	padding: 1.5rem;
+	font-weight: 700;
+}

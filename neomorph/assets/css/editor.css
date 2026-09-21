@@ -1,0 +1,9 @@
+/* Editor (Gutenberg) minimal neo look */
+.editor-styles-wrapper {
+	background: #e8edf5;
+	color: #2f3542;
+	font-family: 'Vazirmatn', Tahoma, sans-serif;
+}
+.editor-styles-wrapper .wp-block {
+	max-width: 780px;
+}
