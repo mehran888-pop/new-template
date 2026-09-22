@@ -900,6 +900,238 @@
 	gap: 8px;
 }
 
+.nv-member__hint {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 0.74rem;
+	line-height: 1.6;
+	color: var(--nv-muted);
+}
+
+.nv-member__hint svg {
+	width: 15px;
+	height: 15px;
+	fill: var(--nv-secondary);
+}
+
+/* ---- پاپ‌آپ رزومه در هاور ---- */
+
+.nv-member--hover {
+	overflow: visible;
+}
+
+.nv-member--hover:hover,
+.nv-member--hover:focus-within {
+	z-index: 50;
+}
+
+.nv-member__popup {
+	--nv-popup-offset: 14px;
+	position: absolute;
+	inset: calc(-1 * var(--nv-popup-offset));
+	z-index: 60;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: var(--nv-popup-offset);
+	border-radius: calc(var(--nv-radius) + var(--nv-popup-offset));
+	background-color: rgba(6, 8, 22, 0.72);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	transition-property: opacity, transform, visibility;
+	transition-duration: 420ms;
+	transition-timing-function: cubic-bezier(0.2, 0.9, 0.2, 1);
+	transform-origin: center center;
+}
+
+.nv-member--hover:hover .nv-member__popup,
+.nv-member--hover:focus-within .nv-member__popup {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+}
+
+/* جلوه: عمق سه‌بعدی */
+.nv-member--hover-depth .nv-member__popup {
+	transform: perspective(1000px) rotateX(14deg) translateZ(-60px) scale(0.94);
+}
+
+/* جلوه: برگشت سه‌بعدی */
+.nv-member--hover-flip .nv-member__popup {
+	transform: perspective(1400px) rotateY(-92deg);
+}
+
+/* جلوه: سر خوردن از پایین */
+.nv-member--hover-slide .nv-member__popup {
+	transform: translateY(34px);
+}
+
+/* جلوه: بزرگ شدن از مرکز */
+.nv-member--hover-scale .nv-member__popup {
+	transform: scale(0.84);
+}
+
+.nv-member--hover:hover .nv-member__popup,
+.nv-member--hover:focus-within .nv-member__popup {
+	transform: none;
+}
+
+.nv-member__popup-inner {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	width: 100%;
+	max-height: 620px;
+	padding: 22px;
+	border-radius: var(--nv-radius);
+	border: 1px solid rgba(139, 124, 255, 0.4);
+	background: linear-gradient(160deg, rgba(12, 16, 34, 0.96), rgba(7, 8, 19, 0.96));
+	box-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+	overflow: hidden;
+}
+
+.nv-member__popup-head {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding-bottom: 12px;
+	border-bottom: 1px solid var(--nv-border);
+}
+
+.nv-member__popup-avatar {
+	flex: 0 0 54px;
+	width: 54px;
+	height: 54px;
+	border-radius: 50%;
+	overflow: hidden;
+	border: 2px solid rgba(139, 124, 255, 0.5);
+	background: linear-gradient(140deg, rgba(109, 94, 252, 0.5), rgba(34, 211, 238, 0.35));
+}
+
+.nv-member__popup-avatar img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.nv-member__popup-avatar--empty {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.nv-member__popup-avatar--empty svg {
+	width: 26px;
+	height: 26px;
+	fill: rgba(255, 255, 255, 0.6);
+}
+
+.nv-member__popup-id {
+	display: grid;
+	gap: 2px;
+	flex: 1;
+	min-width: 0;
+}
+
+.nv-member__popup-id strong {
+	font-size: 0.96rem;
+	line-height: 1.4;
+	color: var(--nv-text);
+}
+
+.nv-member__popup-id em {
+	font-style: normal;
+	font-size: 0.78rem;
+	color: var(--nv-secondary);
+}
+
+.nv-member__popup-body {
+	display: grid;
+	gap: 16px;
+	align-content: start;
+	flex: 1;
+	min-height: 0;
+	padding-inline-end: 4px;
+	overflow-y: auto;
+	overscroll-behavior: contain;
+	scrollbar-width: thin;
+	scrollbar-color: rgba(139, 124, 255, 0.55) transparent;
+}
+
+.nv-member__popup-body::-webkit-scrollbar {
+	width: 6px;
+}
+
+.nv-member__popup-body::-webkit-scrollbar-thumb {
+	border-radius: 999px;
+	background: rgba(139, 124, 255, 0.55);
+}
+
+.nv-member__popup-body .nv-profile__quote {
+	padding: 12px 14px;
+	font-size: 0.82rem;
+	line-height: 1.85;
+}
+
+.nv-member__popup-body .nv-profile__section h4 {
+	margin-bottom: 8px;
+	font-size: 0.9rem;
+}
+
+.nv-member__popup-body .nv-profile__section-body,
+.nv-member__popup-body .nv-profile__list li,
+.nv-member__popup-body .nv-timeline__title {
+	font-size: 0.8rem;
+}
+
+.nv-member__popup-body .nv-profile__list li {
+	padding: 8px 12px;
+}
+
+.nv-member__popup-body .nv-profile__contact {
+	gap: 8px;
+	padding-top: 0;
+	border-top: 0;
+}
+
+.nv-member__popup-foot {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding-top: 12px;
+	border-top: 1px solid var(--nv-border);
+}
+
+.nv-member__popup-foot .nv-socials {
+	margin: 0;
+}
+
+.nv-member--popup-noscroll .nv-member__popup-inner {
+	max-height: none !important;
+}
+
+.nv-member--popup-noscroll .nv-member__popup-body {
+	overflow: visible;
+}
+
+/* دستگاه‌های لمسی: پاپ‌آپ هاور غیرفعال و پنجره با لمس کارت باز می‌شود */
+@media (hover: none) {
+	.nv-member__popup {
+		display: none;
+	}
+}
+
+/* ویرایشگر المنتور: پاپ‌آپ دیده می‌شود اما مانع انتخاب المان نمی‌شود */
+.nv-editor-mode .nv-member__popup,
+html.nv-editor-mode .nv-member__popup {
+	pointer-events: none !important;
+}
+
 /* حالت ردیفی */
 .nv-member--list {
 	display: flex;

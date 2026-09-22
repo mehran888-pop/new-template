@@ -483,11 +483,10 @@ class Team extends Novin_AI_Widget_Base {
 			'show_socials'    => esc_html__( 'شبکه‌های اجتماعی', 'novin-ai' ),
 			'show_badge'      => esc_html__( 'برچسب تجربه روی تصویر', 'novin-ai' ),
 			'show_resume_btn' => esc_html__( 'دکمه دانلود رزومه', 'novin-ai' ),
-			'show_modal'      => esc_html__( 'دکمه «مشاهده رزومه کامل»', 'novin-ai' ),
 		);
 
 		foreach ( $toggles as $key => $label ) {
-			$default = in_array( $key, array( 'show_bio', 'show_modal' ), true ) ? '' : 'yes';
+			$default = 'show_bio' === $key ? '' : 'yes';
 
 			$this->add_control(
 				$key,
@@ -503,12 +502,28 @@ class Team extends Novin_AI_Widget_Base {
 		}
 
 		$this->add_control(
+			'resume_trigger',
+			array(
+				'label'       => esc_html__( 'شیوه نمایش رزومه کامل', 'novin-ai' ),
+				'description' => esc_html__( 'در حالت «هاور» رزومه کامل به صورت پاپ‌آپ روی کارت ظاهر می‌شود و در موبایل با لمس کارت پنجره باز می‌شود.', 'novin-ai' ),
+				'type'        => Controls_Manager::SELECT,
+				'default'     => 'hover',
+				'options'     => array(
+					'hover' => esc_html__( 'پاپ‌آپ در هاور موس (پیشنهادی)', 'novin-ai' ),
+					'both'  => esc_html__( 'پاپ‌آپ در هاور + دکمه پنجره', 'novin-ai' ),
+					'click' => esc_html__( 'فقط دکمه و پنجره', 'novin-ai' ),
+				),
+				'separator'   => 'before',
+			)
+		);
+
+		$this->add_control(
 			'modal_text',
 			array(
 				'label'     => esc_html__( 'متن دکمه رزومه', 'novin-ai' ),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => esc_html__( 'مشاهده رزومه کامل', 'novin-ai' ),
-				'condition' => array( 'show_modal' => 'yes' ),
+				'condition' => array( 'resume_trigger' => array( 'click', 'both' ) ),
 			)
 		);
 
@@ -527,8 +542,7 @@ class Team extends Novin_AI_Widget_Base {
 		$this->start_controls_section(
 			'section_resume',
 			array(
-				'label'     => esc_html__( 'بخش‌های پنجره رزومه', 'novin-ai' ),
-				'condition' => array( 'show_modal' => 'yes' ),
+				'label' => esc_html__( 'بخش‌های رزومه (پاپ‌آپ و پنجره)', 'novin-ai' ),
 			)
 		);
 
@@ -640,6 +654,119 @@ class Team extends Novin_AI_Widget_Base {
 				),
 				'default'    => array( 'size' => 110, 'unit' => 'ms' ),
 				'condition'  => array( 'enable_reveal' => 'yes' ),
+			)
+		);
+
+		$this->end_controls_section();
+
+		/* ---------------------------------- پاپ‌آپ هاور ---------------------------------- */
+		$this->start_controls_section(
+			'section_hover',
+			array(
+				'label'     => esc_html__( 'پاپ‌آپ رزومه در هاور', 'novin-ai' ),
+				'condition' => array( 'resume_trigger' => array( 'hover', 'both' ) ),
+			)
+		);
+
+		$this->add_control(
+			'hover_effect',
+			array(
+				'label'   => esc_html__( 'جلوه نمایش', 'novin-ai' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'depth',
+				'options' => array(
+					'depth' => esc_html__( 'عمق سه‌بعدی (پیشنهادی)', 'novin-ai' ),
+					'flip'  => esc_html__( 'برگشت سه‌بعدی (Flip)', 'novin-ai' ),
+					'slide' => esc_html__( 'سر خوردن از پایین', 'novin-ai' ),
+					'fade'  => esc_html__( 'محو شدن ساده', 'novin-ai' ),
+					'scale' => esc_html__( 'بزرگ شدن از مرکز', 'novin-ai' ),
+				),
+			)
+		);
+
+		$this->add_control(
+			'hover_offset',
+			array(
+				'label'      => esc_html__( 'بیرون‌زدگی پاپ‌آپ از کارت', 'novin-ai' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px' ),
+				'range'      => array(
+					'px' => array(
+						'min' => 0,
+						'max' => 48,
+					),
+				),
+				'default'    => array( 'size' => 14 ),
+				'selectors'  => array(
+					'{{WRAPPER}} .nv-member__popup' => '--nv-popup-offset: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'hover_speed',
+			array(
+				'label'      => esc_html__( 'سرعت انیمیشن (میلی‌ثانیه)', 'novin-ai' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'ms' ),
+				'range'      => array(
+					'ms' => array(
+						'min' => 120,
+						'max' => 1200,
+					),
+				),
+				'default'    => array( 'size' => 420, 'unit' => 'ms' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .nv-member__popup' => 'transition-duration: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'hover_scroll',
+			array(
+				'label'        => esc_html__( 'اسکرول داخلی در صورت طولانی بودن', 'novin-ai' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => esc_html__( 'بله', 'novin-ai' ),
+				'label_off'    => esc_html__( 'خیر', 'novin-ai' ),
+				'return_value' => 'yes',
+				'default'      => 'yes',
+			)
+		);
+
+		$this->add_control(
+			'hover_max_height',
+			array(
+				'label'      => esc_html__( 'حداکثر ارتفاع پاپ‌آپ', 'novin-ai' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', 'vh' ),
+				'range'      => array(
+					'px' => array(
+						'min' => 260,
+						'max' => 900,
+					),
+					'vh' => array(
+						'min' => 30,
+						'max' => 100,
+					),
+				),
+				'default'    => array( 'size' => 620, 'unit' => 'px' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .nv-member__popup-inner' => 'max-height: {{SIZE}}{{UNIT}};',
+				),
+				'condition'  => array( 'hover_scroll' => 'yes' ),
+			)
+		);
+
+		$this->add_control(
+			'hover_show_card',
+			array(
+				'label'        => esc_html__( 'نمایش تصویر و نام در بالای پاپ‌آپ', 'novin-ai' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => esc_html__( 'بله', 'novin-ai' ),
+				'label_off'    => esc_html__( 'خیر', 'novin-ai' ),
+				'return_value' => 'yes',
+				'default'      => 'yes',
 			)
 		);
 
@@ -937,7 +1064,7 @@ class Team extends Novin_AI_Widget_Base {
 			array(
 				'label'     => esc_html__( 'استایل پنجره رزومه', 'novin-ai' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => array( 'show_modal' => 'yes' ),
+				'condition' => array( 'resume_trigger!' => 'hover' ),
 			)
 		);
 
@@ -1034,6 +1161,124 @@ class Team extends Novin_AI_Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => array(
 					'{{WRAPPER}} .nv-profile__panel' => 'color: {{VALUE}};',
+				),
+			)
+		);
+
+		$this->end_controls_section();
+
+		/* ---------------------------------- استایل پاپ‌آپ هاور ---------------------------------- */
+		$this->start_controls_section(
+			'section_hover_style',
+			array(
+				'label'     => esc_html__( 'استایل پاپ‌آپ رزومه', 'novin-ai' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => array( 'resume_trigger' => array( 'hover', 'both' ) ),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			array(
+				'name'     => 'popup_background',
+				'types'    => array( 'classic', 'gradient' ),
+				'selector' => '{{WRAPPER}} .nv-member__popup-inner',
+			)
+		);
+
+		$this->add_responsive_control(
+			'popup_padding',
+			array(
+				'label'      => esc_html__( 'فاصله داخلی', 'novin-ai' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', 'em' ),
+				'default'    => array(
+					'top'      => '22',
+					'right'    => '22',
+					'bottom'   => '22',
+					'left'     => '22',
+					'unit'     => 'px',
+					'isLinked' => true,
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .nv-member__popup-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'popup_radius',
+			array(
+				'label'      => esc_html__( 'انحنا', 'novin-ai' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px' ),
+				'range'      => array(
+					'px' => array(
+						'min' => 0,
+						'max' => 48,
+					),
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .nv-member__popup-inner' => 'border-radius: {{SIZE}}{{UNIT}};',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			array(
+				'name'     => 'popup_shadow',
+				'selector' => '{{WRAPPER}} .nv-member__popup-inner',
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			array(
+				'name'     => 'popup_border',
+				'selector' => '{{WRAPPER}} .nv-member__popup-inner',
+			)
+		);
+
+		$this->add_control(
+			'popup_text_color',
+			array(
+				'label'     => esc_html__( 'رنگ متن', 'novin-ai' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .nv-member__popup-inner' => 'color: {{VALUE}};',
+				),
+			)
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			array(
+				'name'     => 'popup_title_typography',
+				'label'    => esc_html__( 'تایپوگرافی عناوین بخش‌ها', 'novin-ai' ),
+				'selector' => '{{WRAPPER}} .nv-member__popup .nv-profile__section h4',
+			)
+		);
+
+		$this->add_control(
+			'popup_title_color',
+			array(
+				'label'     => esc_html__( 'رنگ عناوین بخش‌ها', 'novin-ai' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => array(
+					'{{WRAPPER}} .nv-member__popup .nv-profile__section h4' => 'color: {{VALUE}};',
+				),
+			)
+		);
+
+		$this->add_control(
+			'popup_overlay',
+			array(
+				'label'     => esc_html__( 'رنگ لایه روی کارت', 'novin-ai' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => 'rgba(6, 8, 22, 0.72)',
+				'selectors' => array(
+					'{{WRAPPER}} .nv-member__popup' => 'background-color: {{VALUE}};',
 				),
 			)
 		);
@@ -1188,6 +1433,157 @@ class Team extends Novin_AI_Widget_Base {
 	}
 
 	/**
+	 * رندر بدنه رزومه (مشترک بین پاپ‌آپ هاور و پنجره رزومه).
+	 *
+	 * @param array<string, mixed> $member  داده‌ها.
+	 * @param array<string, mixed> $settings تنظیمات.
+	 * @return void
+	 */
+	protected function render_resume_body( $member, $settings, $with_contact = false ) {
+		if ( ! empty( $member['quote'] ) ) {
+			?>
+			<p class="nv-profile__quote">
+				<?php echo novin_ai_icon( 'quote' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+				<span><?php echo esc_html( $member['quote'] ); ?></span>
+			</p>
+			<?php
+		}
+
+		if ( 'yes' === $settings['modal_about'] && ! empty( $member['bio'] ) ) {
+			$this->render_profile_section(
+				esc_html__( 'درباره من', 'novin-ai' ),
+				'<p>' . esc_html( $member['bio'] ) . '</p>'
+			);
+		}
+
+		if ( 'yes' === $settings['modal_skills'] && ! empty( $member['skills'] ) ) {
+			ob_start();
+			$this->render_skills( $member['skills'], 0 );
+			$this->render_profile_section( esc_html__( 'مهارت‌های تخصصی', 'novin-ai' ), (string) ob_get_clean() );
+		}
+
+		if ( 'yes' === $settings['modal_experience'] && ! empty( $member['experience_list'] ) ) {
+			ob_start();
+			$this->render_timeline( $member['experience_list'], 'experience' );
+			$this->render_profile_section( esc_html__( 'سوابق کاری', 'novin-ai' ), (string) ob_get_clean() );
+		}
+
+		if ( 'yes' === $settings['modal_education'] && ! empty( $member['education'] ) ) {
+			ob_start();
+			$this->render_timeline( $member['education'], 'education' );
+			$this->render_profile_section( esc_html__( 'تحصیلات', 'novin-ai' ), (string) ob_get_clean() );
+		}
+
+		if ( 'yes' === $settings['modal_certifications'] && ! empty( $member['certifications'] ) ) {
+			$list = '<ul class="nv-profile__list">';
+
+			foreach ( $member['certifications'] as $certificate ) {
+				$list .= '<li><span>' . esc_html( $certificate[0] ) . '</span>';
+
+				if ( ! empty( $certificate[1] ) ) {
+					$list .= '<em>' . esc_html( $certificate[1] ) . '</em>';
+				}
+
+				$list .= '</li>';
+			}
+
+			$list .= '</ul>';
+
+			$this->render_profile_section( esc_html__( 'گواهینامه‌ها', 'novin-ai' ), $list );
+		}
+
+		if ( 'yes' === $settings['modal_languages'] && ! empty( $member['languages'] ) ) {
+			$list = '<ul class="nv-profile__list nv-profile__list--inline">';
+
+			foreach ( $member['languages'] as $language ) {
+				$list .= '<li><span>' . esc_html( $language[0] ) . '</span><em>' . esc_html( isset( $language[1] ) ? $language[1] : '' ) . '</em></li>';
+			}
+
+			$list .= '</ul>';
+
+			$this->render_profile_section( esc_html__( 'زبان‌ها', 'novin-ai' ), $list );
+		}
+
+		if ( $with_contact && 'yes' === $settings['modal_contact'] ) {
+			$contact  = '<ul class="nv-profile__contact">';
+			$has_item = false;
+
+			$rows = array(
+				esc_html__( 'محل کار', 'novin-ai' ) => 'location',
+				esc_html__( 'پروژه‌ها', 'novin-ai' ) => 'projects',
+				esc_html__( 'تلفن', 'novin-ai' )    => 'phone',
+				esc_html__( 'ایمیل', 'novin-ai' )   => 'email',
+			);
+
+			foreach ( $rows as $label => $key ) {
+				if ( empty( $member[ $key ] ) ) {
+					continue;
+				}
+
+				$has_item = true;
+				$contact .= '<li><span>' . esc_html( $label ) . '</span><strong' . ( in_array( $key, array( 'phone', 'email' ), true ) ? ' dir="ltr"' : '' ) . '>' . esc_html( $member[ $key ] ) . '</strong></li>';
+			}
+
+			$contact .= '</ul>';
+
+			if ( $has_item ) {
+				$this->render_profile_section( esc_html__( 'راه‌های ارتباطی', 'novin-ai' ), $contact );
+			}
+		}
+	}
+
+	/**
+	 * رندر پاپ‌آپ رزومه روی کارت (نمایش در هاور).
+	 *
+	 * @param array<string, mixed> $member  داده‌ها.
+	 * @param array<string, mixed> $settings تنظیمات.
+	 * @return void
+	 */
+	protected function render_popup( $member, $settings ) {
+		?>
+		<div class="nv-member__popup">
+			<div class="nv-member__popup-inner nv-glass">
+				<?php if ( 'yes' === $settings['hover_show_card'] ) : ?>
+					<header class="nv-member__popup-head">
+						<?php if ( ! empty( $member['image'] ) ) : ?>
+							<span class="nv-member__popup-avatar"><img src="<?php echo esc_url( $member['image'] ); ?>" alt="<?php echo esc_attr( $member['name'] ); ?>" loading="lazy"></span>
+						<?php else : ?>
+							<span class="nv-member__popup-avatar nv-member__popup-avatar--empty" aria-hidden="true"><?php echo novin_ai_icon( 'user' ); // phpcs:ignore WordPress.Security.EscapeOutput ?></span>
+						<?php endif; ?>
+
+						<span class="nv-member__popup-id">
+							<strong><?php echo esc_html( $member['name'] ); ?></strong>
+
+							<?php if ( ! empty( $member['role'] ) ) : ?>
+								<em><?php echo esc_html( $member['role'] ); ?></em>
+							<?php endif; ?>
+						</span>
+
+						<?php if ( ! empty( $member['experience'] ) ) : ?>
+							<span class="nv-badge nv-badge--glow"><?php echo esc_html( $member['experience'] ); ?></span>
+						<?php endif; ?>
+					</header>
+				<?php endif; ?>
+
+				<div class="nv-member__popup-body">
+					<?php $this->render_resume_body( $member, $settings, true ); ?>
+				</div>
+
+				<footer class="nv-member__popup-foot">
+					<?php $this->render_socials( $member ); ?>
+
+					<?php if ( 'yes' === $settings['show_resume_btn'] && ! empty( $member['resume'] ) ) : ?>
+						<?php $this->nv_link_open( $member, 'resume', 'nv-btn nv-btn--primary nv-btn--sm' ); ?>
+						<span><?php echo esc_html( $settings['resume_text'] ); ?></span>
+						<?php $this->nv_link_close( $member, 'resume' ); ?>
+					<?php endif; ?>
+				</footer>
+			</div>
+		</div>
+		<?php
+	}
+
+	/**
 	 * رندر کارت یک عضو.
 	 *
 	 * @param array<string, mixed> $member  داده‌ها.
@@ -1219,11 +1615,24 @@ class Team extends Novin_AI_Widget_Base {
 			$classes[] = 'nv-member--aura';
 		}
 
+		// حالت نمایش رزومه: پاپ‌آپ در هاور / دکمه / هر دو.
+		$trigger = ! empty( $settings['resume_trigger'] ) ? $settings['resume_trigger'] : 'hover';
+		$hover   = in_array( $trigger, array( 'hover', 'both' ), true );
+
+		if ( $hover ) {
+			$classes[] = 'nv-member--hover';
+			$classes[] = 'nv-member--hover-' . sanitize_html_class( ! empty( $settings['hover_effect'] ) ? $settings['hover_effect'] : 'depth' );
+		}
+
+		if ( 'yes' !== ( ! empty( $settings['hover_scroll'] ) ? $settings['hover_scroll'] : 'yes' ) ) {
+			$classes[] = 'nv-member--popup-noscroll';
+		}
+
 		$delay = ( 'yes' === $settings['enable_reveal'] && ! empty( $settings['stagger']['size'] ) )
 			? ( (int) $settings['stagger']['size'] * $index )
 			: 0;
 		?>
-		<article class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>"<?php echo $delay ? ' data-nv-delay="' . esc_attr( (string) $delay ) . '"' : ''; ?>>
+		<article class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>"<?php echo $delay ? ' data-nv-delay="' . esc_attr( (string) $delay ) . '"' : ''; ?><?php echo 'hover' === $trigger ? ' data-nv-profile-open="' . esc_attr( $target ) . '" tabindex="0"' : ''; ?>>
 
 			<div class="nv-member__media nv-media">
 				<?php if ( ! empty( $member['image'] ) ) : ?>
@@ -1292,7 +1701,7 @@ class Team extends Novin_AI_Widget_Base {
 				?>
 
 				<div class="nv-member__actions">
-					<?php if ( 'yes' === $settings['show_modal'] ) : ?>
+					<?php if ( in_array( $trigger, array( 'click', 'both' ), true ) ) : ?>
 						<button class="nv-btn nv-btn--primary nv-btn--sm nv-magnetic" type="button" data-nv-profile-open="<?php echo esc_attr( $target ); ?>">
 							<span><?php echo esc_html( $settings['modal_text'] ); ?></span>
 							<?php echo novin_ai_icon( 'arrow-left' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
@@ -1307,6 +1716,12 @@ class Team extends Novin_AI_Widget_Base {
 					<?php endif; ?>
 				</div>
 			</div>
+
+			<?php
+			if ( $hover ) {
+				$this->render_popup( $member, $settings );
+			}
+			?>
 		</article>
 		<?php
 	}
@@ -1382,69 +1797,8 @@ class Team extends Novin_AI_Widget_Base {
 					</aside>
 
 					<div class="nv-profile__main">
-						<?php if ( ! empty( $member['quote'] ) ) : ?>
-							<p class="nv-profile__quote">
-								<?php echo novin_ai_icon( 'quote' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
-								<span><?php echo esc_html( $member['quote'] ); ?></span>
-							</p>
-						<?php endif; ?>
-
-						<?php
-						if ( 'yes' === $settings['modal_about'] && ! empty( $member['bio'] ) ) {
-							$this->render_profile_section(
-								esc_html__( 'درباره من', 'novin-ai' ),
-								'<p>' . esc_html( $member['bio'] ) . '</p>'
-							);
-						}
-
-						if ( 'yes' === $settings['modal_skills'] && ! empty( $member['skills'] ) ) {
-							ob_start();
-							$this->render_skills( $member['skills'], 0 );
-							$this->render_profile_section( esc_html__( 'مهارت‌های تخصصی', 'novin-ai' ), (string) ob_get_clean() );
-						}
-
-						if ( 'yes' === $settings['modal_experience'] && ! empty( $member['experience_list'] ) ) {
-							ob_start();
-							$this->render_timeline( $member['experience_list'], 'experience' );
-							$this->render_profile_section( esc_html__( 'سوابق کاری', 'novin-ai' ), (string) ob_get_clean() );
-						}
-
-						if ( 'yes' === $settings['modal_education'] && ! empty( $member['education'] ) ) {
-							ob_start();
-							$this->render_timeline( $member['education'], 'education' );
-							$this->render_profile_section( esc_html__( 'تحصیلات', 'novin-ai' ), (string) ob_get_clean() );
-						}
-
-						if ( 'yes' === $settings['modal_certifications'] && ! empty( $member['certifications'] ) ) {
-							$list = '<ul class="nv-profile__list">';
-
-							foreach ( $member['certifications'] as $certificate ) {
-								$list .= '<li><span>' . esc_html( $certificate[0] ) . '</span>';
-
-								if ( ! empty( $certificate[1] ) ) {
-									$list .= '<em>' . esc_html( $certificate[1] ) . '</em>';
-								}
-
-								$list .= '</li>';
-							}
-
-							$list .= '</ul>';
-
-							$this->render_profile_section( esc_html__( 'گواهینامه‌ها', 'novin-ai' ), $list );
-						}
-
-						if ( 'yes' === $settings['modal_languages'] && ! empty( $member['languages'] ) ) {
-							$list = '<ul class="nv-profile__list nv-profile__list--inline">';
-
-							foreach ( $member['languages'] as $language ) {
-								$list .= '<li><span>' . esc_html( $language[0] ) . '</span><em>' . esc_html( isset( $language[1] ) ? $language[1] : '' ) . '</em></li>';
-							}
-
-							$list .= '</ul>';
-
-							$this->render_profile_section( esc_html__( 'زبان‌ها', 'novin-ai' ), $list );
-						}
-						?>
+						<?php $this->render_resume_body( $member, $settings ); ?>
+					</div>
 					</div>
 				</div>
 			</div>
@@ -1556,10 +1910,10 @@ class Team extends Novin_AI_Widget_Base {
 			</div>
 
 			<?php
-			if ( 'yes' === $settings['show_modal'] ) {
-				foreach ( $members as $index => $member ) {
-					$this->render_modal( $member, $settings, $index );
-				}
+			// پنجره همیشه رندر می‌شود: در حالت «هاور» برای دستگاه‌های لمسی
+			// (که هاور ندارند) و در حالت «کلیک/هر دو» برای دکمه استفاده می‌شود.
+			foreach ( $members as $index => $member ) {
+				$this->render_modal( $member, $settings, $index );
 			}
 			?>
 		</section>

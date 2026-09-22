@@ -154,6 +154,12 @@
 		var strength = parseFloat(settings.tiltStrength) || 12;
 
 		$$('.nv-tilt').forEach(function (el) {
+			// کارت‌هایی که رزومه را در هاور نشان می‌دهند چرخش ندارند تا
+			// متن پاپ‌آپ کاملاً خوانا بماند.
+			if (el.classList.contains('nv-member--hover')) {
+				return;
+			}
+
 			var rect = null;
 
 			function refresh() {
@@ -939,7 +945,25 @@
 
 	function initSkills() {
 		var skills = $$('[data-nv-skill]').filter(function (skill) {
-			return !skill.closest('.nv-profile');
+			// مهارت‌های داخل پنجره و پاپ‌آپ با رویداد اختصاصی خودشان پر می‌شوند.
+			return !skill.closest('.nv-profile') && !skill.closest('.nv-member__popup');
+		});
+
+		// پاپ‌آپ رزومه در هاور: نوارهای مهارت هنگام نمایش پر شوند.
+		$$('.nv-member--hover').forEach(function (card) {
+			if (card.nvSkillsBound) {
+				return;
+			}
+
+			card.nvSkillsBound = true;
+
+			on(card, 'mouseenter', function () {
+				fillSkills(card);
+			});
+
+			on(card, 'focusin', function () {
+				fillSkills(card);
+			});
 		});
 
 		if (!skills.length) {
@@ -1037,6 +1061,11 @@
 
 			var opener = target.closest('[data-nv-profile-open]');
 
+			// کلیک روی محتوای پاپ‌آپ هاور نباید پنجره را باز کند.
+			if (opener && target.closest('.nv-member__popup')) {
+				return;
+			}
+
 			if (opener) {
 				event.preventDefault();
 				openProfile(opener.getAttribute('data-nv-profile-open'));
@@ -1054,11 +1083,31 @@
 		on(document, 'keydown', function (event) {
 			if ('Escape' === event.key || 'Esc' === event.key) {
 				$$('.nv-profile.is-open').forEach(closeProfile);
+				return;
+			}
+
+			if ('Enter' === event.key || ' ' === event.key) {
+				var active = document.activeElement;
+
+				if (active && active.tagName !== 'BUTTON' && active.tagName !== 'A' && active.hasAttribute('data-nv-profile-open')) {
+					event.preventDefault();
+					openProfile(active.getAttribute('data-nv-profile-open'));
+				}
 			}
 		});
 	}
 
 	function init() {
+		// در ویرایشگر المنتور پاپ‌آپ هاور فقط نمایش داده می‌شود و مانع کلیک
+		// روی المان نمی‌شود (کلاس زیر در CSS مدیریت می‌شود).
+		if (
+			window.elementorFrontend &&
+			typeof window.elementorFrontend.isEditMode === 'function' &&
+			window.elementorFrontend.isEditMode()
+		) {
+			document.documentElement.classList.add('nv-editor-mode');
+		}
+
 		initStickyHeader();
 		initOffcanvas();
 		initSearchToggle();
