@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Novin AI 1.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/mehran888-pop/new-template\n"
-"POT-Creation-Date: 2026-09-22T10:48:01+00:00\n"
+"POT-Creation-Date: 2026-09-22T11:04:50+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -40,8 +40,8 @@ msgstr ""
 msgid "ارسال دیدگاه بسته شده است."
 msgstr ""
 
-#: novin-ai/functions.php:43
 #: novin-ai/functions.php:44
+#: novin-ai/functions.php:45
 msgid "قالب Novin AI به نسخه PHP 7.4 یا بالاتر نیاز دارد."
 msgstr ""
 
@@ -119,6 +119,8 @@ msgstr ""
 #: novin-ai/inc/cpt.php:70
 #: novin-ai/inc/cpt.php:238
 #: novin-ai/inc/cpt.php:239
+#: novin-ai/inc/demo-import.php:1106
+#: novin-ai/inc/demo-import.php:1107
 #: novin-ai/inc/elementor/widgets/class-widget-footer.php:263
 #: novin-ai/inc/elementor/widgets/class-widget-footer.php:264
 #: novin-ai/inc/elementor/widgets/class-widget-footer.php:288
@@ -285,58 +287,75 @@ msgstr ""
 msgid "شروع سریع"
 msgstr ""
 
-#: novin-ai/inc/admin.php:156
-#: novin-ai/inc/admin.php:157
-msgid "افزونه‌های المنتور و ووکامرس را نصب و فعال کنید."
-msgstr ""
-
-#: novin-ai/inc/admin.php:157
-#: novin-ai/inc/admin.php:158
-msgid "از منوی «قالب‌های المنتور» یک قالب هدر و فوتر بسازید و در شرایط نمایش، کل سایت را انتخاب کنید."
-msgstr ""
-
 #: novin-ai/inc/admin.php:158
 #: novin-ai/inc/admin.php:159
-msgid "برای بخش‌های صفحه اصلی، المان‌های گروه Novin AI را به صفحه اضافه کنید."
-msgstr ""
-
-#: novin-ai/inc/admin.php:159
-#: novin-ai/inc/admin.php:160
-msgid "رنگ‌ها، فونت و افکت‌های سه‌بعدی را از بخش «نمایش » سفارشی‌ساز» تنظیم کنید."
+msgid "اطلاعات دمو قبلاً وارد شده است."
 msgstr ""
 
 #: novin-ai/inc/admin.php:160
 #: novin-ai/inc/admin.php:161
-msgid "محصولات و لایسنس‌ها را در ووکامرس ثبت کرده و با المان محصولات نمایش دهید."
+msgid "برای شروع سریع، اطلاعات دمو را وارد کنید: خدمات، پروژه‌ها، تیم با رزومه کامل، پکیج‌ها، نظرات، مقالات و پنج برگه آماده با المان‌های اختصاصی المنتور."
 msgstr ""
 
 #: novin-ai/inc/admin.php:163
 #: novin-ai/inc/admin.php:164
+#: novin-ai/inc/demo-import.php:1142
+#: novin-ai/inc/demo-import.php:1143
+msgid "وارد کردن اطلاعات دمو (یک بار)"
+msgstr ""
+
+#: novin-ai/inc/admin.php:170
+#: novin-ai/inc/admin.php:171
+msgid "افزونه‌های المنتور و ووکامرس را نصب و فعال کنید."
+msgstr ""
+
+#: novin-ai/inc/admin.php:171
+#: novin-ai/inc/admin.php:172
+msgid "از منوی «قالب‌های المنتور» یک قالب هدر و فوتر بسازید و در شرایط نمایش، کل سایت را انتخاب کنید."
+msgstr ""
+
+#: novin-ai/inc/admin.php:172
+#: novin-ai/inc/admin.php:173
+msgid "برای بخش‌های صفحه اصلی، المان‌های گروه Novin AI را به صفحه اضافه کنید."
+msgstr ""
+
+#: novin-ai/inc/admin.php:173
+#: novin-ai/inc/admin.php:174
+msgid "رنگ‌ها، فونت و افکت‌های سه‌بعدی را از بخش «نمایش » سفارشی‌ساز» تنظیم کنید."
+msgstr ""
+
+#: novin-ai/inc/admin.php:174
+#: novin-ai/inc/admin.php:175
+msgid "محصولات و لایسنس‌ها را در ووکامرس ثبت کرده و با المان محصولات نمایش دهید."
+msgstr ""
+
+#: novin-ai/inc/admin.php:177
+#: novin-ai/inc/admin.php:178
 msgid "انواع نوشته اختصاصی"
 msgstr ""
 
-#: novin-ai/inc/admin.php:165
-#: novin-ai/inc/admin.php:166
+#: novin-ai/inc/admin.php:179
+#: novin-ai/inc/admin.php:180
 msgid "پروژه‌ها و نمونه‌کارها (Projects)"
 msgstr ""
 
-#: novin-ai/inc/admin.php:166
-#: novin-ai/inc/admin.php:167
+#: novin-ai/inc/admin.php:180
+#: novin-ai/inc/admin.php:181
 msgid "خدمات (Services)"
 msgstr ""
 
-#: novin-ai/inc/admin.php:167
-#: novin-ai/inc/admin.php:168
+#: novin-ai/inc/admin.php:181
+#: novin-ai/inc/admin.php:182
 msgid "تیم ما (Team)"
 msgstr ""
 
-#: novin-ai/inc/admin.php:168
-#: novin-ai/inc/admin.php:169
+#: novin-ai/inc/admin.php:182
+#: novin-ai/inc/admin.php:183
 msgid "پکیج‌های خدماتی (Packages)"
 msgstr ""
 
-#: novin-ai/inc/admin.php:169
-#: novin-ai/inc/admin.php:170
+#: novin-ai/inc/admin.php:183
+#: novin-ai/inc/admin.php:184
 msgid "نظرات مشتریان (Testimonials)"
 msgstr ""
 
@@ -493,8 +512,8 @@ msgstr ""
 
 #: novin-ai/inc/cpt.php:136
 #: novin-ai/inc/cpt.php:137
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:659
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:660
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:669
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:670
 #: novin-ai/inc/elementor/widgets/class-widget-team.php:121
 #: novin-ai/inc/elementor/widgets/class-widget-team.php:122
 msgid "دپارتمان‌ها"
@@ -597,11 +616,15 @@ msgstr ""
 
 #: novin-ai/inc/cpt.php:239
 #: novin-ai/inc/cpt.php:240
+#: novin-ai/inc/demo-import.php:1108
+#: novin-ai/inc/demo-import.php:1109
 msgid "اعضای تیم"
 msgstr ""
 
 #: novin-ai/inc/cpt.php:241
 #: novin-ai/inc/cpt.php:242
+#: novin-ai/inc/demo-import.php:1104
+#: novin-ai/inc/demo-import.php:1105
 #: novin-ai/inc/elementor/widgets/class-widget-projects.php:97
 #: novin-ai/inc/elementor/widgets/class-widget-projects.php:98
 #: novin-ai/inc/elementor/widgets/class-widget-services.php:97
@@ -661,8 +684,8 @@ msgstr ""
 
 #: novin-ai/inc/customizer.php:153
 #: novin-ai/inc/customizer.php:154
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1060
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1061
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1070
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1071
 #: novin-ai/inc/elementor/widgets/class-widget-brands.php:232
 #: novin-ai/inc/elementor/widgets/class-widget-brands.php:233
 #: novin-ai/inc/elementor/widgets/class-widget-footer.php:530
@@ -956,19 +979,178 @@ msgstr ""
 msgid "متن کپی‌رایت فوتر"
 msgstr ""
 
-#: novin-ai/inc/customizer.php:622
-#: novin-ai/inc/customizer.php:623
-msgid "المان‌های اختصاصی"
+#: novin-ai/inc/customizer.php:611
+#: novin-ai/inc/customizer.php:612
+msgid "قالب هدر (ساخته‌شده با المنتور)"
 msgstr ""
 
-#: novin-ai/inc/customizer.php:625
-#: novin-ai/inc/customizer.php:626
-msgid "برای ساخت هدر، فوتر و بخش‌های صفحه اصلی از المان‌های گروه «Novin AI» در کتابخانه المنتور استفاده کنید. %s"
+#: novin-ai/inc/customizer.php:612
+#: novin-ai/inc/customizer.php:613
+msgid "قالب فوتر (ساخته‌شده با المنتور)"
 msgstr ""
 
 #: novin-ai/inc/customizer.php:626
 #: novin-ai/inc/customizer.php:627
+msgid "یک قالب در «المنتور » قالب‌ها» بسازید و از اینجا انتخاب کنید تا جایگزین هدر/فوتر پیش‌فرض شود."
+msgstr ""
+
+#: novin-ai/inc/customizer.php:629
+#: novin-ai/inc/customizer.php:630
+#: novin-ai/inc/helpers.php:319
+#: novin-ai/inc/helpers.php:320
+#: novin-ai/inc/helpers.php:395
+#: novin-ai/inc/helpers.php:396
+msgid "— پیش‌فرض قالب —"
+msgstr ""
+
+#: novin-ai/inc/customizer.php:647
+#: novin-ai/inc/customizer.php:648
+msgid "المان‌های اختصاصی"
+msgstr ""
+
+#: novin-ai/inc/customizer.php:650
+#: novin-ai/inc/customizer.php:651
+msgid "برای ساخت هدر، فوتر و بخش‌های صفحه اصلی از المان‌های گروه «Novin AI» در کتابخانه المنتور استفاده کنید. %s"
+msgstr ""
+
+#: novin-ai/inc/customizer.php:651
+#: novin-ai/inc/customizer.php:652
 msgid "رفتن به قالب‌های المنتور"
+msgstr ""
+
+#: novin-ai/inc/demo-import.php:871
+#: novin-ai/inc/demo-import.php:872
+msgid "این برگه برای نمایش کامل به افزونه المنتور نیاز دارد. پس از نصب و فعال‌سازی المنتور، برگه را با المان‌های اختصاصی Novin AI بسازید."
+msgstr ""
+
+#: novin-ai/inc/demo-import.php:1055
+#: novin-ai/inc/demo-import.php:1056
+#: novin-ai/inc/demo-import.php:1057
+msgid "وارد کردن اطلاعات دمو"
+msgstr ""
+
+#: novin-ai/inc/demo-import.php:1084
+#: novin-ai/inc/demo-import.php:1085
+msgid "وارد کردن اطلاعات دمو — Novin AI"
+msgstr ""
+
+#: novin-ai/inc/demo-import.php:1087
+#: novin-ai/inc/demo-import.php:1088
+msgid "با یک کلیک، محتوای نمونه (خدمات، پروژه‌ها، تیم با رزومه کامل، پکیج‌ها، نظرات و مقالات) به همراه پنج برگه آماده که با المان‌های اختصاصی المنتور ساخته شده‌اند ایجاد می‌شود. پس از آن می‌توانید هر بخش را با المنتور ویرایش کنید."
+msgstr ""
+
+#: novin-ai/inc/demo-import.php:1092
+#: novin-ai/inc/demo-import.php:1093
+msgid "اطلاعات دمو با موفقیت وارد شد. حالا می‌توانید صفحه اصلی را با المنتور ویرایش کنید."
+msgstr ""
+
+#: novin-ai/inc/demo-import.php:1094
+#: novin-ai/inc/demo-import.php:1095
+msgid "اطلاعات دمو حذف شد."
+msgstr ""
+
+#: novin-ai/inc/demo-import.php:1096
+#: novin-ai/inc/demo-import.php:1097
+msgid "عملیات انجام نشد. لطفاً دوباره تلاش کنید."
+msgstr ""
+
+#: novin-ai/inc/demo-import.php:1101
+#: novin-ai/inc/demo-import.php:1102
+msgid "محتوای ایجاد شده"
+msgstr ""
+
+#: novin-ai/inc/demo-import.php:1104
+#: novin-ai/inc/demo-import.php:1105
+msgid "صفحه اصلی، خدمات، نمونه‌کارها، درباره ما، تماس با ما"
+msgstr ""
+
+#: novin-ai/inc/demo-import.php:1105
+#: novin-ai/inc/demo-import.php:1106
+msgid "المان‌های المنتور"
+msgstr ""
+
+#: novin-ai/inc/demo-import.php:1105
+#: novin-ai/inc/demo-import.php:1106
+msgid "هیرو، خدمات، پروژه‌ها، آمار، تیم، پکیج‌ها، نظرات، مقالات، سوالات متداول، برندها و فراخوان"
+msgstr ""
+
+#: novin-ai/inc/demo-import.php:1107
+#: novin-ai/inc/demo-import.php:1108
+#: novin-ai/inc/elementor/widgets/class-widget-projects.php:94
+#: novin-ai/inc/elementor/widgets/class-widget-projects.php:95
+#: novin-ai/inc/elementor/widgets/class-widget-services.php:96
+#: novin-ai/inc/elementor/widgets/class-widget-services.php:97
+#: novin-ai/inc/elementor/widgets/class-widget-team.php:1512
+#: novin-ai/inc/elementor/widgets/class-widget-team.php:1513
+#: novin-ai/inc/elementor/widgets/class-widget-team.php:1778
+#: novin-ai/inc/elementor/widgets/class-widget-team.php:1779
+msgid "پروژه‌ها"
+msgstr ""
+
+#: novin-ai/inc/demo-import.php:1109
+#: novin-ai/inc/demo-import.php:1110
+msgid "پکیج‌ها و نظرات"
+msgstr ""
+
+#: novin-ai/inc/demo-import.php:1110
+#: novin-ai/inc/demo-import.php:1111
+msgid "مقالات"
+msgstr ""
+
+#: novin-ai/inc/demo-import.php:1111
+#: novin-ai/inc/demo-import.php:1112
+#: novin-ai/inc/elementor/widgets/class-widget-header.php:632
+#: novin-ai/inc/elementor/widgets/class-widget-header.php:633
+#: novin-ai/inc/template-tags.php:222
+#: novin-ai/inc/template-tags.php:223
+msgid "منو"
+msgstr ""
+
+#: novin-ai/inc/demo-import.php:1111
+#: novin-ai/inc/demo-import.php:1112
+msgid "منوی اصلی و موبایل به صورت خودکار تنظیم می‌شود"
+msgstr ""
+
+#: novin-ai/inc/demo-import.php:1117
+#: novin-ai/inc/demo-import.php:1118
+msgid "اجرا"
+msgstr ""
+
+#: novin-ai/inc/demo-import.php:1120
+#: novin-ai/inc/demo-import.php:1121
+msgid "المنتور فعال نیست. محتوا ایجاد می‌شود اما برگه‌ها با المان‌های اختصاصی ساخته نمی‌شوند؛ بهتر است ابتدا المنتور را نصب و فعال کنید."
+msgstr ""
+
+#: novin-ai/inc/demo-import.php:1124
+#: novin-ai/inc/demo-import.php:1125
+msgid "اطلاعات دمو قبلاً وارد شده است (فقط یک بار)."
+msgstr ""
+
+#: novin-ai/inc/demo-import.php:1125
+#: novin-ai/inc/demo-import.php:1126
+msgid "اگر بخشی از محتوا را به صورت دستی حذف کرده‌اید، ابتدا «حذف اطلاعات دمو» را بزنید و سپس دوباره وارد کنید."
+msgstr ""
+
+#: novin-ai/inc/demo-import.php:1129
+#: novin-ai/inc/demo-import.php:1130
+msgid "ویرایش صفحه اصلی با المنتور"
+msgstr ""
+
+#: novin-ai/inc/demo-import.php:1133
+#: novin-ai/inc/demo-import.php:1134
+msgid "اطلاعات دمو حذف شود؟"
+msgstr ""
+
+#: novin-ai/inc/demo-import.php:1136
+#: novin-ai/inc/demo-import.php:1137
+msgid "حذف اطلاعات دمو"
+msgstr ""
+
+#: novin-ai/inc/demo-import.php:1159
+#: novin-ai/inc/demo-import.php:1160
+#: novin-ai/inc/demo-import.php:1181
+#: novin-ai/inc/demo-import.php:1182
+msgid "دسترسی غیرمجاز."
 msgstr ""
 
 #: novin-ai/inc/elementor/elementor.php:155
@@ -1006,18 +1188,18 @@ msgstr ""
 msgid "صفحه ۴۰۴"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:344
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:345
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:354
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:355
 msgid "عنوان بخش"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:352
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:353
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:362
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:363
 msgid "برچسب کوتاه"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:354
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:355
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:364
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:365
 #: novin-ai/inc/elementor/widgets/class-widget-footer.php:290
 #: novin-ai/inc/elementor/widgets/class-widget-footer.php:291
 #: novin-ai/inc/elementor/widgets/class-widget-hero.php:102
@@ -1029,15 +1211,15 @@ msgstr ""
 msgid "هوش مصنوعی"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:355
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:356
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:365
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:366
 msgid "مثال: خدمات ما"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:365
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:366
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:697
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:698
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:375
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:376
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:707
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:708
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:86
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:87
 #: novin-ai/inc/elementor/widgets/class-widget-footer.php:355
@@ -1059,13 +1241,13 @@ msgstr ""
 msgid "عنوان"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:367
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:368
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:377
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:378
 msgid "راهکارهای هوشمند برای کسب‌وکار شما"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:378
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:379
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:388
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:389
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:106
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:107
 #: novin-ai/inc/elementor/widgets/class-widget-footer.php:365
@@ -1077,61 +1259,61 @@ msgstr ""
 msgid "توضیح"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:380
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:381
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:390
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:391
 msgid "ما با ترکیب هوش مصنوعی و مهندسی نرم‌افزار، محصولاتی می‌سازیم که رشد شما را شتاب می‌دهند."
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:389
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:390
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:399
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:400
 #: novin-ai/inc/elementor/widgets/class-widget-hero.php:110
 #: novin-ai/inc/elementor/widgets/class-widget-hero.php:111
 msgid "تگ عنوان"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:407
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:408
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1015
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1016
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:417
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:418
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1025
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1026
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:186
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:187
 msgid "تراز"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:411
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:412
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1019
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1020
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:421
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:422
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1029
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1030
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:190
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:191
 msgid "راست"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:415
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:416
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1023
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1024
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:425
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:426
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1033
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1034
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:194
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:195
 msgid "وسط"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:419
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:420
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1027
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1028
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:429
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:430
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1037
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1038
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:198
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:199
 msgid "چپ"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:443
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:444
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:453
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:454
 msgid "استایل عنوان"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:452
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:453
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:462
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:463
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:273
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:274
 #: novin-ai/inc/elementor/widgets/class-widget-hero.php:489
@@ -1149,8 +1331,8 @@ msgstr ""
 msgid "تایپوگرافی عنوان"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:460
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:461
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:470
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:471
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:281
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:282
 #: novin-ai/inc/elementor/widgets/class-widget-hero.php:497
@@ -1168,23 +1350,23 @@ msgstr ""
 msgid "رنگ عنوان"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:471
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:472
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:481
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:482
 msgid "متن گرادیانتی"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:473
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:474
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:892
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:893
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:904
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:905
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:916
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:917
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:928
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:929
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1005
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1006
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:483
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:484
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:902
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:903
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:914
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:915
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:926
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:927
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:938
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:939
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1015
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1016
 #: novin-ai/inc/elementor/widgets/class-widget-brands.php:191
 #: novin-ai/inc/elementor/widgets/class-widget-brands.php:192
 #: novin-ai/inc/elementor/widgets/class-widget-faq.php:99
@@ -1318,18 +1500,18 @@ msgstr ""
 msgid "بله"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:474
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:475
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:893
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:894
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:905
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:906
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:917
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:918
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:929
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:930
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1006
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1007
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:484
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:485
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:903
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:904
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:915
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:916
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:927
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:928
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:939
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:940
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1016
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1017
 #: novin-ai/inc/elementor/widgets/class-widget-brands.php:192
 #: novin-ai/inc/elementor/widgets/class-widget-brands.php:193
 #: novin-ai/inc/elementor/widgets/class-widget-faq.php:100
@@ -1463,8 +1645,8 @@ msgstr ""
 msgid "خیر"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:486
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:487
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:496
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:497
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:292
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:293
 #: novin-ai/inc/elementor/widgets/class-widget-hero.php:508
@@ -1472,8 +1654,8 @@ msgstr ""
 msgid "رنگ اول گرادیان"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:496
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:497
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:506
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:507
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:304
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:305
 #: novin-ai/inc/elementor/widgets/class-widget-hero.php:520
@@ -1481,8 +1663,8 @@ msgstr ""
 msgid "رنگ دوم گرادیان"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:507
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:508
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:517
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:518
 #: novin-ai/inc/elementor/widgets/class-widget-hero.php:550
 #: novin-ai/inc/elementor/widgets/class-widget-hero.php:551
 #: novin-ai/inc/elementor/widgets/class-widget-stats.php:313
@@ -1490,8 +1672,8 @@ msgstr ""
 msgid "تایپوگرافی برچسب"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:515
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:516
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:525
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:526
 #: novin-ai/inc/elementor/widgets/class-widget-hero.php:568
 #: novin-ai/inc/elementor/widgets/class-widget-hero.php:569
 #: novin-ai/inc/elementor/widgets/class-widget-stats.php:321
@@ -1499,15 +1681,15 @@ msgstr ""
 msgid "رنگ برچسب"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:527
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:528
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:537
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:538
 #: novin-ai/inc/elementor/widgets/class-widget-hero.php:559
 #: novin-ai/inc/elementor/widgets/class-widget-hero.php:560
 msgid "پس‌زمینه برچسب"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:537
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:538
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:547
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:548
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:314
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:315
 #: novin-ai/inc/elementor/widgets/class-widget-hero.php:530
@@ -1517,8 +1699,8 @@ msgstr ""
 msgid "تایپوگرافی توضیح"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:545
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:546
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:555
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:556
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:322
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:323
 #: novin-ai/inc/elementor/widgets/class-widget-hero.php:538
@@ -1528,13 +1710,13 @@ msgstr ""
 msgid "رنگ توضیح"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:556
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:557
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:566
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:567
 msgid "فاصله عنوان تا محتوا"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:586
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:587
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:596
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:597
 #: novin-ai/inc/elementor/widgets/class-widget-brands.php:150
 #: novin-ai/inc/elementor/widgets/class-widget-brands.php:151
 #: novin-ai/inc/elementor/widgets/class-widget-footer.php:312
@@ -1542,8 +1724,8 @@ msgstr ""
 msgid "تعداد ستون"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:608
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:609
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:618
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:619
 #: novin-ai/inc/elementor/widgets/class-widget-faq.php:206
 #: novin-ai/inc/elementor/widgets/class-widget-faq.php:207
 #: novin-ai/inc/elementor/widgets/class-widget-header.php:497
@@ -1551,8 +1733,8 @@ msgstr ""
 msgid "فاصله بین آیتم‌ها"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:641
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:642
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:651
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:652
 #: novin-ai/inc/elementor/widgets/class-widget-packages.php:72
 #: novin-ai/inc/elementor/widgets/class-widget-packages.php:73
 #: novin-ai/inc/elementor/widgets/class-widget-projects.php:70
@@ -1570,8 +1752,8 @@ msgstr ""
 msgid "منبع محتوا"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:651
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:652
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:661
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:662
 #: novin-ai/inc/elementor/widgets/class-widget-projects.php:106
 #: novin-ai/inc/elementor/widgets/class-widget-projects.php:107
 #: novin-ai/inc/elementor/widgets/class-widget-services.php:106
@@ -1579,8 +1761,8 @@ msgstr ""
 msgid "فیلتر دسته‌بندی"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:655
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:656
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:665
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:666
 #: novin-ai/inc/elementor/widgets/class-widget-projects.php:110
 #: novin-ai/inc/elementor/widgets/class-widget-projects.php:111
 #: novin-ai/inc/elementor/widgets/class-widget-services.php:110
@@ -1590,13 +1772,13 @@ msgstr ""
 msgid "همه"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:656
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:657
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:666
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:667
 msgid "دسته‌بندی نوشته‌ها"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:657
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:658
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:667
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:668
 #: novin-ai/inc/elementor/widgets/class-widget-projects.php:111
 #: novin-ai/inc/elementor/widgets/class-widget-projects.php:112
 #: novin-ai/inc/elementor/widgets/class-widget-services.php:112
@@ -1604,27 +1786,27 @@ msgstr ""
 msgid "دسته پروژه‌ها"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:658
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:659
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:668
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:669
 #: novin-ai/inc/elementor/widgets/class-widget-services.php:111
 #: novin-ai/inc/elementor/widgets/class-widget-services.php:112
 msgid "دسته خدمات"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:660
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:661
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:670
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:671
 msgid "دسته پکیج‌ها"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:661
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:662
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:671
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:672
 #: novin-ai/inc/elementor/widgets/class-widget-projects.php:113
 #: novin-ai/inc/elementor/widgets/class-widget-projects.php:114
 msgid "دسته محصولات"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:669
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:670
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:679
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:680
 #: novin-ai/inc/elementor/widgets/class-widget-projects.php:122
 #: novin-ai/inc/elementor/widgets/class-widget-projects.php:123
 #: novin-ai/inc/elementor/widgets/class-widget-services.php:121
@@ -1634,8 +1816,8 @@ msgstr ""
 msgid "ترم‌ها"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:681
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:682
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:691
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:692
 #: novin-ai/inc/elementor/widgets/class-widget-projects.php:137
 #: novin-ai/inc/elementor/widgets/class-widget-projects.php:138
 #: novin-ai/inc/elementor/widgets/class-widget-services.php:136
@@ -1643,13 +1825,13 @@ msgstr ""
 msgid "تعداد آیتم"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:692
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:693
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:702
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:703
 msgid "مرتب‌سازی بر اساس"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:696
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:697
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:706
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:707
 #: novin-ai/inc/elementor/widgets/class-widget-products.php:118
 #: novin-ai/inc/elementor/widgets/class-widget-products.php:119
 #: novin-ai/inc/elementor/widgets/class-widget-projects.php:153
@@ -1661,8 +1843,8 @@ msgstr ""
 msgid "تاریخ"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:698
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:699
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:708
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:709
 #: novin-ai/inc/elementor/widgets/class-widget-products.php:121
 #: novin-ai/inc/elementor/widgets/class-widget-products.php:122
 #: novin-ai/inc/elementor/widgets/class-widget-projects.php:156
@@ -1674,8 +1856,8 @@ msgstr ""
 msgid "تصادفی"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:699
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:700
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:709
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:710
 #: novin-ai/inc/elementor/widgets/class-widget-projects.php:154
 #: novin-ai/inc/elementor/widgets/class-widget-projects.php:155
 #: novin-ai/inc/elementor/widgets/class-widget-services.php:152
@@ -1685,56 +1867,56 @@ msgstr ""
 msgid "ترتیب دستی"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:700
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:701
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:710
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:711
 msgid "آخرین بروزرسانی"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:701
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:702
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:711
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:712
 msgid "تعداد دیدگاه"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:709
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:710
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:719
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:720
 #: novin-ai/inc/elementor/widgets/class-widget-products.php:132
 #: novin-ai/inc/elementor/widgets/class-widget-products.php:133
 msgid "ترتیب"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:713
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:714
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:723
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:724
 #: novin-ai/inc/elementor/widgets/class-widget-products.php:136
 #: novin-ai/inc/elementor/widgets/class-widget-products.php:137
 msgid "نزولی"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:714
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:715
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:724
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:725
 #: novin-ai/inc/elementor/widgets/class-widget-products.php:137
 #: novin-ai/inc/elementor/widgets/class-widget-products.php:138
 msgid "صعودی"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:722
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:723
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:732
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:733
 msgid "رد کردن تعداد"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:732
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:733
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:742
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:743
 msgid "حذف آیتم‌ها (آیدی با کاما)"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:780
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:781
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:790
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:791
 msgid "پس‌زمینه کارت"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:789
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:790
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1083
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1084
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:799
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:800
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1093
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1094
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:242
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:243
 #: novin-ai/inc/elementor/widgets/class-widget-footer.php:467
@@ -1750,10 +1932,10 @@ msgstr ""
 msgid "فاصله داخلی"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:801
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:802
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1095
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1096
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:811
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:812
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1105
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1106
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:254
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:255
 #: novin-ai/inc/elementor/widgets/class-widget-faq.php:188
@@ -1767,58 +1949,58 @@ msgstr ""
 msgid "انحنا"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:829
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:830
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:839
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:840
 msgid "حالت هاور"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:839
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:840
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:849
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:850
 msgid "سایه در هاور"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:847
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:848
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:857
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:858
 msgid "رنگ حاشیه در هاور"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:858
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:859
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:868
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:869
 msgid "بالا آمدن در هاور"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:883
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:884
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:893
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:894
 msgid "جلوه‌های پس‌زمینه"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:890
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:891
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:900
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:901
 msgid "کره‌های نوری"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:902
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:903
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:912
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:913
 msgid "شبکه سه‌بعدی"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:914
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:915
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:924
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:925
 msgid "ذرات هوشمند"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:926
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:927
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:936
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:937
 msgid "بافت نویز"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:946
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:947
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:956
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:957
 msgid "دکمه"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:958
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:959
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:968
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:969
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:162
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:163
 #: novin-ai/inc/elementor/widgets/class-widget-footer.php:96
@@ -1830,13 +2012,13 @@ msgstr ""
 msgid "متن"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:960
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:961
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:970
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:971
 msgid "مشاهده جزئیات"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:969
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:970
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:979
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:980
 #: novin-ai/inc/elementor/widgets/class-widget-brands.php:94
 #: novin-ai/inc/elementor/widgets/class-widget-brands.php:95
 #: novin-ai/inc/elementor/widgets/class-widget-footer.php:179
@@ -1852,8 +2034,8 @@ msgstr ""
 msgid "لینک"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:979
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:980
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:989
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:990
 #: novin-ai/inc/elementor/widgets/class-widget-hero.php:329
 #: novin-ai/inc/elementor/widgets/class-widget-hero.php:330
 #: novin-ai/inc/elementor/widgets/class-widget-packages.php:227
@@ -1865,10 +2047,10 @@ msgstr ""
 msgid "آیکون"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:987
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:988
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1044
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1045
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:997
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:998
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1054
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1055
 #: novin-ai/inc/elementor/widgets/class-widget-brands.php:205
 #: novin-ai/inc/elementor/widgets/class-widget-brands.php:206
 #: novin-ai/inc/elementor/widgets/class-widget-cta.php:217
@@ -1882,22 +2064,22 @@ msgstr ""
 msgid "استایل"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:991
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:992
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1001
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1002
 #: novin-ai/inc/setup.php:58
 #: novin-ai/inc/setup.php:59
 msgid "اصلی"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:992
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:993
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1002
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1003
 #: novin-ai/inc/setup.php:63
 #: novin-ai/inc/setup.php:64
 msgid "فرعی"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:993
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:994
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1003
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1004
 #: novin-ai/inc/elementor/widgets/class-widget-packages.php:305
 #: novin-ai/inc/elementor/widgets/class-widget-packages.php:306
 #: novin-ai/inc/elementor/widgets/class-widget-posts.php:126
@@ -1917,13 +2099,13 @@ msgstr ""
 msgid "خطی"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:994
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:995
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1004
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1005
 msgid "شفاف"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:995
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:996
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1005
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1006
 #: novin-ai/inc/elementor/widgets/class-widget-packages.php:306
 #: novin-ai/inc/elementor/widgets/class-widget-packages.php:307
 #: novin-ai/inc/elementor/widgets/class-widget-posts.php:127
@@ -1943,8 +2125,8 @@ msgstr ""
 msgid "نئونی"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1003
-#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1004
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1013
+#: novin-ai/inc/elementor/widgets/class-novin-ai-widget-base.php:1014
 msgid "حالت مغناطیسی"
 msgstr ""
 
@@ -2848,13 +3030,6 @@ msgstr ""
 msgid "سبد خرید"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-widget-header.php:632
-#: novin-ai/inc/elementor/widgets/class-widget-header.php:633
-#: novin-ai/inc/template-tags.php:222
-#: novin-ai/inc/template-tags.php:223
-msgid "منو"
-msgstr ""
-
 #: novin-ai/inc/elementor/widgets/class-widget-header.php:651
 #: novin-ai/inc/elementor/widgets/class-widget-header.php:652
 #: novin-ai/inc/elementor/widgets/class-widget-team.php:1744
@@ -3696,17 +3871,6 @@ msgstr ""
 msgid "نوع نوشته «پروژه‌ها» (پیشنهادی)"
 msgstr ""
 
-#: novin-ai/inc/elementor/widgets/class-widget-projects.php:94
-#: novin-ai/inc/elementor/widgets/class-widget-projects.php:95
-#: novin-ai/inc/elementor/widgets/class-widget-services.php:96
-#: novin-ai/inc/elementor/widgets/class-widget-services.php:97
-#: novin-ai/inc/elementor/widgets/class-widget-team.php:1512
-#: novin-ai/inc/elementor/widgets/class-widget-team.php:1513
-#: novin-ai/inc/elementor/widgets/class-widget-team.php:1778
-#: novin-ai/inc/elementor/widgets/class-widget-team.php:1779
-msgid "پروژه‌ها"
-msgstr ""
-
 #: novin-ai/inc/elementor/widgets/class-widget-projects.php:95
 #: novin-ai/inc/elementor/widgets/class-widget-projects.php:96
 msgid "نوشته‌ها"
@@ -4047,8 +4211,8 @@ msgstr ""
 
 #: novin-ai/inc/elementor/widgets/class-widget-team.php:74
 #: novin-ai/inc/elementor/widgets/class-widget-team.php:75
-#: novin-ai/inc/helpers.php:316
-#: novin-ai/inc/helpers.php:317
+#: novin-ai/inc/helpers.php:470
+#: novin-ai/inc/helpers.php:471
 #: novin-ai/inc/metabox.php:121
 #: novin-ai/inc/metabox.php:122
 msgid "اینستاگرام"
@@ -4056,8 +4220,8 @@ msgstr ""
 
 #: novin-ai/inc/elementor/widgets/class-widget-team.php:75
 #: novin-ai/inc/elementor/widgets/class-widget-team.php:76
-#: novin-ai/inc/helpers.php:319
-#: novin-ai/inc/helpers.php:320
+#: novin-ai/inc/helpers.php:473
+#: novin-ai/inc/helpers.php:474
 #: novin-ai/inc/metabox.php:125
 #: novin-ai/inc/metabox.php:126
 msgid "لینکدین"
@@ -4065,8 +4229,8 @@ msgstr ""
 
 #: novin-ai/inc/elementor/widgets/class-widget-team.php:76
 #: novin-ai/inc/elementor/widgets/class-widget-team.php:77
-#: novin-ai/inc/helpers.php:317
-#: novin-ai/inc/helpers.php:318
+#: novin-ai/inc/helpers.php:471
+#: novin-ai/inc/helpers.php:472
 #: novin-ai/inc/metabox.php:129
 #: novin-ai/inc/metabox.php:130
 msgid "تلگرام"
@@ -4074,8 +4238,8 @@ msgstr ""
 
 #: novin-ai/inc/elementor/widgets/class-widget-team.php:77
 #: novin-ai/inc/elementor/widgets/class-widget-team.php:78
-#: novin-ai/inc/helpers.php:320
-#: novin-ai/inc/helpers.php:321
+#: novin-ai/inc/helpers.php:474
+#: novin-ai/inc/helpers.php:475
 #: novin-ai/inc/metabox.php:133
 #: novin-ai/inc/metabox.php:134
 msgid "ایکس / توییتر"
@@ -4083,8 +4247,8 @@ msgstr ""
 
 #: novin-ai/inc/elementor/widgets/class-widget-team.php:78
 #: novin-ai/inc/elementor/widgets/class-widget-team.php:79
-#: novin-ai/inc/helpers.php:323
-#: novin-ai/inc/helpers.php:324
+#: novin-ai/inc/helpers.php:477
+#: novin-ai/inc/helpers.php:478
 #: novin-ai/inc/metabox.php:137
 #: novin-ai/inc/metabox.php:138
 msgid "گیت‌هاب"
@@ -4092,8 +4256,8 @@ msgstr ""
 
 #: novin-ai/inc/elementor/widgets/class-widget-team.php:79
 #: novin-ai/inc/elementor/widgets/class-widget-team.php:80
-#: novin-ai/inc/helpers.php:324
-#: novin-ai/inc/helpers.php:325
+#: novin-ai/inc/helpers.php:478
+#: novin-ai/inc/helpers.php:479
 #: novin-ai/inc/metabox.php:141
 #: novin-ai/inc/metabox.php:142
 msgid "دریبل"
@@ -4112,8 +4276,8 @@ msgstr ""
 #: novin-ai/inc/elementor/widgets/class-widget-team.php:1515
 #: novin-ai/inc/elementor/widgets/class-widget-team.php:1786
 #: novin-ai/inc/elementor/widgets/class-widget-team.php:1787
-#: novin-ai/inc/helpers.php:325
-#: novin-ai/inc/helpers.php:326
+#: novin-ai/inc/helpers.php:479
+#: novin-ai/inc/helpers.php:480
 #: novin-ai/inc/metabox.php:113
 #: novin-ai/inc/metabox.php:114
 msgid "ایمیل"
@@ -4248,8 +4412,8 @@ msgstr ""
 #: novin-ai/inc/elementor/widgets/class-widget-team.php:1514
 #: novin-ai/inc/elementor/widgets/class-widget-team.php:1782
 #: novin-ai/inc/elementor/widgets/class-widget-team.php:1783
-#: novin-ai/inc/helpers.php:326
-#: novin-ai/inc/helpers.php:327
+#: novin-ai/inc/helpers.php:480
+#: novin-ai/inc/helpers.php:481
 #: novin-ai/inc/metabox.php:117
 #: novin-ai/inc/metabox.php:118
 msgid "تلفن"
@@ -4968,23 +5132,23 @@ msgstr ""
 msgid "نظری ثبت نشده است."
 msgstr ""
 
-#: novin-ai/inc/helpers.php:152
-#: novin-ai/inc/helpers.php:153
+#: novin-ai/inc/helpers.php:154
+#: novin-ai/inc/helpers.php:155
 msgid "— انتخاب منو —"
 msgstr ""
 
-#: novin-ai/inc/helpers.php:318
-#: novin-ai/inc/helpers.php:319
+#: novin-ai/inc/helpers.php:472
+#: novin-ai/inc/helpers.php:473
 msgid "واتس‌اپ"
 msgstr ""
 
-#: novin-ai/inc/helpers.php:321
-#: novin-ai/inc/helpers.php:322
+#: novin-ai/inc/helpers.php:475
+#: novin-ai/inc/helpers.php:476
 msgid "یوتیوب"
 msgstr ""
 
-#: novin-ai/inc/helpers.php:322
-#: novin-ai/inc/helpers.php:323
+#: novin-ai/inc/helpers.php:476
+#: novin-ai/inc/helpers.php:477
 msgid "آپارات"
 msgstr ""
 

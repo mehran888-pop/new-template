@@ -167,17 +167,27 @@ abstract class Novin_AI_Widget_Base extends Widget_Base {
 			return;
 		}
 
-		if ( class_exists( '\Elementor\Icons_Manager' ) && method_exists( 'Elementor\Icons_Manager', 'render_icon' ) ) {
+		$value   = is_array( $icon['value'] ) ? '' : (string) $icon['value'];
+		$library = isset( $icon['library'] ) ? (string) $icon['library'] : '';
+
+		// کد SVG مستقیم.
+		if ( $value && false !== strpos( $value, '<' ) ) {
+			echo '<span class="nv-icon ' . esc_attr( $class ) . '">' . $value . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput
+			return;
+		}
+
+		if ( ! $value ) {
+			return;
+		}
+
+		// کتابخانه شناخته‌شده: استفاده از المنتور.
+		if ( $library && class_exists( '\Elementor\Icons_Manager' ) && method_exists( 'Elementor\Icons_Manager', 'render_icon' ) ) {
 			Icons_Manager::render_icon( $icon, array( 'aria-hidden' => 'true', 'class' => $class ) );
 			return;
 		}
 
-		// فالبک برای نسخه‌های قدیمی المنتور.
-		if ( ! empty( $icon['value'] ) && false !== strpos( $icon['value'], '<' ) ) {
-			echo '<span class="nv-icon ' . esc_attr( $class ) . '">' . $icon['value'] . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput
-		} else {
-			echo '<i class="nv-icon ' . esc_attr( (string) $icon['value'] ) . ' ' . esc_attr( $class ) . '" aria-hidden="true"></i>';
-		}
+		// فالبک: خروجی دستی (مثل dashicons یا کلاس‌های دلخواه).
+		echo '<i class="nv-icon ' . esc_attr( $value ) . ' ' . esc_attr( $class ) . '" aria-hidden="true"></i>';
 	}
 
 	/**

@@ -622,7 +622,7 @@ class Services extends Novin_AI_Widget_Base {
 						'title'    => get_the_title(),
 						'desc'     => novin_ai_excerpt( get_the_excerpt() ? get_the_excerpt() : get_the_content(), (int) $settings['excerpt_length'] ),
 						'image'    => get_the_post_thumbnail_url( $post_id, 'thumbnail' ),
-						'icon'     => array( 'value' => novin_ai_get_meta( $post_id, 'icon' ) ),
+						'icon'     => $this->nv_icon_value( novin_ai_get_meta( $post_id, 'icon' ) ),
 						'badge'    => novin_ai_get_meta( $post_id, 'badge' ),
 						'price'    => novin_ai_get_meta( $post_id, 'price' ),
 						'features' => novin_ai_meta_lines( novin_ai_get_meta( $post_id, 'features' ) ),

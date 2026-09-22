@@ -507,6 +507,17 @@ html:not([dir="rtl"]) .nv-link-more:hover svg {
 	opacity: 0.65;
 }
 
+/* قالب‌های هدر و فوتر ساخته‌شده با المنتور (نسخه رایگان هم پشتیبانی می‌شود) */
+.nv-header-template,
+.nv-footer-template {
+	position: relative;
+	width: 100%;
+}
+
+.nv-footer-template {
+	margin-top: auto;
+}
+
 /* شبکهٔ گرید محتوا */
 .nv-grid {
 	display: grid;

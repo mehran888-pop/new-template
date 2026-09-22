@@ -31,6 +31,7 @@ require_once NOVIN_AI_INC . 'woocommerce.php';
 require_once NOVIN_AI_INC . 'ajax.php';
 require_once NOVIN_AI_INC . 'elementor/elementor.php';
 require_once NOVIN_AI_INC . 'admin.php';
+require_once NOVIN_AI_INC . 'demo-import.php';
 
 if ( ! function_exists( 'novin_ai_php_notice' ) ) {
 	/**

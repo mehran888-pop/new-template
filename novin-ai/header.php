@@ -32,10 +32,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php
 	$header_rendered = false;
 
+	// ۱) المنتور پرو: قالب هدر تعریف‌شده در Theme Builder.
 	if ( function_exists( 'elementor_theme_do_location' ) ) {
 		$header_rendered = elementor_theme_do_location( 'header' );
 	}
 
+	// ۲) المنتور رایگان: قالبی که در سفارشی‌ساز انتخاب شده است.
+	if ( ! $header_rendered ) {
+		$header_rendered = novin_ai_render_elementor_template( (int) novin_ai_option( 'header_template' ), 'nv-header-template' );
+	}
+
+	// ۳) هدر پیش‌فرض قالب.
 	if ( ! $header_rendered ) {
 		novin_ai_header_fallback();
 	}

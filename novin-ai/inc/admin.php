@@ -153,6 +153,20 @@ if ( ! function_exists( 'novin_ai_about_page_render' ) ) {
 
 				<div class="novin-ai-card">
 					<h2><?php esc_html_e( 'شروع سریع', 'novin-ai' ); ?></h2>
+
+					<?php if ( function_exists( 'novin_ai_demo_status' ) ) : ?>
+						<?php if ( ! empty( novin_ai_demo_status() ) ) : ?>
+							<p><span class="dashicons dashicons-yes-alt"></span> <?php esc_html_e( 'اطلاعات دمو قبلاً وارد شده است.', 'novin-ai' ); ?></p>
+						<?php else : ?>
+							<p><?php esc_html_e( 'برای شروع سریع، اطلاعات دمو را وارد کنید: خدمات، پروژه‌ها، تیم با رزومه کامل، پکیج‌ها، نظرات، مقالات و پنج برگه آماده با المان‌های اختصاصی المنتور.', 'novin-ai' ); ?></p>
+							<p>
+								<a class="button button-primary" href="<?php echo esc_url( admin_url( 'themes.php?page=novin-ai-demo-import' ) ); ?>">
+									<?php esc_html_e( 'وارد کردن اطلاعات دمو (یک بار)', 'novin-ai' ); ?>
+								</a>
+							</p>
+						<?php endif; ?>
+					<?php endif; ?>
+
 					<ol>
 						<li><?php esc_html_e( 'افزونه‌های المنتور و ووکامرس را نصب و فعال کنید.', 'novin-ai' ); ?></li>
 						<li><?php esc_html_e( 'از منوی «قالب‌های المنتور» یک قالب هدر و فوتر بسازید و در شرایط نمایش، کل سایت را انتخاب کنید.', 'novin-ai' ); ?></li>

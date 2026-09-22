@@ -607,6 +607,31 @@ if ( ! function_exists( 'novin_ai_customize_register' ) ) {
 			);
 		}
 
+		// انتخاب قالب اختصاصی هدر و فوتر (ساخته‌شده با المنتور — حتی نسخه رایگان).
+		foreach ( array(
+			'header_template' => esc_html__( 'قالب هدر (ساخته‌شده با المنتور)', 'novin-ai' ),
+			'footer_template' => esc_html__( 'قالب فوتر (ساخته‌شده با المنتور)', 'novin-ai' ),
+		) as $key => $label ) {
+			$wp_customize->add_setting(
+				'novin_ai_' . $key,
+				array(
+					'default'           => isset( $defaults[ $key ] ) ? $defaults[ $key ] : 0,
+					'sanitize_callback' => 'absint',
+				)
+			);
+
+			$wp_customize->add_control(
+				'novin_ai_' . $key,
+				array(
+					'label'       => $label,
+					'description' => esc_html__( 'یک قالب در «المنتور » قالب‌ها» بسازید و از اینجا انتخاب کنید تا جایگزین هدر/فوتر پیش‌فرض شود.', 'novin-ai' ),
+					'section'     => 'novin_ai_header_footer',
+					'type'        => 'select',
+					'choices'     => function_exists( 'novin_ai_elementor_templates' ) ? novin_ai_elementor_templates() : array( 0 => esc_html__( '— پیش‌فرض قالب —', 'novin-ai' ) ),
+				)
+			);
+		}
+
 		// انتخابگر لینک سریع به المنتور.
 		$wp_customize->add_setting(
 			'novin_ai_elementor_hint',

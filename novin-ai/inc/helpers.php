@@ -73,6 +73,8 @@ if ( ! function_exists( 'novin_ai_defaults' ) ) {
 			// هدر و فوتر پیش‌فرض.
 			'header_cta_text'    => 'دریافت مشاوره رایگان',
 			'footer_copyright'   => 'تمامی حقوق این وب‌سایت محفوظ است.',
+			'header_template'    => 0,
+			'footer_template'    => 0,
 		);
 	}
 }
@@ -303,6 +305,158 @@ if ( ! function_exists( 'novin_ai_meta_rows' ) ) {
 		}
 
 		return $rows;
+	}
+}
+
+if ( ! function_exists( 'novin_ai_elementor_templates' ) ) {
+	/**
+	 * فهرست قالب‌های المنتور (elementor_library) برای انتخاب در سفارشی‌ساز.
+	 *
+	 * این قابلیت با نسخه رایگان المنتور هم کار می‌کند.
+	 *
+	 * @return array<int, string>
+	 */
+	function novin_ai_elementor_templates() {
+		$options = array( 0 => esc_html__( '— پیش‌فرض قالب —', 'novin-ai' ) );
+
+		if ( ! post_type_exists( 'elementor_library' ) ) {
+			return $options;
+		}
+
+		$templates = get_posts(
+			array(
+				'post_type'              => 'elementor_library',
+				'post_status'            => 'publish',
+				'posts_per_page'         => 100,
+				'orderby'                => 'title',
+				'order'                  => 'ASC',
+				'no_found_rows'          => true,
+				'update_post_term_cache' => false,
+			)
+		);
+
+		if ( empty( $templates ) ) {
+			return $options;
+		}
+
+		foreach ( $templates as $template ) {
+			$options[ (int) $template->ID ] = get_the_title( $template );
+		}
+
+		return $options;
+	}
+}
+
+if ( ! function_exists( 'novin_ai_render_elementor_template' ) ) {
+	/**
+	 * نمایش یک قالب المنتور در محل هدر یا فوتر.
+	 *
+	 * @param int    $template_id شناسه قالب.
+	 * @param string $wrapper     کلاس نگهدارنده.
+	 * @return bool آیا چیزی نمایش داده شد؟
+	 */
+	function novin_ai_render_elementor_template( $template_id, $wrapper = '' ) {
+		$template_id = (int) $template_id;
+
+		if ( ! $template_id || ! class_exists( '\Elementor\Plugin' ) ) {
+			return false;
+		}
+
+		$frontend = \Elementor\Plugin::$instance->frontend;
+
+		if ( ! $frontend || ! method_exists( $frontend, 'get_builder_content_for_display' ) ) {
+			return false;
+		}
+
+		$content = $frontend->get_builder_content_for_display( $template_id );
+
+		if ( ! $content ) {
+			return false;
+		}
+
+		if ( $wrapper ) {
+			echo '<div class="' . esc_attr( $wrapper ) . '">' . $content . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput
+		} else {
+			echo $content; // phpcs:ignore WordPress.Security.EscapeOutput
+		}
+
+		return true;
+	}
+}
+
+if ( ! function_exists( 'novin_ai_elementor_templates' ) ) {
+	/**
+	 * فهرست قالب‌های المنتور (elementor_library) برای انتخاب در سفارشی‌ساز.
+	 *
+	 * این قابلیت با نسخه رایگان المنتور هم کار می‌کند.
+	 *
+	 * @return array<int, string>
+	 */
+	function novin_ai_elementor_templates() {
+		$options = array( 0 => esc_html__( '— پیش‌فرض قالب —', 'novin-ai' ) );
+
+		if ( ! post_type_exists( 'elementor_library' ) ) {
+			return $options;
+		}
+
+		$templates = get_posts(
+			array(
+				'post_type'              => 'elementor_library',
+				'post_status'            => 'publish',
+				'posts_per_page'         => 100,
+				'orderby'                => 'title',
+				'order'                  => 'ASC',
+				'no_found_rows'          => true,
+				'update_post_term_cache' => false,
+			)
+		);
+
+		if ( empty( $templates ) ) {
+			return $options;
+		}
+
+		foreach ( $templates as $template ) {
+			$options[ (int) $template->ID ] = get_the_title( $template );
+		}
+
+		return $options;
+	}
+}
+
+if ( ! function_exists( 'novin_ai_render_elementor_template' ) ) {
+	/**
+	 * نمایش یک قالب المنتور در محل هدر یا فوتر.
+	 *
+	 * @param int    $template_id شناسه قالب.
+	 * @param string $wrapper     کلاس نگهدارنده.
+	 * @return bool آیا چیزی نمایش داده شد؟
+	 */
+	function novin_ai_render_elementor_template( $template_id, $wrapper = '' ) {
+		$template_id = (int) $template_id;
+
+		if ( ! $template_id || ! class_exists( '\Elementor\Plugin' ) ) {
+			return false;
+		}
+
+		$frontend = \Elementor\Plugin::$instance->frontend;
+
+		if ( ! $frontend || ! method_exists( $frontend, 'get_builder_content_for_display' ) ) {
+			return false;
+		}
+
+		$content = $frontend->get_builder_content_for_display( $template_id );
+
+		if ( ! $content ) {
+			return false;
+		}
+
+		if ( $wrapper ) {
+			echo '<div class="' . esc_attr( $wrapper ) . '">' . $content . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput
+		} else {
+			echo $content; // phpcs:ignore WordPress.Security.EscapeOutput
+		}
+
+		return true;
 	}
 }
 
