@@ -2,6 +2,10 @@
 /**
  * یکپارچه‌سازی با المنتور: دسته‌بندی المان‌ها، ثبت ویجت‌ها و Theme Locations.
  *
+ * نکته مهم: کلاس‌های ویجت‌ها تنها زمانی بارگذاری می‌شوند که المنتور کاملاً
+ * آماده باشد (درون هوک ثبت ویجت‌ها). این کار از بروز خطای
+ * «Class Novin_AI\Widgets\Novin_AI_Widget_Base not found» جلوگیری می‌کند.
+ *
  * @package Novin_AI
  */
 
@@ -12,22 +16,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! did_action( 'elementor/loaded' ) && ! class_exists( '\Elementor\Plugin' ) ) {
 	return;
 }
-
-require_once NOVIN_AI_INC . 'elementor/widgets/class-novin-ai-widget-base.php';
-require_once NOVIN_AI_INC . 'elementor/widgets/class-widget-header.php';
-require_once NOVIN_AI_INC . 'elementor/widgets/class-widget-footer.php';
-require_once NOVIN_AI_INC . 'elementor/widgets/class-widget-hero.php';
-require_once NOVIN_AI_INC . 'elementor/widgets/class-widget-services.php';
-require_once NOVIN_AI_INC . 'elementor/widgets/class-widget-projects.php';
-require_once NOVIN_AI_INC . 'elementor/widgets/class-widget-team.php';
-require_once NOVIN_AI_INC . 'elementor/widgets/class-widget-posts.php';
-require_once NOVIN_AI_INC . 'elementor/widgets/class-widget-products.php';
-require_once NOVIN_AI_INC . 'elementor/widgets/class-widget-packages.php';
-require_once NOVIN_AI_INC . 'elementor/widgets/class-widget-stats.php';
-require_once NOVIN_AI_INC . 'elementor/widgets/class-widget-testimonials.php';
-require_once NOVIN_AI_INC . 'elementor/widgets/class-widget-faq.php';
-require_once NOVIN_AI_INC . 'elementor/widgets/class-widget-cta.php';
-require_once NOVIN_AI_INC . 'elementor/widgets/class-widget-brands.php';
 
 if ( ! class_exists( 'Novin_AI_Elementor' ) ) {
 	/**
@@ -43,7 +31,14 @@ if ( ! class_exists( 'Novin_AI_Elementor' ) ) {
 		private static $instance = null;
 
 		/**
-		 * جلوگیری از ثبت دوباره ویجت‌ها روی هوک‌های قدیمی و جدید.
+		 * آیا فایل‌های ویجت‌ها بارگذاری شده‌اند؟
+		 *
+		 * @var bool
+		 */
+		private static $included = false;
+
+		/**
+		 * آیا ویجت‌ها ثبت شده‌اند؟ (جلوگیری از ثبت دوباره روی هوک قدیمی/جدید)
 		 *
 		 * @var bool
 		 */
@@ -68,6 +63,10 @@ if ( ! class_exists( 'Novin_AI_Elementor' ) ) {
 		private function __construct() {
 			add_action( 'elementor/elements/categories_registered', array( $this, 'register_category' ) );
 
+			// بارگذاری فایل‌ها پیش از ثبت (هر دو هوک قدیمی و جدید).
+			add_action( 'elementor/widgets/register', array( $this, 'include_widgets' ), 5 );
+			add_action( 'elementor/widgets/widgets_registered', array( $this, 'include_widgets' ), 5 );
+
 			// المنتور ۳.۵ به بالا.
 			add_action( 'elementor/widgets/register', array( $this, 'register_widgets' ), 20 );
 			// نسخه‌های قدیمی‌تر.
@@ -75,12 +74,10 @@ if ( ! class_exists( 'Novin_AI_Elementor' ) ) {
 
 			add_action( 'elementor/theme/register_locations', array( $this, 'register_locations' ) );
 
-			// ثبت دارایی‌ها در ویرایشگر (در صورت نیاز).
+			// دارایی‌ها در ویرایشگر و پیش‌نمایش.
 			add_action( 'elementor/editor/before_enqueue_scripts', array( $this, 'register_assets' ) );
 			add_action( 'elementor/preview/enqueue_styles', array( $this, 'register_assets' ) );
-
-			// اعمال استایل‌های سراسری المنتور روی المان‌ها.
-			add_action( 'elementor/element/after_section_start', array( $this, 'nothing' ), 1 );
+			add_action( 'elementor/frontend/before_enqueue_scripts', array( $this, 'register_assets' ) );
 		}
 
 		/**
@@ -92,6 +89,58 @@ if ( ! class_exists( 'Novin_AI_Elementor' ) ) {
 			if ( function_exists( 'novin_ai_register_assets' ) ) {
 				novin_ai_register_assets();
 			}
+		}
+
+		/**
+		 * بارگذاری ایمن فایل‌های ویجت‌ها.
+		 *
+		 * @return bool
+		 */
+		public function include_widgets() {
+			if ( self::$included ) {
+				return true;
+			}
+
+			// اگر کلاس پایه المنتور در دسترس نیست، ویجت‌ها بارگذاری نشوند.
+			if ( ! class_exists( '\Elementor\Widget_Base' ) ) {
+				return false;
+			}
+
+			$base = NOVIN_AI_INC . 'elementor/widgets/';
+
+			require_once $base . 'class-novin-ai-widget-base.php';
+
+			// اگر کلاس پایه قالب به هر دلیلی تعریف نشد، ادامه ندهیم (جلوگیری از خطای کشنده).
+			if ( ! class_exists( '\Novin_AI\Widgets\Novin_AI_Widget_Base' ) ) {
+				return false;
+			}
+
+			$files = array(
+				'class-widget-header.php',
+				'class-widget-footer.php',
+				'class-widget-hero.php',
+				'class-widget-services.php',
+				'class-widget-projects.php',
+				'class-widget-team.php',
+				'class-widget-posts.php',
+				'class-widget-products.php',
+				'class-widget-packages.php',
+				'class-widget-stats.php',
+				'class-widget-testimonials.php',
+				'class-widget-faq.php',
+				'class-widget-cta.php',
+				'class-widget-brands.php',
+			);
+
+			foreach ( $files as $file ) {
+				if ( is_readable( $base . $file ) ) {
+					require_once $base . $file;
+				}
+			}
+
+			self::$included = true;
+
+			return true;
 		}
 
 		/**
@@ -145,6 +194,10 @@ if ( ! class_exists( 'Novin_AI_Elementor' ) ) {
 				return;
 			}
 
+			if ( ! $this->include_widgets() ) {
+				return;
+			}
+
 			self::$registered = true;
 
 			foreach ( $this->get_widgets() as $class ) {
@@ -171,6 +224,16 @@ if ( ! class_exists( 'Novin_AI_Elementor' ) ) {
 				return;
 			}
 
+			if ( ! $this->include_widgets() ) {
+				return;
+			}
+
+			if ( ! method_exists( $widgets_manager, 'register_widget_type' ) ) {
+				return;
+			}
+
+			self::$registered = true;
+
 			foreach ( $this->get_widgets() as $class ) {
 				if ( ! class_exists( $class ) ) {
 					continue;
@@ -180,9 +243,7 @@ if ( ! class_exists( 'Novin_AI_Elementor' ) ) {
 					continue;
 				}
 
-				if ( method_exists( $widgets_manager, 'register_widget_type' ) ) {
-					$widgets_manager->register_widget_type( new $class() );
-				}
+				$widgets_manager->register_widget_type( new $class() );
 			}
 		}
 
@@ -219,15 +280,6 @@ if ( ! class_exists( 'Novin_AI_Elementor' ) ) {
 					);
 				}
 			}
-		}
-
-		/**
-		 * متد خالی برای سازگاری با هوک‌های المنتور.
-		 *
-		 * @return void
-		 */
-		public function nothing() {
-			return;
 		}
 	}
 

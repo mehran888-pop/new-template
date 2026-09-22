@@ -27,11 +27,13 @@ use Elementor\Utils;
 use Elementor\Widget_Base;
 
 if ( ! class_exists( '\Elementor\Widget_Base' ) ) {
+	// این فایل تنها از طریق Novin_AI_Elementor::include_widgets() و زمانی که
+	// المنتور آماده است بارگذاری می‌شود، بنابراین این شرط صرفاً یک لایه ایمنی است.
 	return;
 }
 
 /**
- * کلاس پایه.
+ * کلاس پایه تمام المان‌های اختصاصی المنتور.
  */
 abstract class Novin_AI_Widget_Base extends Widget_Base {
 

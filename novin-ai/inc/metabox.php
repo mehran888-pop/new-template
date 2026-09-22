@@ -64,33 +64,96 @@ function novin_ai_metabox_fields() {
 			),
 		),
 		'novin_team'        => array(
-			'role'       => array(
+			'role'         => array(
 				'label' => esc_html__( 'سمت / نقش', 'novin-ai' ),
 				'type'  => 'text',
 			),
-			'experience' => array(
-				'label' => esc_html__( 'تجربه / مهارت اصلی', 'novin-ai' ),
+			'experience'   => array(
+				'label' => esc_html__( 'سال‌های تجربه (متن کوتاه)', 'novin-ai' ),
 				'type'  => 'text',
 			),
-			'email'      => array(
+			'projects'     => array(
+				'label' => esc_html__( 'تعداد پروژه (متن کوتاه)', 'novin-ai' ),
+				'type'  => 'text',
+			),
+			'quote'        => array(
+				'label'       => esc_html__( 'نقل‌قول کوتاه', 'novin-ai' ),
+				'type'        => 'textarea',
+				'placeholder' => esc_html__( 'یک جمله الهام‌بخش از این عضو تیم…', 'novin-ai' ),
+			),
+			'skills'       => array(
+				'label'       => esc_html__( 'مهارت‌ها (هر خط: نام|درصد)', 'novin-ai' ),
+				'type'        => 'textarea',
+				'placeholder' => "Python|90\nیادگیری ماشین|85\nمعماری نرم‌افزار|80",
+			),
+			'experience_list' => array(
+				'label'       => esc_html__( 'سوابق کاری (هر خط: سال|عنوان|شرکت)', 'novin-ai' ),
+				'type'        => 'textarea',
+				'placeholder' => "۱۴۰۰-۱۴۰۳|مدیر فنی|شرکت الف\n۱۳۹۶-۱۴۰۰|برنامه‌نویس ارشد|شرکت ب",
+			),
+			'education'    => array(
+				'label'       => esc_html__( 'تحصیلات (هر خط: مقطع|رشته|دانشگاه)', 'novin-ai' ),
+				'type'        => 'textarea',
+				'placeholder' => "کارشناسی ارشد|هوش مصنوعی|دانشگاه تهران",
+			),
+			'certifications' => array(
+				'label'       => esc_html__( 'گواهینامه‌ها (هر خط: عنوان|سال)', 'novin-ai' ),
+				'type'        => 'textarea',
+				'placeholder' => "AWS Solutions Architect|1402\nTensorFlow Developer|1401",
+			),
+			'languages'    => array(
+				'label'       => esc_html__( 'زبان‌ها (هر خط: زبان|سطح)', 'novin-ai' ),
+				'type'        => 'textarea',
+				'placeholder' => "فارسی|زبان مادری\nانگلیسی|تسلط کامل",
+			),
+			'location'     => array(
+				'label' => esc_html__( 'شهر / محل کار', 'novin-ai' ),
+				'type'  => 'text',
+			),
+			'email'        => array(
 				'label' => esc_html__( 'ایمیل', 'novin-ai' ),
 				'type'  => 'text',
 			),
-			'instagram'  => array(
+			'phone'        => array(
+				'label' => esc_html__( 'تلفن', 'novin-ai' ),
+				'type'  => 'text',
+			),
+			'instagram'    => array(
 				'label' => esc_html__( 'اینستاگرام', 'novin-ai' ),
 				'type'  => 'url',
 			),
-			'linkedin'   => array(
+			'linkedin'     => array(
 				'label' => esc_html__( 'لینکدین', 'novin-ai' ),
 				'type'  => 'url',
 			),
-			'telegram'   => array(
+			'telegram'     => array(
 				'label' => esc_html__( 'تلگرام', 'novin-ai' ),
 				'type'  => 'url',
 			),
-			'github'     => array(
+			'twitter'      => array(
+				'label' => esc_html__( 'ایکس / توییتر', 'novin-ai' ),
+				'type'  => 'url',
+			),
+			'github'       => array(
 				'label' => esc_html__( 'گیت‌هاب', 'novin-ai' ),
 				'type'  => 'url',
+			),
+			'dribbble'     => array(
+				'label' => esc_html__( 'دریبل', 'novin-ai' ),
+				'type'  => 'url',
+			),
+			'website'      => array(
+				'label' => esc_html__( 'وب‌سایت شخصی', 'novin-ai' ),
+				'type'  => 'url',
+			),
+			'resume'       => array(
+				'label'       => esc_html__( 'لینک فایل رزومه (PDF)', 'novin-ai' ),
+				'type'        => 'url',
+				'placeholder' => 'https://',
+			),
+			'featured'     => array(
+				'label' => esc_html__( 'عضو ویژه (برجسته)', 'novin-ai' ),
+				'type'  => 'checkbox',
 			),
 		),
 		'novin_package'     => array(

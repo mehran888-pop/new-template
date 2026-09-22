@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /* ثابت‌های قالب */
-define( 'NOVIN_AI_VERSION', '1.0.0' );
+define( 'NOVIN_AI_VERSION', '1.1.0' );
 define( 'NOVIN_AI_DIR', trailingslashit( get_template_directory() ) );
 define( 'NOVIN_AI_URI', trailingslashit( get_template_directory_uri() ) );
 define( 'NOVIN_AI_INC', NOVIN_AI_DIR . 'inc/' );

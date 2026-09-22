@@ -911,6 +911,153 @@
 	/* ------------------------------------------------------------------
 	 * اجرا
 	 * ------------------------------------------------------------------ */
+	/* ------------------------------------------------------------------
+	 * نوارهای مهارت (رزومه تیم)
+	 * ------------------------------------------------------------------ */
+	function fillSkills(scope) {
+		$$('[data-nv-skill]', scope).forEach(function (skill, index) {
+			var bar = $('.nv-skill__bar', skill);
+
+			if (!bar) {
+				return;
+			}
+
+			var percent = parseFloat(bar.getAttribute('data-nv-percent')) || 0;
+
+			if (reduceMotion) {
+				bar.style.width = percent + '%';
+				return;
+			}
+
+			bar.style.width = '0%';
+
+			window.setTimeout(function () {
+				bar.style.width = percent + '%';
+			}, 120 + index * 110);
+		});
+	}
+
+	function initSkills() {
+		var skills = $$('[data-nv-skill]').filter(function (skill) {
+			return !skill.closest('.nv-profile');
+		});
+
+		if (!skills.length) {
+			return;
+		}
+
+		if (!('IntersectionObserver' in window)) {
+			fillSkills(document);
+			return;
+		}
+
+		var observer = new IntersectionObserver(
+			function (entries) {
+				entries.forEach(function (entry) {
+					if (entry.isIntersecting) {
+						fillSkills(entry.target.closest('.nv-member') || entry.target);
+						observer.unobserve(entry.target);
+					}
+				});
+			},
+			{ threshold: 0.3 }
+		);
+
+		skills.forEach(function (skill) {
+			observer.observe(skill);
+		});
+	}
+
+	/* ------------------------------------------------------------------
+	 * پنجره رزومه اعضای تیم
+	 * ------------------------------------------------------------------ */
+	var lastFocused = null;
+
+	function closeProfile(modal) {
+		if (!modal || !modal.classList.contains('is-open')) {
+			return;
+		}
+
+		modal.classList.remove('is-active');
+		modal.setAttribute('aria-hidden', 'true');
+
+		window.setTimeout(function () {
+			modal.classList.remove('is-open');
+			document.body.style.overflow = '';
+		}, 350);
+
+		if (lastFocused && lastFocused.focus) {
+			lastFocused.focus();
+			lastFocused = null;
+		}
+	}
+
+	function openProfile(id) {
+		var modal = document.getElementById(id);
+
+		if (!modal) {
+			return;
+		}
+
+		lastFocused = document.activeElement;
+
+		$$('.nv-profile.is-open').forEach(closeProfile);
+
+		modal.classList.add('is-open');
+		modal.setAttribute('aria-hidden', 'false');
+		document.body.style.overflow = 'hidden';
+
+		window.requestAnimationFrame(function () {
+			modal.classList.add('is-active');
+			fillSkills(modal);
+		});
+
+		var close = $('.nv-profile__close', modal);
+
+		if (close) {
+			close.focus();
+		}
+	}
+
+	function initProfiles() {
+		if (initProfiles.bound) {
+			return;
+		}
+
+		initProfiles.bound = true;
+
+		// اتصال به صورت Delegation تا المان‌هایی که بعداً (مثلاً در ویرایشگر
+		// المنتور) رندر می‌شوند هم بدون اتصال دوباره کار کنند.
+		on(document, 'click', function (event) {
+			var target = event.target;
+
+			if (!target || !target.closest) {
+				return;
+			}
+
+			var opener = target.closest('[data-nv-profile-open]');
+
+			if (opener) {
+				event.preventDefault();
+				openProfile(opener.getAttribute('data-nv-profile-open'));
+				return;
+			}
+
+			var closer = target.closest('[data-nv-profile-close]');
+
+			if (closer) {
+				event.preventDefault();
+				closeProfile(closer.closest('.nv-profile'));
+			}
+		});
+
+		on(document, 'keydown', function (event) {
+			if ('Escape' === event.key || 'Esc' === event.key) {
+				$$('.nv-profile.is-open').forEach(closeProfile);
+			}
+		});
+	}
+
 	function init() {
 		initStickyHeader();
 		initOffcanvas();
@@ -929,6 +1076,8 @@
 		initNewsletter();
 		initScrollTop();
 		initParallax();
+		initSkills();
+		initProfiles();
 	}
 
 	// المنتور: پس از بارگذاری کامل المان‌ها دوباره مقداردهی اولیه انجام شود.
@@ -941,6 +1090,8 @@
 				initReveal();
 				initTilt();
 				initSlider();
+				initSkills();
+				initProfiles();
 			}
 		);
 	} else if ('loading' !== document.readyState) {
@@ -949,5 +1100,9 @@
 		on(document, 'DOMContentLoaded', init);
 	}
 
-	window.NovinAiFrontend = { init: init };
+	window.NovinAiFrontend = {
+		init: init,
+		openProfile: openProfile,
+		closeProfile: closeProfile
+	};
 })();

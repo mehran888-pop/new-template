@@ -274,6 +274,38 @@ if ( ! function_exists( 'novin_ai_meta_lines' ) ) {
 	}
 }
 
+if ( ! function_exists( 'novin_ai_meta_rows' ) ) {
+	/**
+	 * تبدیل متادیتای چندستونه به آرایه.
+	 *
+	 * هر خط با «|» به ستون‌های جداگانه تقسیم می‌شود؛ مناسب برای رزومه:
+	 * مهارت‌ها:        Python|90
+	 * سوابق کاری:     ۱۴۰۰-۱۴۰۳|مدیر فنی|شرکت الف
+	 * تحصیلات:        کارشناسی|مهندسی کامپیوتر|دانشگاه تهران
+	 *
+	 * @param string $value  متن خام.
+	 * @param int    $columns تعداد ستون‌های مورد انتظار (مقادیر خالی پر می‌شود).
+	 * @return array<int, array<int, string>>
+	 */
+	function novin_ai_meta_rows( $value, $columns = 3 ) {
+		$rows = array();
+
+		foreach ( novin_ai_meta_lines( $value ) as $line ) {
+			$parts = array_map( 'trim', explode( '|', $line ) );
+
+			for ( $i = 0; $i < $columns; $i++ ) {
+				if ( ! isset( $parts[ $i ] ) ) {
+					$parts[ $i ] = '';
+				}
+			}
+
+			$rows[] = array_slice( $parts, 0, $columns );
+		}
+
+		return $rows;
+	}
+}
+
 if ( ! function_exists( 'novin_ai_social_networks' ) ) {
 	/**
 	 * شبکه‌های اجتماعی پشتیبانی‌شده.
